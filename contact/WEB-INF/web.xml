@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+ 
+  <servlet>
+      <servlet-name>ContactServlet</servlet-name>
+      <servlet-class>com.lxisoft.byta.controller.ContactServlet</servlet-class>
+   </servlet>
+ 
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+ 
+   <servlet-mapping>
+      <servlet-name>ContactServlet</servlet-name>
+      <url-pattern>/ContactServlet</url-pattern>
+   </servlet-mapping>
+   
+   
+   
+   </web-app>
