@@ -1,0 +1,326 @@
+body { 
+	background-color: #fff;
+	margin: 0;
+	padding: 0px ;
+	font-family: sans-serif, verdana;
+}
+div#top {
+	background-color: #b30047;
+	/*background-color:#ff1493;*/
+	color: #fff;
+	padding: 30px 0px 30px 25px;
+
+}
+
+div#commom_top
+{
+    background-color: #b30047;
+	/*background-color:#ff1493;*/
+	color: #fff;
+	padding: 25px 0px 20px 25px;
+
+}
+#individual_contacts {
+	border: 1.2px solid #ff00ff;
+	border-radius: 5px;
+	margin: 30px;
+	width: 75%;
+    float:left; /* add this */
+	text-align: left;
+	padding: 15px;
+	font-size: 20px;
+	color: #b30047;
+	background-color: #ffccff;  
+	/*color: #ff1493;*/
+}
+
+#edit_delete{
+	
+	text-align: right;
+	overflow: hidden;
+	float: left;
+}
+#contact_list {
+	border: 1.2px solid #ff1493;
+	border-radius: 5px;
+	margin: 30px;
+	text-align: left;
+	padding: 20px;
+	font-size: 20px;
+	color: #12845d;
+	margin-top: 300px;
+	overflow: hidden;
+	/*color: #ff1493;*/
+}
+img#contact_pic
+{
+	margin-top:20px;
+	width:120px;
+	height: 120px;
+	/* margin-bottom:-120px;*/
+}
+
+h3#contact_clr
+{
+color: #0066ff;	
+font-size: 30px;
+margin-bottom: -45px;	
+
+}
+
+h3#common_contactDetails
+{
+color: #0066ff;	
+font-size: 30px;
+margin-left:8px;	
+
+}
+
+img#contact_icon
+{
+	width:60px;
+	height: 60px;
+	float:left;
+	margin-right:2%;
+}
+
+#contact_createIcon
+{
+    width:160px;
+	height:160px;
+	margin-left:140%;
+	margin-bottom:-140px;
+
+	/*margin-top:-220px;*/
+	
+}
+
+#contact_searchIcon
+{
+    width:160px;
+	height:160px;
+	margin-left:90%;
+	margin-top: 10px;
+
+	
+}
+
+div#search 
+{
+	/*background-color: #b30047;
+	background-color:#ff1493;*/
+	color: #fff;
+	padding: 15px 0px 15px 25px;
+	margin-top:-280px;
+	margin-left: 15%;
+	width:40%;
+	/*border: 1px solid #000;*/
+
+}
+
+div#create
+ {
+	/*background-color: #b30047;
+	/*background-color:#ff1493;*/
+	color: #fff;
+	padding: 15px 0px 15px 25px;
+	margin-top:-280px;
+	width:30%;
+	margin-left:65%;
+	/*border: 1px solid #000;*/
+
+
+}
+#inputsearch
+ {
+	background: #ffccff url("Images/search_4.png") no-repeat right;
+	background-size: 40px 40px;
+	/*background-repeat: no-repeat;*/
+	width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #3366cc;
+    margin-top:-400px;
+    
+    margin-left:25%;
+    /*background-color: #ffccff;
+    background-image: url("Images\ search_4.png");*/
+    /*background-position: 10px 10px;*/ 
+    /*background-repeat: no-repeat;*/
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ff00ff;
+
+
+}
+
+.login {
+	margin-left: 20%;
+	margin-top: 30px;
+	/*position: absolute;*/
+	width: 40%;
+	border:1px solid #009999;
+	border-radius: 4px;
+	text-align: left;
+	background-color: #2ba77b;
+	color: #bbdbcd;
+	line-height: 25px;
+	float: left;
+	padding-left: 20%;
+	padding-top: 40px;
+}
+#login_submit {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	width: 130px;
+	padding: 10px;
+	color: #12845d;
+	background-color: #fff;
+	border-radius: 3px;
+	border: none;
+	font-size: 18px; 
+}
+
+form input {
+	margin-bottom: 10px;
+	margin-left: 15%;
+	padding: 5px;
+	background-color: #12845d;
+	color: #fff;
+	border: none;
+	width:40%;
+	font-size: 150%;
+}
+input[type=email] {
+	text-align: right;
+}
+
+form input#login-phn 
+{
+	margin-left: 8%;
+}
+#cancel {
+	margin-top: 10px;
+	margin-bottom: 14px;
+	width: 130px;
+	padding: 8px;
+	color: #12845d;
+	background-color: #fff;
+	border-radius: 3px;
+	border: none;
+	font-size: 18px; 
+	margin-left: 50px;
+}
+
+
+#login_submit:hover {
+	/*border: 1px solid #12845d;*/
+	color: #12845d;
+	background-color: #bbdbcd;
+}
+
+
+a
+{
+    
+    color: black;
+    padding: 6px 15px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+a img
+{
+	width:90px;
+	height:90px;
+
+}
+
+a:hover 
+{
+    color: red;
+}
+
+#option_icons 
+{
+	padding: 15px 20px 15px 20px;
+	border: 1px solid #ffccff;
+	text-align: right;
+	background-color: #ffccff;  
+}
+
+#option_icons img 
+{
+	margin-right: 10%;
+}
+
+#contact_detail_container
+ {
+	border: 1px solid #fff;
+	padding: 20px;
+	margin-top: 55px;
+	position: relative;
+	margin-left: 26%;
+}
+
+#contact_name {
+	margin-left:25px;
+	width:30%;
+	border: 1px solid #fff;
+	padding: 15px 20px 15px 10px;
+	font-size: 25px;
+	color: #b30047;
+
+}
+
+img#indiviual_contact_icon
+{
+	width:170px;
+	height: 170px;
+	float:left;
+	margin-left:15%;
+	margin-top: 70px;
+
+
+}
+
+#result_error
+{
+border: 1px solid #ffccff;	
+padding: 15px 20px 15px 10px;
+font-size: 25px;
+width:30%;
+color: #b30047;
+margin-left:25px;
+background-color: #ffccff;  
+
+	
+}
+
+span:hover {
+    position: relative;
+}
+span[title]:hover:after 
+{
+     content: attr(title);
+     padding: 10px 15px;
+     position: absolute;
+     right: 50%;
+     top: 100%;
+     white-space: nowrap;
+     z-index: 20px;
+     background: #ff1493;
+     color: #fff;
+     border-radius: 5px;
+}
+
+img.align {
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+
+
+
