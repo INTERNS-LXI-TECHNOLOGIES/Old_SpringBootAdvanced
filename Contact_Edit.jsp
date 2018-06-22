@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="style_contacts.css">
 </head>
 <body>
-<%@ page import="java.util.*,com.lxisoft.controller.*,com.lxisoft.model.Contact"%>
+<%@ page import="java.util.*,com.lxisoft.contactApp.model.*,com.lxisoft.contactApp.controller.*"%>
  <%
  Contact contact = (Contact) request.getAttribute("contact");
  %>

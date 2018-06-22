@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="style_contacts.css">
 </head>
 <body>
-    <%@ page import="java.util.*,com.lxisoft.controller.*,com.lxisoft.model.Contact"%>
+    <%@ page import="java.util.*,com.lxisoft.contactApp.model.*,com.lxisoft.contactApp.controller.*"%>
 
     <%
     Set<Contact> contactSet = (TreeSet<Contact>) request.getAttribute("contactSet");
@@ -34,14 +34,14 @@
        <%for(Contact contact:contactSet) {%>
 
  		<div id="individual_contacts"><img id="contact_icon" src="Images\contact_2.png" alt="contact_icon">
- 		<a href="ContactsForm?first_name=<%=contact.getFirstName()%>"><%=contact%></a>
+ 		<a href="contactsForm?first_name=<%=contact.getFirstName()%>"><%=contact%></a>
          
          </div>
  		
  		<!-- <a href="contactDeletForm?first_name=<%=contact.getFirstName()%>">delete</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
  		<a href="ContactsForm?type=edit&first_name=<%=contact.getFirstName()%>">edit</a></p></div>
  -->    <div id="edit_delete">
-				<a href="ContactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><span title="Edit"><img class="align" src="Images\edit13.png" title=""></span></a>
+				<a href="contactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><span title="Edit"><img class="align" src="Images\edit13.png" title=""></span></a>
 				<a href="contactDeletForm?first_name=<%=contact.getFirstName()%>"><span title="Delete"><img class="align" src="Images\remove1.png" title=""></span></a>
         </div>
 

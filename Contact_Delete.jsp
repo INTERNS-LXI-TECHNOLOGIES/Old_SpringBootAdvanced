@@ -5,7 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="style_contacts.css">
 </head>
 <body>
-<%@ page import="java.util.*,com.lxisoft.controller.*,com.lxisoft.model.Contact"%>
+<%@ page import="java.util.*,com.lxisoft.contactApp.model.*,com.lxisoft.contactApp.controller.*"%>
+<%
+    String contactName = (String) request.getAttribute("contactName");
+%>
 <div id="commom_top">
 	<header>
 	<img id="contact_pic" src="Images\contacts_3.png" alt="contact_icon">
@@ -15,12 +18,15 @@
 
 <div id="individual_contacts">
 <h2>
- <%   
-   out.print("\t\t\t"+request.getParameter("first_name")+" ur account is removed");
-   response.setHeader("Refresh", "3;url=Contacts");  
+  
+   <%=contactName +" ur account is removed"%>
+
+</h2>   
+
+  <% response.setHeader("Refresh", "3;url=contacts");  
  %>
  	
- </h2>
  </div>
  </body>
  </html> 
+

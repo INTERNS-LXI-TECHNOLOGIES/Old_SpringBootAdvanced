@@ -12,17 +12,17 @@
 	</header>
 	</div>
 
-<%@ page import="java.util.*,com.lxisoft.controller.*,com.lxisoft.model.Contact"%>
+<%@ page import="java.util.*,com.lxisoft.contactApp.model.*,com.lxisoft.contactApp.controller.*"%>
  <%
  Contact contact = (Contact) request.getAttribute("contact");
  %>
 
   <div id="option_icons">
-		<a href="ContactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\edit13.png" alt="edit_contact" title="Edit"></a>
+		<a href="contactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\edit13.png" alt="edit_contact" title="Edit"></a>
 		
 		<a href="contactDeletForm?first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\remove1.png" alt="remove_button" title="Delete"></a>
 
-		<a href="Contacts"><img class="align" src="Images\back2.png" alt="back_button" title="Back"></a>
+		<a href="contacts"><img class="align" src="Images\back2.png" alt="back_button" title="Back"></a>
 
   </div>
 
@@ -31,8 +31,8 @@
 	 <div id="contact_name">
 
 
-	      <p><%=contact.getFirstName()%></p>
-          <p><%=contact.getLastName()%></p>
+	      <p><%=contact%></p>
+          <!-- <p><%=contact.getLastName()%></p> -->
           <p><%=contact.getEmail()%></p>
           <p><%=contact.getPhNo()%></p>
           <p><%=contact.getPlace()%></p>
@@ -42,25 +42,7 @@
 	</div> 
 
 
- <!-- <div>
-<h1>
- <%=contact.getFirstName()%> 
-</h1>
- </div> 
- -->
- <!-- <div> 
-
- <ul>
-	<li><%=contact.getFirstName()%></li>
-    <li><%=contact.getLastName()%></li>
-	<li><%=contact.getEmail()%></li>
-	<li><%=contact.getPhNo()%></li>
-	<li><%=contact.getPlace()%></li>
-     
- </ul>
-
- </div>
- -->
+ 
  
 </body>
 </html>

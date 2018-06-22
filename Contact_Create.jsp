@@ -13,7 +13,7 @@
 
 	
 	<div class="login">
-	<form id="form1" action="ContactsForm" method="POST">
+	<form id="form1" action="contactsForm" method="POST">
 
 		
         firstName :
@@ -29,7 +29,7 @@
 
 		<br>
 		<input id="login_submit" type="submit" value="Add Contact">
-		<a id="cancel" href="Contacts">Cancel</a>
+		<a id="cancel" href="contacts">Cancel</a>
 		<br><br>
 	</form>
 	</div>

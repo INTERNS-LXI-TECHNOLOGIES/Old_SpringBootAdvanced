@@ -28,29 +28,36 @@
      Welcome to Tomcat
   </description>
 
-<servlet>
-	<servlet-name>Contact-Servlet</servlet-name>
-	<servlet-class>com.lxisoft.controller.ContactServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-   <servlet-name>Contact-Servlet</servlet-name>
-   <url-pattern>/ContactsForm</url-pattern>
-  </servlet-mapping>
-
-<servlet>
+  <servlet>
 	<servlet-name>Contact-Search-Servlet</servlet-name>
-	<servlet-class>com.lxisoft.controller.ContactSearchServlet</servlet-class>
+	<servlet-class>com.lxisoft.contactApp.controller.ContactSearchServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
    <servlet-name>Contact-Search-Servlet</servlet-name>
-   <url-pattern>/Contacts</url-pattern>
+   <url-pattern>/index.html</url-pattern>
   </servlet-mapping>
 
-<servlet>
-	<servlet-name>Contact-Delete-Servlet</servlet-name>
-	<servlet-class>com.lxisoft.controller.ContactDeleteServlet</servlet-class>
+  <servlet-mapping>
+   <servlet-name>Contact-Search-Servlet</servlet-name>
+   <url-pattern>/contacts</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+  <servlet-name>Contact-Servlet</servlet-name>
+  <servlet-class>com.lxisoft.contactApp.controller.ContactServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+   <servlet-name>Contact-Servlet</servlet-name>
+   <url-pattern>/contactsForm</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+  <servlet-name>Contact-Delete-Servlet</servlet-name>
+  <servlet-class>com.lxisoft.contactApp.controller.ContactDeleteServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -58,15 +65,7 @@
    <url-pattern>/contactDeletForm</url-pattern>
   </servlet-mapping>
 
-<servlet>
-	<servlet-name>Contact-Edit-Servlet</servlet-name>
-	<servlet-class>com.lxisoft.controller.ContactEditServlet</servlet-class>
-  </servlet>
 
-  <servlet-mapping>
-   <servlet-name>Contact-Edit-Servlet</servlet-name>
-   <url-pattern>/contactEditForm</url-pattern>
-  </servlet-mapping>
 
 </web-app>
 
