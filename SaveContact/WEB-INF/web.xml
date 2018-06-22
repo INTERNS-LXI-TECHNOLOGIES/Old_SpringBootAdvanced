@@ -1,10 +1,10 @@
 <web-app>
 <servlet>
-<servlet-name>Contact</servlet-name>
-<servlet-class>ContactServlet</servlet-class>
+<servlet-name>contactServlet</servlet-name>
+<servlet-class>com.controller.ContactServlet</servlet-class>
 </servlet>
 <servlet-mapping>
-<servlet-name>Contact</servlet-name>
+<servlet-name>contactServlet</servlet-name>
 <url-pattern>/save</url-pattern>
 </servlet-mapping>
 
