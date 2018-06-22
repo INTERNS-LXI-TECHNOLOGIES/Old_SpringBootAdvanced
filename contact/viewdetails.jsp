@@ -15,7 +15,7 @@
 		<td>
 	  <% 
 		
-		Contact contact=(Contact)request.getAttribute("contact");
+		ContactDto contactDto=(ContactDto)request.getAttribute("contactDto");
 	  
 	  %>
 	   </td>
@@ -24,26 +24,26 @@
 	  <tr>
 		<td>
 	  <%
-	  out.println(contact.getName());%>
+	  out.println(contactDto.getName());%>
 		</td>
 	  </tr>
 	   
 	   <tr>
 		 <td>
 	  <%
-	  out.println(contact.getPhoneNumber()); %>
+	  out.println(contactDto.getPhoneNumber()); %>
 	   </td>
 	  </tr>
 	    <tr>
 			<td>
 		<%
-	  out.println(contact.getAddress());%>
+	  out.println(contactDto.getAddress());%>
 			</td>
 	   </tr>
 	   <tr>
 			<td>
 	   <%
-	  out.println(contact.getEmail());
+	  out.println(contactDto.getEmail());
 	  %>
 	   
 		</td>

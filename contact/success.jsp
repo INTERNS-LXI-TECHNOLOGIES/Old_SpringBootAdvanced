@@ -11,29 +11,11 @@
 <body>
 	<table style="with: 50%">
 	<tr><td>
-	<% String name = request.getParameter("name");
-	   String number = request.getParameter("phoneNumber");
-	   String address = request.getParameter("address");
-	   String email = request.getParameter("email");
-	   
-	   %>
+	
 	   
 	  <!--session.setAttribute("sessionid",name);-->
 	   
-	<%  
-	   String servletname=config.getServletName();
-	   out.println(servletname);
-	   
-	  
-	  	
-	%>
-<a>Welcome   <% 
-				out.println(name);
-				out.println(number);
-				out.println(address);
-				out.println(email);
-				
-%> </a></td></tr>
+<a>Successfully saved !!! </a></td></tr>
 </table>
 </body>
 </html>

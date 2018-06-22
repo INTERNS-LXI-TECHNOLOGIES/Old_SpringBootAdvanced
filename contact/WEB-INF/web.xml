@@ -14,6 +14,14 @@
       <url-pattern>/ContactServlet</url-pattern>
    </servlet-mapping>
    
+   <servlet>
+		<servlet-name>ContactUpdateServlet</servlet-name>
+		<servlet-class>com.lxisoft.byta.controller.ContactUpdateServlet</servlet-class>
+   </servlet>
    
+   <servlet-mapping>
+	  <servlet-name>ContactUpdateServlet</servlet-name>
+	  <url-pattern>/ContactUpdateServlet </url-pattern>
+   </servlet-mapping>
    
    </web-app>

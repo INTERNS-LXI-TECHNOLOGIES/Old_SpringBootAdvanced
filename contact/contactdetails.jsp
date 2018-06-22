@@ -44,16 +44,44 @@ String email=props.getProperty("email");
 					<td><input type="text" name="email" /></td>
 				</tr>
 			 </table>	
-			<input type="submit" value="Submit" /></form>
+			<input type="submit" value="save contact" /></form>
 			
-<form action="ContactServlet" method="get">
+			
+	<form action="ContactServlet" method="get">
 		<table>
 			<tr>
 				<td> search</td>
 				<td> <input type="text" name="searchbyname"/> </td>
 			</tr>
+		</table>	
+		
+		<input type="submit" value="search contact" />
+	</form>
+
+	<form action="ContactUpdateServlet" method="post">
+		<table>
+			<tr>
+				<td> enter name to update </td>
+				<td> <input type="text" name="update" </td>
+				<td> enter new phone number </td>
+				<td> <input type="text" name="newPhonenumber" </td>
+			</tr>	
 		</table>
-		<input type="submit" value="Submit1" />
+	 <input type="submit" value="updateNumber" />
+		
+	</form>
+	
+	<form action="ContactUpdateServlet" method="get">
+		<table>
+			<tr>
+				<td>enter name to delete</td>
+				<td><input type "text" name="delete" </td>
+				
+			<tr>
+		</table>
+	<input type="submit" value="delete contact" />
+	</form>
 			
 </body>
+
 </html>
