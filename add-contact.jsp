@@ -15,7 +15,7 @@
 	<div class="row">
 	<div class="col-sm-2">
 	</div>
-	<form id="form1" class="form-horizontal form_style col-sm-8" action="default" method="POST">
+	<form id="form1" class="form-horizontal form_style col-sm-8" action="getAll" method="POST">
 		<label class="col-sm-3">First Name</label>
 		<input class="col-sm-5" type="text" name="first_name"  pattern="[^,]+" required=""><br>
 		<label class="col-sm-3">Last Name</label>

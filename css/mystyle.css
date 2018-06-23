@@ -98,7 +98,7 @@ div.top {
 .contact_information {
 	/*width: 50%;*/
 	border: 1px solid #3366cc;
-	padding: 90px 20px 90px 0%;
+	padding: 150px 20px 90px 0%;
 	text-align: center;
 	background-color: #3366cc;
 	float: left;
@@ -312,4 +312,7 @@ span[title]:hover:after {
      background: #ff1493;
      color: #fff;
      border-radius: 5px;
+}
+li.phone-number {
+	font-size: 200%;
 }

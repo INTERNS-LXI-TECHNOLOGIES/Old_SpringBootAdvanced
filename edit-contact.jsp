@@ -8,15 +8,11 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<%@ page import= "com.lxisoft.model.Contact, java.util.*" %>
+	<%@ page import= "com.lxisoft.contacts.model.Contact, java.util.*" %>
 	
-	<% Set<Contact> contactSet=(Set<Contact>)request.getAttribute("contacts");
-		
-	Contact contact=null;
-	for (Contact c:contactSet) {
-		contact=c;
-		break;
-	}
+	<% Contact contact=null;
+		if((contact=(Contact)request.getAttribute("contact"))==null)
+			contact=(Contact)session.getAttribute("currentContact");
 	%>
 	<div class="jumbotron top">
 	<img class="img-fluid contacts_icon" src="Images\contacts_2.png" alt="Contacts_icon">	
@@ -26,8 +22,7 @@
 	<div class="row">
 	<div class="col-sm-2">
 	</div>
-	<%@ page import="java.util.*,com.lxisoft.model.Contact" %>
-	<form id="form1" class="form-horizontal form_style col-sm-8" action="edit-delete" method="POST">
+	<form id="form1" class="form-horizontal form_style col-sm-8" action="get" method="POST">
 		<label class="col-sm-3">First Name</label>
 		<input class="col-sm-5" type="text" name="first_name"  pattern="[^,]+" required="" value=<%=contact.getFirstName()%>> <br>
 		<label class="col-sm-3">Last Name</label>

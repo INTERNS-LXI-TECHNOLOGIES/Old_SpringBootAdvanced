@@ -13,7 +13,7 @@
 		</div>
 		<div>
 				<p class="text-info error-message">Sorry..something went wrong...(<%=exception%>)!</p>
-				<%response.setHeader("Refresh", "3;url=default");%>;
+				<%response.setHeader("Refresh", "3;url=getAll");%>;
 		</div>
 	</body>
 </html>

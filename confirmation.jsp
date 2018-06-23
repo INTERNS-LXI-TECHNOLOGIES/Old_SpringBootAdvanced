@@ -11,22 +11,19 @@
 	<img class="img-fluid contacts_icon" src="Images\contacts_2.png" alt="Contacts_icon">	
 	<h2>Contacts</h2>
 	</div>
-	<%@ page import="com.lxisoft.controller.*,java.util.*,com.lxisoft.model.Contact"%>
+	<%@ page import="com.lxisoft.contacts.controller.*,java.util.*,com.lxisoft.contacts.model.Contact"%>
 
-	<%Set<Contact> contactSet=(Set<Contact>)request.getAttribute("contacts");
-
-		Contact contact=null;
-		for (Contact c:contactSet) {
-			contact=c;
-			break;
-		}%>
+	<% Contact contact=null;
+		if((contact=(Contact)request.getAttribute("contact"))==null)
+			contact=(Contact)session.getAttribute("currentContact");%>
+		
  	<div class="container">
  	<div class="row">
  	<div class="col-sm-2"></div>
  	<div class="col-sm-8 text-center">
  		<div class="dialog">Are you sure you want to delete?</div><br>
- 		<a class="dialog-yes" href="edit-delete?link=<%=contact.getPhoneNumber()%>">yes</a>
- 		<a class="dialog-no" href="default">no</a>	
+ 		<a class="dialog-yes" href="delete?link=<%=contact.getPhoneNumber()%>">yes</a>
+ 		<a class="dialog-no" href="getAll">no</a>	
  			
  	</div>
  	</div>

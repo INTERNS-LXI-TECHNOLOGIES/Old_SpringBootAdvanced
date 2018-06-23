@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.contacts.model;
 
 //import required java libraries
 import java.util.*;
