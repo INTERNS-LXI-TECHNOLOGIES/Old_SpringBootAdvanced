@@ -66,6 +66,18 @@
   </servlet-mapping>
 
 
+  <servlet>
+  <servlet-name>Contact-Edit-Servlet</servlet-name>
+  <servlet-class>com.lxisoft.contactApp.controller.ContactEditServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+   <servlet-name>Contact-Edit-Servlet</servlet-name>
+   <url-pattern>/contactEditForm</url-pattern>
+  </servlet-mapping>
+
+
+
 
 </web-app>
 

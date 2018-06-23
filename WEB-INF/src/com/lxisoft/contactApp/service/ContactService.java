@@ -20,4 +20,8 @@ public interface ContactService
 	Contact findByName(String name);
 
 	void delete(String name);
+
+	void update(Contact contact);
+
+	Set<Contact> findOne(String name);
 }

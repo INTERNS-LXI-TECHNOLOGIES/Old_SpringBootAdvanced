@@ -50,6 +50,18 @@ public class ContactServiceImpl implements ContactService
 
    	}
 
+   	public void update(Contact contact)
+	
+	{
+
+	log.info("********************ContactServiceImpl**********************update---------> start");
+     
+    contactRepository.update(contact);
+     
+    log.info("********************ContactServiceImpl**********************update-----------> end");
+
+   	}
+
    	public Contact findByName(String name)
 
    	{
@@ -59,7 +71,13 @@ public class ContactServiceImpl implements ContactService
      
   	}
 
-
+    
+    public Set<Contact> findOne(String name)
+    {
+    	log.info("********************ContactServiceImpl**********************findOne----> start");
+     
+        return contactRepository.findOne(name);
+    }
 
 
 	

@@ -18,11 +18,11 @@
  %>
 
   <div id="option_icons">
-		<a href="contactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\edit13.png" alt="edit_contact" title="Edit"></a>
+		<a href="contactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\edit132.png" alt="edit_contact" title="Edit"></a>
 		
-		<a href="contactDeletForm?first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\remove1.png" alt="remove_button" title="Delete"></a>
+		<a href="contactDeletForm?first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\delete131.png" alt="remove_button" title="Delete"></a>
 
-		<a href="contacts"><img class="align" src="Images\back2.png" alt="back_button" title="Back"></a>
+		<a href="contacts"><img class="align" src="Images\back121.png" alt="back_button" title="Back"></a>
 
   </div>
 

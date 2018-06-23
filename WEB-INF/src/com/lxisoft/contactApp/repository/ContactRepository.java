@@ -166,7 +166,7 @@ public class ContactRepository
               se.printStackTrace();
 
             } catch(Exception e) 
-            
+
             {
              //Handle errors for Class.forName
              e.printStackTrace();
@@ -178,6 +178,50 @@ public class ContactRepository
       log.info("********************ContactRepository**********************delete---------> end");
 
       }
+
+      public void update(Contact contact)
+     
+      {
+         log.info("********************ContactRepository**********************update---------> start");
+
+      try {
+
+         // Open a connection
+         Class.forName("com.mysql.jdbc.Driver");
+         
+         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+         // Execute SQL query
+         stmt = conn.prepareStatement("update contacts set lastName=?,place=?,phnNo=?,emailId=? where firstName=?");
+
+         stmt.setString(1,contact.getLastName());
+         stmt.setString(2,contact.getPlace());
+         stmt.setString(3,contact.getPhNo());
+         stmt.setString(4,contact.getEmail());
+         stmt.setString(5,contact.getFirstName());
+
+         stmt.executeUpdate();
+
+         // Clean-up environment
+         stmt.close();
+         conn.close();
+      } catch(SQLException se) 
+         {
+         //Handle errors for JDBC
+         se.printStackTrace();
+
+      } catch(Exception e) 
+         {
+         //Handle errors for Class.forName
+         e.printStackTrace();
+
+      } finally 
+         {
+         } //end try
+
+         log.info("********************ContactRepository**********************update---------> end");
+
+      }   
 
       public Contact findByName(String name)
      
@@ -226,5 +270,64 @@ public class ContactRepository
         return contact;
 
       } 
+
+      public Set<Contact> findOne(String name)
+     
+      {
+        log.info("********************ContactRepository**********************findOne---------> start");
+
+        contactSet=new TreeSet<Contact>();
+           
+         try {
+
+          // Open a connection
+          Class.forName("com.mysql.jdbc.Driver");
+         
+          conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+           // Execute SQL query
+          stmt = conn.prepareStatement("SELECT * FROM contacts WHERE firstName=?");
+
+          stmt.setString(1,name);
+
+          rs = stmt.executeQuery();
+            
+          contactSet.clear();
+
+         // Extract data from result set
+         while(rs.next())
+         {
+          contactSet.add(new Contact(rs.getString("firstName"),rs.getString("lastName"),rs.getString("emailId"),rs.getString("place"),rs.getString("phnNo")));            
+         } 
+         
+         // Clean-up environment
+         rs.close();
+         stmt.close();
+         conn.close();
+      } catch(SQLException se) 
+         {
+         //Handle errors for JDBC
+         se.printStackTrace();
+
+      } catch(Exception e) 
+         {
+         //Handle errors for Class.forName
+         e.printStackTrace();
+
+      } finally 
+         {
+          
+         } //end try  
+
+        log.info("********************ContactRepository**********************findOne---------> End");
+
+        return contactSet;
+
+    }
+
+
+
+
+
 
 }
