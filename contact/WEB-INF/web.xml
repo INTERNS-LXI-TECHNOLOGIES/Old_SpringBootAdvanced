@@ -24,4 +24,13 @@
 	  <url-pattern>/ContactUpdateServlet </url-pattern>
    </servlet-mapping>
    
+   
+  <resource-ref>
+	<description>Primary database</description>
+	<res-ref-name>jdbc/contactinfo</res-ref-name>
+	<res-type>javax.sql.DataSource</res-type>
+	<res-auth>container</res-auth>
+   </resource-ref>
+   
+   
    </web-app>

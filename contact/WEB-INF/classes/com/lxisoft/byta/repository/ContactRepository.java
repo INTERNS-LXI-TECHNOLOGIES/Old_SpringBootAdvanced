@@ -1,10 +1,17 @@
 package com.lxisoft.byta.repository;
 import java.sql.*;
+import javax.sql.*;
+import javax.servlet.*;
+import javax.annotation.Resource;
 import com.lxisoft.byta.model.*;
 
 public class ContactRepository{
 	
 	Contact contact;
+	
+	
+	@Resource(name="jdbc/contactinfo")
+	DataSource ds;
 	
 	public void save(Contact contact){
 		
@@ -13,8 +20,8 @@ public class ContactRepository{
 		
 		try{
 			
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contactinfo?useUnicode=yes&characterEncoding=UTF-8","root","root");
+			//Class.forName("com.mysql.jdbc.Driver");
+			con=ds.getConnection();
 			stmt=con.prepareStatement("insert into contactdetails values(?,?,?,?)");
 			stmt.setString(1,contact.getName());
 			stmt.setLong(2,contact.getPhoneNumber());
@@ -38,8 +45,8 @@ public class ContactRepository{
 		
 		try{
 			
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contactinfo","root","root");
+			//Class.forName("com.mysql.jdbc.Driver");
+			con=ds.getConnection();
 			stmt=con.prepareStatement("select * from contactdetails where name=?");
 			stmt.setString(1,name);
 			
@@ -58,6 +65,8 @@ public class ContactRepository{
 			ex.printStackTrace();
 
 			}
+			
+			System.out.println("***********"+contact.getName());
 		
 		return contact;
 
@@ -72,8 +81,8 @@ public class ContactRepository{
 			
 			System.out.println(contact.getName()+"\n"+contact.getPhoneNumber());
 			
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contactinfo","root","root");
+			//Class.forName("com.mysql.jdbc.Driver");
+			con=ds.getConnection();
 			stmt=con.prepareStatement("update contactdetails set phoneNumber=? where name=?");
 			stmt.setLong(1,contact.getPhoneNumber());
 			stmt.setString(2,contact.getName());
@@ -93,8 +102,8 @@ public class ContactRepository{
 		
 		try{
 			
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/contactinfo","root","root");
+			//Class.forName("com.mysql.jdbc.Driver");
+			con=ds.getConnection();
 			stmt=con.prepareStatement("delete from contactdetails where name=?");
 			stmt.setString(1,contact.getName());
 			stmt.executeUpdate();
