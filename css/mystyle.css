@@ -107,7 +107,7 @@ div.top {
 	line-height: 80px;
 	font-size: 170%;
 	text-overflow: ellipsis;
-	overflow: hidden;
+	overflow: visible;
 }
 .error-message {
 	font-size: 25px;
@@ -315,4 +315,5 @@ span[title]:hover:after {
 }
 li.phone-number {
 	font-size: 200%;
+	width: auto;
 }
