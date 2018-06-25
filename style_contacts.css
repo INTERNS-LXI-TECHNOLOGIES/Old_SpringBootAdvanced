@@ -34,6 +34,24 @@ div#commom_top
 	/*color: #ff1493;*/
 }
 
+#language{
+	margin-top: 150px;
+	padding-bottom: 0px;
+	margin-bottom: -200px;
+	margin-left: 85%;
+	color :#738bef;
+}
+
+#language a{
+  color :#738bef;
+}
+
+#language a:hover{
+  color :#cd0eb1;
+}
+
+
+
 #edit_delete{
 	
 	text-align: right;

@@ -286,9 +286,9 @@ public class ContactRepository
           conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
            // Execute SQL query
-          stmt = conn.prepareStatement("SELECT * FROM contacts WHERE firstName=?");
+          stmt = conn.prepareStatement("SELECT * FROM contacts WHERE CONCAT(firstName,' ',lastName) LIKE ?");
 
-          stmt.setString(1,name);
+          stmt.setString(1,name+"%");
 
           rs = stmt.executeQuery();
             
