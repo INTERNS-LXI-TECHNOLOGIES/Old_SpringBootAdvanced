@@ -1,0 +1,10 @@
+<web-app>
+<servlet>
+<servlet-name>databaseservlet</servlet-name>
+<servlet-class>com.lxisoft.databasedemo.controller.DatabaseServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>databaseservlet</servlet-name>
+<url-pattern>/save</url-pattern>
+</servlet-mapping>
+</web-app>
