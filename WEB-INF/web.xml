@@ -1,0 +1,13 @@
+  <web-app>
+
+<servlet>
+<servlet-name>sample</servlet-name>
+<servlet-class>com.lxisoft.servlet.ContactServlt</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>sample</servlet-name>
+<url-pattern>/sampleUrl</url-pattern>
+</servlet-mapping>
+
+</web-app>
