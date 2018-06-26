@@ -2,17 +2,21 @@ package com.lxisoft.byta.repository;
 import java.sql.*;
 import javax.sql.*;
 import javax.servlet.*;
-import javax.annotation.Resource;
+import javax.annotation.*;
 import com.lxisoft.byta.model.*;
+import javax.naming.*;
 
 public class ContactRepository{
 	
 	Contact contact;
+
+	//@Resource(name="jdbc/contactinfo")
+	//DataSource ds;
 	
-	
-	@Resource(name="jdbc/contactinfo")
 	DataSource ds;
 	
+	Context ic; 
+   
 	public void save(Contact contact){
 		
 		Connection con;
@@ -20,7 +24,9 @@ public class ContactRepository{
 		
 		try{
 			
-			//Class.forName("com.mysql.jdbc.Driver");
+			ic=new InitialContext();
+			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/contactinfo");
+	
 			con=ds.getConnection();
 			stmt=con.prepareStatement("insert into contactdetails values(?,?,?,?)");
 			stmt.setString(1,contact.getName());
@@ -45,7 +51,9 @@ public class ContactRepository{
 		
 		try{
 			
-			//Class.forName("com.mysql.jdbc.Driver");
+			ic=new InitialContext();
+			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/contactinfo");
+	
 			con=ds.getConnection();
 			stmt=con.prepareStatement("select * from contactdetails where name=?");
 			stmt.setString(1,name);
@@ -66,8 +74,6 @@ public class ContactRepository{
 
 			}
 			
-			System.out.println("***********"+contact.getName());
-		
 		return contact;
 
 	}
@@ -79,9 +85,11 @@ public class ContactRepository{
 		
 		try{
 			
+			ic=new InitialContext();
+			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/contactinfo");
+	
 			System.out.println(contact.getName()+"\n"+contact.getPhoneNumber());
 			
-			//Class.forName("com.mysql.jdbc.Driver");
 			con=ds.getConnection();
 			stmt=con.prepareStatement("update contactdetails set phoneNumber=? where name=?");
 			stmt.setLong(1,contact.getPhoneNumber());
@@ -101,8 +109,9 @@ public class ContactRepository{
 		PreparedStatement stmt;
 		
 		try{
-			
-			//Class.forName("com.mysql.jdbc.Driver");
+			ic=new InitialContext();
+			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/contactinfo");
+	
 			con=ds.getConnection();
 			stmt=con.prepareStatement("delete from contactdetails where name=?");
 			stmt.setString(1,contact.getName());
