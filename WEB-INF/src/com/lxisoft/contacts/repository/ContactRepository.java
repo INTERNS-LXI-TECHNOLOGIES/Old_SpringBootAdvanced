@@ -6,6 +6,9 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
 import com.lxisoft.contacts.model.Contact;
+import javax.annotation.Resource;
+import javax.naming.*;
+import javax.sql.DataSource;
 
 /**
  * Class which defines all the parameters needed for the database
@@ -17,35 +20,15 @@ import com.lxisoft.contacts.model.Contact;
 
 public class ContactRepository {
 
-	/**
-    * jdbc driver for getting database connection
-    */
-   private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-
-   /**
-    * database url
-    */
-   private static final String DB_URL = "jdbc:mysql://localhost:3306/phonebook";
-
-   /**
-    * database username
-    */
-   private static final String USER = "root";
-
-   /**
-    * database password
-    */
-   private static final String PASS = "root";
-
-   /**
-    * establish aconnection
-    */
-   private static Connection connection;
-
    /**
     * make a preparedStatement to execute query
     */
    private static PreparedStatement preparedStatement;
+
+   /**
+   * Reference for the database connection
+   */
+   private static Connection connection;
 
      /**
     * make a statement to execute query
@@ -62,6 +45,28 @@ public class ContactRepository {
    */
    private static final Logger log = Logger.getLogger(ContactRepository.class.getName());
 
+   /**
+   * Initializes the connection object by looking in the context.xml file
+   */
+   static {
+
+      try {
+
+        Context context=new InitialContext();
+        DataSource ds=(DataSource)context.lookup("java:comp/env/jdbc/contacts");
+        connection=ds.getConnection();
+      }
+
+      catch(NamingException e)
+      {
+        e.printStackTrace();
+      }
+      catch(SQLException e)
+      {
+        e.printStackTrace();
+      }
+   }
+
   /**
   * save single contact to database
   * @param contact
@@ -73,9 +78,10 @@ public class ContactRepository {
    		log.info("execution starts "+contact);
       int result=0;
       	try {
-	         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
-	         connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
+	         //Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
+	         //connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
 	                                                         // connection
+           //connection=ds.getConnection();
 	         preparedStatement = connection.prepareStatement("insert into contacts values (?,?,?,?)");
 	         preparedStatement.setString(1, contact.getFirstName());
 	         preparedStatement.setString(2, contact.getLastName());
@@ -105,8 +111,8 @@ public class ContactRepository {
 
          try { // block to handle exceptions
 
-            Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
-            connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
+            //Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
+            //connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
                                                             // connection
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM contacts"); // executes query
@@ -138,8 +144,8 @@ public class ContactRepository {
       log.info("execution starts");
       List<Contact> contacts =new ArrayList<Contact>();
       try { // block to handle exceptions
-         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
-         connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
+/*         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
+         connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting*/
                                                          // connection
          preparedStatement = connection.prepareStatement("SELECT * FROM contacts WHERE PhoneNumber=?");
          preparedStatement.setString(1, phoneNumber);
@@ -175,8 +181,8 @@ public class ContactRepository {
       log.info("execution starts");
       int result=0;
       try { // block to handle exceptions
-         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
-         connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
+/*         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
+         connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting*/
                                                          // connection
          preparedStatement = connection.prepareStatement("DELETE FROM contacts WHERE PhoneNumber=?");
          preparedStatement.setString(1, phoneNumber);
@@ -205,9 +211,9 @@ public class ContactRepository {
       log.info("execution starts");
       int result=0;
       try { // block to handle exceptions
-         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
+/*         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
          connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
-                                                         // connection
+                                                         // connection*/
          preparedStatement = connection.prepareStatement("UPDATE contacts SET FirstName=?, LastName=?, Email=? WHERE PhoneNumber=?");
          preparedStatement.setString(1, contact.getFirstName());
          preparedStatement.setString(2, contact.getLastName());
@@ -240,9 +246,9 @@ public class ContactRepository {
       Set<Contact> contacts =new TreeSet<Contact>();
 
       try { // block to handle exceptions
-         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
+/*         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
          connection = DriverManager.getConnection(DB_URL, USER, PASS); // getting
-                                                         // connection
+                                                         // connection*/
          preparedStatement = connection.prepareStatement("SELECT * FROM contacts WHERE concat(FirstName,' ',LastName) LIKE ?");
          preparedStatement.setString(1, nameLike + "%");
          ResultSet resultSet = preparedStatement.executeQuery(); // executes query
