@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import com.lxisoft.contactApp.model.*;
 import com.lxisoft.contactApp.service.*;
 import com.lxisoft.contactApp.service.impl.*;
+import com.lxisoft.contactApp.utility.*;
 
 // Extend HttpServlet class
 public class ContactDeleteServlet extends HttpServlet 
@@ -19,8 +20,9 @@ public class ContactDeleteServlet extends HttpServlet
 
       private ContactService contactService=new ContactServiceImpl();
 
-      private static final Logger log=Logger.getLogger(ContactDeleteServlet.class.getName());
+      //private static final Logger log=Logger.getLogger(ContactDeleteServlet.class.getName());
 
+      private static final Logger log=new LogFileUtility().getLoggerObject(ContactDeleteServlet.class.getName());
 
       
     public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException

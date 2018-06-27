@@ -1,0 +1,6 @@
+Jun 27, 2018 3:06:33 PM com.lxisoft.contactApp.controller.ContactServlet doGet
+INFO: ********************ContactServlet**********************doGet---------> start
+Jun 27, 2018 3:06:33 PM com.lxisoft.contactApp.controller.ContactServlet doGet
+INFO: ********************if conditionfalse
+Jun 27, 2018 3:06:33 PM com.lxisoft.contactApp.controller.ContactServlet doGet
+INFO: ********************ContactServlet**********************doGet---------> end

@@ -6,12 +6,11 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import com.lxisoft.contactApp.model.*;
 import com.lxisoft.contactApp.service.*;
 import com.lxisoft.contactApp.service.impl.*;
-
-
+import com.lxisoft.contactApp.utility.*;
 
 
 // Extend HttpServlet class
@@ -24,13 +23,16 @@ public class ContactSearchServlet extends HttpServlet
 
       private Set<Contact> contactSet;
 
-      private static final Logger log=Logger.getLogger(ContactSearchServlet.class.getName());
+      //private static final Logger log=Logger.getLogger(ContactSearchServlet.class.getName());
+
+      private static final Logger log=new LogFileUtility().getLoggerObject(ContactSearchServlet.class.getName()); 
 
   
    public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
-   {
 
-     log.info("********************ContactSearchServlet**********************doGet---------> start");
+   {
+      
+      log.info("********************ContactSearchServlet**********************doGet---------> start");
 
           contactSet=new TreeSet<Contact>();
 
