@@ -2,7 +2,7 @@
 
 <servlet>
 <servlet-name>sample</servlet-name>
-<servlet-class>com.lxisoft.servlet.ContactServlt</servlet-class>
+<servlet-class>com.lxisoft.controller.ContactServlt</servlet-class>
 </servlet>
 
 <servlet-mapping>
