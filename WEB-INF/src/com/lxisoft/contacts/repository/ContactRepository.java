@@ -5,6 +5,7 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
+import java.util.logging.LogManager;
 import com.lxisoft.contacts.model.Contact;
 import javax.annotation.Resource;
 import javax.naming.*;
@@ -51,10 +52,11 @@ public class ContactRepository {
    static {
 
       try {
-
+            LogManager.getLogManager().readConfiguration(new FileInputStream("../webapps/contacts-v4/properties/logging.properties"));
         Context context=new InitialContext();
         DataSource ds=(DataSource)context.lookup("java:comp/env/jdbc/contacts");
         connection=ds.getConnection();
+
       }
 
       catch(NamingException e)
@@ -62,6 +64,14 @@ public class ContactRepository {
         e.printStackTrace();
       }
       catch(SQLException e)
+      {
+        e.printStackTrace();
+      }
+      catch(SecurityException e)
+      {
+        e.printStackTrace();
+      }
+      catch(IOException e)
       {
         e.printStackTrace();
       }
@@ -105,7 +115,7 @@ public class ContactRepository {
   */
    public Set<Contact> findAll()
    {
-      log.info("execution starts ");
+      log.info("*************************************************execution starts ");
 
       Set<Contact> contacts=new TreeSet<Contact>();
 
@@ -128,7 +138,7 @@ public class ContactRepository {
       } catch (Exception e) {
          e.printStackTrace();
       }
-      log.info("execution ends");
+      log.info("******************************************************execution ends");
       return contacts;
    }
 
@@ -178,7 +188,7 @@ public class ContactRepository {
    public int delete(String phoneNumber)
    {
       
-      log.info("execution starts");
+      log.info("******************************************************************execution starts");
       int result=0;
       try { // block to handle exceptions
 /*         Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver

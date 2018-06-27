@@ -1,0 +1,16 @@
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet init
+INFO: execution starts
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet init
+INFO: execution ends
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
+INFO: execution starts 
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.service.ContactService findAll
+INFO: execution starts 
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.repository.ContactRepository findAll
+INFO: *************************************************execution starts 
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.repository.ContactRepository findAll
+INFO: ******************************************************execution ends
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.service.ContactService findAll
+INFO: execution ends
+Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
+INFO: execution ends
