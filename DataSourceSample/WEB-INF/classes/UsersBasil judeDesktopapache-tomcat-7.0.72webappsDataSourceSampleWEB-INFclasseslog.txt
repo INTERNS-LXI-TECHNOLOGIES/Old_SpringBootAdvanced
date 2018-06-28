@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361637</millis>
+  <sequence>329</sequence>
+  <logger>DataSourceServlet</logger>
+  <level>INFO</level>
+  <class>DataSourceServlet</class>
+  <method>doGet</method>
+  <thread>24</thread>
+  <message>Obtain our environment naming context</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361684</millis>
+  <sequence>330</sequence>
+  <logger>DataSourceServlet</logger>
+  <level>INFO</level>
+  <class>DataSourceServlet</class>
+  <method>doGet</method>
+  <thread>24</thread>
+  <message>Allocate and use a connection from the pool</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361751</millis>
+  <sequence>331</sequence>
+  <logger>org.apache.jasper.servlet.JspServlet</logger>
+  <level>FINE</level>
+  <class>org.apache.jasper.servlet.JspServlet</class>
+  <method>service</method>
+  <thread>24</thread>
+  <message>JspEngine --&gt; /start.jsp</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361752</millis>
+  <sequence>332</sequence>
+  <logger>org.apache.jasper.servlet.JspServlet</logger>
+  <level>FINE</level>
+  <class>org.apache.jasper.servlet.JspServlet</class>
+  <method>service</method>
+  <thread>24</thread>
+  <message>	     ServletPath: /start.jsp</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361752</millis>
+  <sequence>333</sequence>
+  <logger>org.apache.jasper.servlet.JspServlet</logger>
+  <level>FINE</level>
+  <class>org.apache.jasper.servlet.JspServlet</class>
+  <method>service</method>
+  <thread>24</thread>
+  <message>	        PathInfo: null</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361752</millis>
+  <sequence>334</sequence>
+  <logger>org.apache.jasper.servlet.JspServlet</logger>
+  <level>FINE</level>
+  <class>org.apache.jasper.servlet.JspServlet</class>
+  <method>service</method>
+  <thread>24</thread>
+  <message>	        RealPath: C:\Users\Basil jude\Desktop\apache-tomcat-7.0.72\webapps\DataSourceSample\start.jsp</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361753</millis>
+  <sequence>335</sequence>
+  <logger>org.apache.jasper.servlet.JspServlet</logger>
+  <level>FINE</level>
+  <class>org.apache.jasper.servlet.JspServlet</class>
+  <method>service</method>
+  <thread>24</thread>
+  <message>	      RequestURI: /DataSourceSample/start.jsp</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361753</millis>
+  <sequence>336</sequence>
+  <logger>org.apache.jasper.servlet.JspServlet</logger>
+  <level>FINE</level>
+  <class>org.apache.jasper.servlet.JspServlet</class>
+  <method>service</method>
+  <thread>24</thread>
+  <message>	     QueryString: name=Hello</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:01</date>
+  <millis>1530198361757</millis>
+  <sequence>337</sequence>
+  <logger>org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/DataSourceSample].[jsp]</logger>
+  <level>FINE</level>
+  <class>org.apache.catalina.core.ApplicationDispatcher</class>
+  <method>doForward</method>
+  <thread>24</thread>
+  <message> Disabling the response for futher output</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:58</date>
+  <millis>1530198418792</millis>
+  <sequence>338</sequence>
+  <logger>org.apache.catalina.session.ManagerBase</logger>
+  <level>FINE</level>
+  <class>org.apache.catalina.session.ManagerBase</class>
+  <method>processExpires</method>
+  <thread>14</thread>
+  <message>Start expire sessions StandardManager at 1530198418792 sessioncount 1</message>
+</record>
+<record>
+  <date>2018-06-28T20:36:58</date>
+  <millis>1530198418794</millis>
+  <sequence>339</sequence>
+  <logger>org.apache.catalina.session.ManagerBase</logger>
+  <level>FINE</level>
+  <class>org.apache.catalina.session.ManagerBase</class>
+  <method>processExpires</method>
+  <thread>14</thread>
+  <message>End expire sessions StandardManager processingTime 2 expired sessions: 0</message>
+</record>
