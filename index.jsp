@@ -9,8 +9,8 @@
  String name=null;
  String phNo = null;
 Contact contact = new Contact();
-Set<Contact> contactSet = new TreeSet<Contact>();
- contactSet = (TreeSet<Contact>)request.getAttribute("contactSet");
+//Set<Contact> contactSet = new TreeSet<Contact>();
+ contact= (Contact)request.getAttribute("contact");
  //out.println("..........................."+contactList.size());
 /*for(int i=0;i<contactSet.size();i++)
  {
@@ -21,13 +21,16 @@ Set<Contact> contactSet = new TreeSet<Contact>();
  	out.println("Address :"+contact.getAddress());
  }*/
  //out.println("in index :"+contactSet);
-for(Contact cc : contactSet)
+
+ out.println("new entry :"+contact);
+/*for(Contact cc : contactSet)
 {
+	out.println("                  ");
 	out.println("Name :"+cc.getName());
  	out.println("Phone :"+cc.getPhNo());
  	out.println("Address :"+cc.getAddress());
  	out.println("...........................");
-}
+}*/
  
  	%>
  

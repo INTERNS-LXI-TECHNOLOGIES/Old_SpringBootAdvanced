@@ -17,9 +17,9 @@ public class ContactServlt extends HttpServlet{
     /**
     *instance variable contactSet is used to store a set of contacts
     */
-	private Set<Contact> contactSet = new TreeSet<Contact>();
-private ContactRepo contactRepo = new ContactRepo();
-private Contact contact;
+	//private Set<Contact> contactSet = new TreeSet<Contact>();
+  private ContactRepo contactRepo = new ContactRepo();
+  private Contact contact = new Contact();
 /**
 *doPost method is a override method from HttpServlet class
 *this method is designed to send data along with the request to web resource
@@ -32,16 +32,26 @@ private Contact contact;
 
     {       
       contact=new Contact(request.getParameter("name"),request.getParameter("phNo"),request.getParameter("address"));
-      contactSet.add(contact);
+     // contactSet.add(contact);
     //  String phNo = request.getParameter("phNo");
       //System.out.println(phNo);
-
+System.out.println(contact);
       contactRepo.save(contact);
-         
-      request.setAttribute("contactSet",contactSet);
+        
+      request.setAttribute("contact",contact);
 
       // forward to jsp page with request parameters
       request.getRequestDispatcher("index.jsp").forward(request,response);
           
     }
+      public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+    
+    String searchName=request.getParameter("searchByName");
+    Contact contact=contactRepo.findContactByName(searchName);
+
+    request.setAttribute("contact",contact);  
+    
+    request.getRequestDispatcher("/viewDetails.jsp").forward(request,response);
+
+  }
 }

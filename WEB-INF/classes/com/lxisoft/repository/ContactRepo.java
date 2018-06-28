@@ -58,4 +58,33 @@ public void save(Contact contact)
          } //end try
 
       }
+      public Contact findContactByName(String name){
+     
+      try{
+         
+   
+         Class.forName("com.mysql.jdbc.Driver");
+         connection = DriverManager.getConnection(DB_URL, USER, PASS);
+         stmt=connection.prepareStatement("select * from contact where name=?");
+         stmt.setString(1,name);
+         
+         ResultSet rs=stmt.executeQuery();
+         
+         while(rs.next()){
+            
+         contact=new Contact(rs.getString("name"),rs.getString("phone"),rs.getString("address"));
+         
+            
+         }
+         connection.close();
+         
+      }
+      catch(Exception ex){
+         ex.printStackTrace();
+
+         }
+         
+      return contact;
+
+   }
 }
