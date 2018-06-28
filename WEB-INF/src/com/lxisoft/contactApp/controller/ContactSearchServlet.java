@@ -23,15 +23,23 @@ public class ContactSearchServlet extends HttpServlet
 
       private Set<Contact> contactSet;
 
-      //private static final Logger log=Logger.getLogger(ContactSearchServlet.class.getName());
+      private static final Logger log=Logger.getLogger(ContactSearchServlet.class.getName());
 
-      private static final Logger log=new LogFileUtility().getLoggerObject(ContactSearchServlet.class.getName()); 
+      //private static final Logger log=new LogFileUtility().getLoggerObject(ContactSearchServlet.class.getName()); 
 
   
    public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException
 
    {
-      
+
+      try {
+               FileInputStream configFile = new FileInputStream("../webapps/contactApp_v2/resource files/logging.properties");
+               LogManager.getLogManager().readConfiguration(configFile);
+
+          } catch (IOException ex){
+               ex.printStackTrace(); }
+
+                   
       log.info("********************ContactSearchServlet**********************doGet---------> start");
 
           contactSet=new TreeSet<Contact>();

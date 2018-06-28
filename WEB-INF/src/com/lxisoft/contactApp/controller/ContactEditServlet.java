@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import com.lxisoft.contactApp.model.*;
 import com.lxisoft.contactApp.service.*;
 import com.lxisoft.contactApp.service.impl.*;
@@ -23,9 +23,20 @@ public class ContactEditServlet extends HttpServlet
 
       private ContactService contactService=new ContactServiceImpl();
 
-      //private static final Logger log=Logger.getLogger(ContactEditServlet.class.getName());
+      private static final Logger log=Logger.getLogger(ContactEditServlet.class.getName());
 
-      private static final Logger log=new LogFileUtility().getLoggerObject(ContactEditServlet.class.getName());
+      //private static final Logger log=new LogFileUtility().getLoggerObject(ContactEditServlet.class.getName());
+
+
+      static 
+      {
+        try {
+               FileInputStream configFile = new FileInputStream("../webapps/contactApp_v2/resource files/logging.properties");
+               LogManager.getLogManager().readConfiguration(configFile);
+
+          } catch (IOException ex){
+               ex.printStackTrace(); }
+      }
 
 
 public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException

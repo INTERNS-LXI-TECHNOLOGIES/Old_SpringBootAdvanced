@@ -6,18 +6,29 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
 import com.lxisoft.contactApp.model.*;
+//import javax.naming.Context;
+//import javax.naming.InitialContext;
+import javax.naming.*;
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 
 public class ContactRepository 
 {
 	 
-      // JDBC driver name and database URL   
+      /*// JDBC driver name and database URL   
       static final String JDBC_DRIVER= "com.mysql.jdbc.Driver";  
       static final String DB_URL="jdbc:mysql://localhost/contactApp_v1";
       
       //  Database credentials
       static final String USER = "root";
-      static final String PASS = "root";
+      static final String PASS = "root";*/
+
+      
+      /*@Resource(name="jdbc/contactApp_v1")
+      private DataSource ds;*/
+
+      private DataSource ds;
 
       static Connection conn;
 
@@ -31,7 +42,23 @@ public class ContactRepository
 
       private static final Logger log=Logger.getLogger(ContactRepository.class.getName());
 
+      public ContactRepository()
+      {
+         try {
+              Context context = new InitialContext();
+              ds = (DataSource)context.lookup("java:comp/env/jdbc/contactApp_v1");
+             } catch (NamingException e) {
+               e.printStackTrace();
+              }
 
+      }
+
+      /*@Resource(name="jdbc/contactApp_v1")
+      private void setMyDB(javax.sql.DataSource dss) {
+        ds = dss;
+      }
+
+*/
       public Set<Contact> findAll()
 
       {
@@ -43,9 +70,11 @@ public class ContactRepository
          try {
 
          // Open a connection
-         Class.forName("com.mysql.jdbc.Driver");
+        // Class.forName("com.mysql.jdbc.Driver");
          
-         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+         //conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+         conn=ds.getConnection();
 
          // Execute SQL query
          stmt = conn.prepareStatement("SELECT * FROM contacts");
@@ -95,9 +124,11 @@ public class ContactRepository
         try {
 
          // Open a connection
-         Class.forName("com.mysql.jdbc.Driver");
+         //Class.forName("com.mysql.jdbc.Driver");
          
-         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+         //conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+         conn=ds.getConnection();
 
          // Execute SQL query
          stmt = conn.prepareStatement("insert into contacts values(?,?,?,?,?)");
@@ -144,9 +175,11 @@ public class ContactRepository
          try {
 
          // Open a connection
-         Class.forName("com.mysql.jdbc.Driver");
+         //Class.forName("com.mysql.jdbc.Driver");
          
-         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+         //conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+         conn=ds.getConnection();
 
          // Execute SQL query
           stmt = conn.prepareStatement("DELETE FROM contacts WHERE firstName=?");
@@ -187,9 +220,11 @@ public class ContactRepository
       try {
 
          // Open a connection
-         Class.forName("com.mysql.jdbc.Driver");
+         //Class.forName("com.mysql.jdbc.Driver");
          
-         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+         //conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+          conn=ds.getConnection();
 
          // Execute SQL query
          stmt = conn.prepareStatement("update contacts set lastName=?,place=?,phnNo=?,emailId=? where firstName=?");
@@ -231,9 +266,11 @@ public class ContactRepository
         try {
 
          // Open a connection
-         Class.forName("com.mysql.jdbc.Driver");
+         //Class.forName("com.mysql.jdbc.Driver");
          
-         conn = DriverManager.getConnection(DB_URL, USER, PASS);
+         //conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+          conn=ds.getConnection();
 
           // Execute SQL query
           stmt = conn.prepareStatement("SELECT * FROM contacts WHERE firstName=?");
@@ -281,9 +318,11 @@ public class ContactRepository
          try {
 
           // Open a connection
-          Class.forName("com.mysql.jdbc.Driver");
+          //Class.forName("com.mysql.jdbc.Driver");
          
-          conn = DriverManager.getConnection(DB_URL, USER, PASS);
+          //conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+          conn=ds.getConnection();
 
            // Execute SQL query
           stmt = conn.prepareStatement("SELECT * FROM contacts WHERE CONCAT(firstName,' ',lastName) LIKE ?");
