@@ -5,6 +5,8 @@ import javax.servlet.*;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
+import javax.naming.*;
+import javax.sql.*;
 
 public class DatabaseServlet extends HttpServlet
 {
@@ -13,12 +15,17 @@ public class DatabaseServlet extends HttpServlet
 		response.setContentType("text/html");
 		String name = request.getParameter("name");
 		String number = request.getParameter("number");
-		Connection conn = null;
+		/* Connection conn = null; */
 		Statement stmt = null;
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sarathdb", "root", "root");
+			/* Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sarathdb", "root", "root"); */
+			 Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:comp/env");
+            DataSource ds = (DataSource) envContext.lookup("jdbc/UsersDB");
+			
+            Connection conn = ds.getConnection();
 			stmt = conn.createStatement();
 			String sql = "INSERT INTO sarathtable(name,number) "+"VALUES ('"+name+"','"+number+"'"+")";
 			stmt.executeUpdate(sql);
@@ -30,7 +37,7 @@ public class DatabaseServlet extends HttpServlet
 }finally {
 	}
 				
-		RequestDispatcher view=request.getRequestDispatcher("start.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("intex.jsp");
 		view.forward(request,response);	
 		
 		

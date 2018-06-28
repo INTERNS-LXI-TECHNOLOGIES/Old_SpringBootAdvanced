@@ -22,8 +22,9 @@ save
 <h3>NUMBER : <input type="text" name="number"></input></h3><br><br>
 <input type="submit" value="SAVE"></input>
 </form>
-<form action="save" method="get">
-<input type="submit" value="VIEW ALL"></input>
+<br>
+<form action="intex.jsp" method="post">
+<input type="submit" value="HOME"></input>
 </form>
 </h>
 </body>
