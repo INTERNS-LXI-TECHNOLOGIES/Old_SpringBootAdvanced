@@ -1,16 +1,24 @@
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet init
+Jun 28, 2018 12:51:56 PM com.lxisoft.contacts.controller.ContactRUServlet doGet
+INFO: execution starts 
+Jun 28, 2018 12:51:56 PM com.lxisoft.contacts.service.ContactService findOne
+INFO: execution starts 
+Jun 28, 2018 12:51:56 PM com.lxisoft.contacts.repository.ContactRepository findOne
 INFO: execution starts
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet init
+Jun 28, 2018 12:51:56 PM com.lxisoft.contacts.repository.ContactRepository findOne
 INFO: execution ends
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
-INFO: execution starts 
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.service.ContactService findAll
-INFO: execution starts 
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.repository.ContactRepository findAll
-INFO: *************************************************execution starts 
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.repository.ContactRepository findAll
-INFO: ******************************************************execution ends
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.service.ContactService findAll
+Jun 28, 2018 12:51:56 PM com.lxisoft.contacts.service.ContactService findOne
+INFO: execution ends 
+Jun 28, 2018 12:51:56 PM com.lxisoft.contacts.controller.ContactRUServlet doGet
 INFO: execution ends
-Jun 27, 2018 4:56:21 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
+Jun 28, 2018 1:34:01 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
+INFO: execution starts 
+Jun 28, 2018 1:34:01 PM com.lxisoft.contacts.service.ContactService findAll
+INFO: execution starts 
+Jun 28, 2018 1:34:01 PM com.lxisoft.contacts.repository.ContactRepository findAll
+INFO: execution starts
+Jun 28, 2018 1:34:01 PM com.lxisoft.contacts.repository.ContactRepository findAll
+INFO: execution ends
+Jun 28, 2018 1:34:01 PM com.lxisoft.contacts.service.ContactService findAll
+INFO: execution ends
+Jun 28, 2018 1:34:01 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
 INFO: execution ends

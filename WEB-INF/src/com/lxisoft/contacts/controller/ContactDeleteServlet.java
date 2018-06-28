@@ -9,6 +9,10 @@ import java.util.*;
 import com.lxisoft.contacts.model.Contact;
 import com.lxisoft.contacts.service.ContactService;
 import java.util.logging.Logger;
+import java.util.logging.LogManager;
+import static java.util.logging.Level.FINE;
+import static java.util.logging.Level.WARNING;
+import static java.util.logging.Level.INFO;
 
 /**
  * Servlet class for working as a controller for getting all the contacts
@@ -19,41 +23,60 @@ import java.util.logging.Logger;
 public class ContactDeleteServlet extends HttpServlet {
 
   /**
-  * Reference to Service class
-  */
-  private ContactService service=new ContactService();
+   * Reference to Service class
+   */
+  private ContactService service = new ContactService();
 
-    /**
+  /**
    * Logger instance to get log messages
    */
-   private static final Logger log = Logger.getLogger(ContactDeleteServlet.class.getName());
+  private static final Logger logger = Logger.getLogger(ContactDeleteServlet.class.getName());
 
-   /**
-    * method for initial working
-    *
-    * @throws ServletException
-    *             if undesired condition occures
-    */
-   public void init() throws ServletException {
-      log.info("execution starts");
-      log.info("execution ends");
-   }
+  /**
+   * Configures the logger object
+   */
+  static {
 
-   /**
-    * Delete one contact from the database
-    *
-    * @param request
-    *            http request
-    * @param response
-    *            http response
-    */
-   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    try {
+      LogManager.getLogManager()
+          .readConfiguration(new FileInputStream("../webapps/contacts-v4/properties/logging.properties"));
+    }
 
-      log.info("execution starts ");
-     
-      service.delete(request.getParameter("link"));
-      log.info("execution ends");
-      response.sendRedirect("getAll");
+    catch (SecurityException e) {
+      logger.log(WARNING,"Exception caught",e);
+      e.printStackTrace();
+    } catch (IOException e) {
+      logger.log(WARNING,"Exception caught",e);
+      e.printStackTrace();
+    }
+  }
 
-   }
+  /**
+   * method for initial working
+   *
+   * @throws ServletException
+   *             if undesired condition occures
+   */
+  public void init() throws ServletException {
+    logger.fine("execution starts");
+    logger.fine("execution ends");
+  }
+
+  /**
+   * Delete one contact from the database
+   *
+   * @param request
+   *            http request
+   * @param response
+   *            http response
+   */
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    logger.log(INFO,"execution starts",new Object[]{request,response});
+
+    service.delete(request.getParameter("link"));
+    logger.info("execution ends");
+    response.sendRedirect("getAll");
+
+  }
 }

@@ -9,7 +9,10 @@ import java.util.*;
 import com.lxisoft.contacts.model.Contact;
 import com.lxisoft.contacts.service.ContactService;
 import java.util.logging.Logger;
-
+import java.util.logging.LogManager;
+import static java.util.logging.Level.FINE;
+import static java.util.logging.Level.WARNING;
+import static java.util.logging.Level.INFO;
 /**
  * Servlet class for working as a controller for getting all the contacts
  *
@@ -19,69 +22,88 @@ import java.util.logging.Logger;
 public class ContactRUServlet extends HttpServlet {
 
   /**
-  * Reference to Service class
-  */
-  private ContactService service=new ContactService();
+   * Reference to Service class
+   */
+  private ContactService service = new ContactService();
 
-    /**
+  /**
    * Logger instance to get log messages
    */
-   private static final Logger log = Logger.getLogger(ContactRUServlet.class.getName());
+  private static final Logger logger = Logger.getLogger(ContactRUServlet.class.getName());
+  /**
+   * Configures the logger object
+   */
+  static {
 
-   /**
-    * method for initial working
-    *
-    * @throws ServletException
-    *             if undesired condition occures
-    */
-   public void init() throws ServletException {
-      log.info("execution starts");
-      log.info("execution ends");
-   }
+    try {
+      LogManager.getLogManager()
+          .readConfiguration(new FileInputStream("../webapps/contacts-v4/properties/logging.properties"));
+    }
 
-   /**
-    * Get method for getting all the elements from the database
-    *
-    * @param request
-    *            http request
-    * @param response
-    *            http response
-    */
-   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    catch (SecurityException e) {
+      logger.log(WARNING,"Exception caught",e);
+      e.printStackTrace();
+    } catch (IOException e) {
+      logger.log(WARNING,"Exception caught",e);
+      e.printStackTrace();
+    }
+  }
 
-      log.info("execution starts ");
-     
-      Contact contact=service.findOne(request.getParameter("link"));
-      request.setAttribute("contact",contact);
-      log.info("execution ends");
-      //RequestDispatcher view;
-      String destinationPage;
-      if("edit".equals(request.getParameter("type")))
-        destinationPage="edit-contact.jsp";
-      else if("delete".equals(request.getParameter("type")))
-        destinationPage="confirmation.jsp";
-      else
-        destinationPage="details.jsp";
-      request.getRequestDispatcher(destinationPage).forward(request,response);
+  /**
+   * method for initial working
+   *
+   * @throws ServletException
+   *             if undesired condition occures
+   */
+  public void init() throws ServletException {
+    logger.fine("execution starts");
+    logger.fine("execution ends");
+  }
 
-   }
+  /**
+   * Get method for getting all the elements from the database
+   *
+   * @param request
+   *            http request
+   * @param response
+   *            http response
+   */
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-   /**
-    * Update a contact based on the parameters received
-    *
-    * @param request
-    *            http request
-    * @param response
-    *            http response
-    */
-   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      log.info("execution starts");
+    logger.log(INFO,"execution starts ",new Object[]{request,response});
 
-      Contact contact=new Contact(request.getParameter("first_name"),request.getParameter("last_name"),request.getParameter("phone_number"),request.getParameter("email"));
-      service.update(contact);
-      request.setAttribute("contact",contact);
-      log.info("execution ends");
-      request.getRequestDispatcher("details.jsp").forward(request,response);
-   }
+    Contact contact = service.findOne(request.getParameter("link"));
+    request.setAttribute("contact", contact);
+    // RequestDispatcher view;
+    String destinationPage;
+    if ("edit".equals(request.getParameter("type")))
+      destinationPage = "edit-contact.jsp";
+    else if ("delete".equals(request.getParameter("type")))
+      destinationPage = "confirmation.jsp";
+    else
+      destinationPage = "details.jsp";
+    logger.info("execution ends");
+    request.getRequestDispatcher(destinationPage).forward(request, response);
+
+  }
+
+  /**
+   * Update a contact based on the parameters received
+   *
+   * @param request
+   *            http request
+   * @param response
+   *            http response
+   */
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    logger.log(INFO,"execution starts",new Object[]{request,response});
+
+    Contact contact = new Contact(request.getParameter("first_name"), request.getParameter("last_name"),
+        request.getParameter("phone_number"), request.getParameter("email"));
+    service.update(contact);
+    request.setAttribute("contact", contact);
+    logger.info("execution ends");
+    request.getRequestDispatcher("details.jsp").forward(request, response);
+  }
 
 }

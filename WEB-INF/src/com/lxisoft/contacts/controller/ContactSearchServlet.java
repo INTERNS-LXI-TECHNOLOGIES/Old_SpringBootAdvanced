@@ -9,6 +9,10 @@ import java.util.*;
 import com.lxisoft.contacts.model.Contact;
 import com.lxisoft.contacts.service.ContactService;
 import java.util.logging.Logger;
+import java.util.logging.LogManager;
+import static java.util.logging.Level.FINE;
+import static java.util.logging.Level.WARNING;
+import static java.util.logging.Level.INFO;
 
 /**
  * Servlet class for working as a controller for getting all the contacts
@@ -19,42 +23,62 @@ import java.util.logging.Logger;
 public class ContactSearchServlet extends HttpServlet {
 
   /**
-  * Reference to Service class
-  */
-  private ContactService service=new ContactService();
+   * Reference to Service class
+   */
+  private ContactService service = new ContactService();
 
-    /**
+  /**
    * Logger instance to get log messages
    */
-   private static final Logger log = Logger.getLogger(ContactSearchServlet.class.getName());
+  private static final Logger logger = Logger.getLogger(ContactSearchServlet.class.getName());
 
-   /**
-    * method for initial working
-    *
-    * @throws ServletException
-    *             if undesired condition occures
-    */
-   public void init() throws ServletException {
-      log.info("execution starts");
-      log.info("execution ends");
-   }
+  /**
+   * method for initial working
+   *
+   * @throws ServletException
+   *             if undesired condition occures
+   */
 
-   /**
-    * Search contacts
-    *
-    * @param request
-    *            http request
-    * @param response
-    *            http response
-    */
-   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  /**
+   * Configures the logger object
+   */
+  static {
 
-      log.info("execution starts ");
-     
-      Set<Contact> contacts= service.findByNameLike(request.getParameter("search_key"));
-      request.setAttribute("contacts",contacts);
-      log.info("execution ends");
-      request.getRequestDispatcher("contact-list.jsp").forward(request,response);
+    try {
+      LogManager.getLogManager()
+          .readConfiguration(new FileInputStream("../webapps/contacts-v4/properties/logging.properties"));
+    }
 
-   }
+    catch (SecurityException e) {
+      logger.log(WARNING,"Exception caught",e);
+      e.printStackTrace();
+    } catch (IOException e) {
+      logger.log(WARNING,"Exception caught",e);
+      e.printStackTrace();
+    }
+  }
+
+  public void init() throws ServletException {
+    logger.fine("execution starts");
+    logger.fine("execution ends");
+  }
+
+  /**
+   * Search contacts
+   *
+   * @param request
+   *            http request
+   * @param response
+   *            http response
+   */
+  public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    logger.log(INFO,"execution starts ",new Object[]{request,response});
+
+    Set<Contact> contacts = service.findByNameLike(request.getParameter("search_key"));
+    request.setAttribute("contacts", contacts);
+    logger.log(INFO,"execution ends",contacts);
+    request.getRequestDispatcher("contact-list.jsp").forward(request, response);
+
+  }
 }

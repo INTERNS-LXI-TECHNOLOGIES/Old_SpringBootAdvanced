@@ -2,6 +2,11 @@ package com.lxisoft.contacts.model;
 
 //import required java libraries
 import java.util.*;
+import java.io.*;
+import java.util.logging.Logger;
+import java.util.logging.LogManager;
+import static java.util.logging.Level.FINE;
+import static java.util.logging.Level.WARNING;
 
 /**
  * An abstraction to capture details of each user/person. It implements
@@ -11,6 +16,7 @@ import java.util.*;
  */
 
 public class Contact implements Comparable<Contact> {
+	
 	/**
 	 * firstName,lastName,phoneNumber and email.
 	 */
@@ -28,12 +34,37 @@ public class Contact implements Comparable<Contact> {
 	 * @param email
 	 *            email of person
 	 */
+
+	private static final Logger logger = Logger.getLogger(Contact.class.getName());
+	/**
+	 * Configures the logger object
+	 */
+	static {
+
+		try {
+			LogManager.getLogManager()
+					.readConfiguration(new FileInputStream("../webapps/contacts-v4/properties/logging.properties"));
+		}
+
+		catch (SecurityException e) {
+
+			logger.log(WARNING,"Caught Exception",e);
+			e.printStackTrace();
+		} catch (IOException e) {
+			logger.log(WARNING,"Caught Exception",e);
+			e.printStackTrace();
+		}
+	}
+
 	public Contact(String firstName, String lastName, String phoneNumber, String email) {
 
+		logger.log(FINE,"starts constructor",new Object[] {firstName,lastName,phoneNumber,email});
 		this.firstName = firstName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.lastName = lastName;
+		logger.fine("ends constructor");
+
 	}
 
 	/**
@@ -43,6 +74,7 @@ public class Contact implements Comparable<Contact> {
 	 *            contact information of person
 	 */
 	public int compareTo(Contact contact) {
+		logger.log(FINE,"starts and ends execution",new Object[]{this,contact});
 		return (this.firstName + this.lastName).compareToIgnoreCase(contact.firstName + contact.lastName);
 	}
 
@@ -54,7 +86,7 @@ public class Contact implements Comparable<Contact> {
 	 * @see Object
 	 */
 	public boolean equals(Object contact) {
-
+		logger.log(FINE,"starts and ends execution",new Object[]{this,contact});
 		return (this.phoneNumber == ((Contact) contact).phoneNumber);
 	}
 
@@ -65,7 +97,7 @@ public class Contact implements Comparable<Contact> {
 	 *            firstName of a person
 	 */
 	public void setFirstName(String firstName) {
-
+		logger.log(FINE,"setter",firstName);
 		this.firstName = firstName;
 
 	}
@@ -77,7 +109,7 @@ public class Contact implements Comparable<Contact> {
 	 *            firstName of a person
 	 */
 	public void setLastName(String lastName) {
-
+		logger.log(FINE,"setter",lastName);
 		this.lastName = lastName;
 
 	}
@@ -90,6 +122,7 @@ public class Contact implements Comparable<Contact> {
 	 */
 	public void setPhoneNumber(String phoneNumber) {
 
+		logger.log(FINE,"setter",phoneNumber);
 		this.phoneNumber = phoneNumber;
 
 	}
@@ -101,6 +134,8 @@ public class Contact implements Comparable<Contact> {
 	 *            email of a person
 	 */
 	public void setEmail(String email) {
+
+		logger.log(FINE,"setter",email);
 		this.email = email;
 	}
 
@@ -111,6 +146,7 @@ public class Contact implements Comparable<Contact> {
 	 */
 	public String getFirstName() {
 
+		logger.log(FINE,"getter",this.firstName);
 		return this.firstName;
 	}
 
@@ -121,6 +157,7 @@ public class Contact implements Comparable<Contact> {
 	 */
 	public String getLastName() {
 
+		logger.log(FINE,"getter",this.lastName);
 		return this.lastName;
 
 	}
@@ -132,6 +169,7 @@ public class Contact implements Comparable<Contact> {
 	 */
 	public String getPhoneNumber() {
 
+		logger.log(FINE,"getter",this.phoneNumber);
 		return this.phoneNumber;
 
 	}
@@ -142,6 +180,8 @@ public class Contact implements Comparable<Contact> {
 	 * @return email email of a person
 	 */
 	public String getEmail() {
+
+		logger.log(FINE,"getter",this.email);
 		return this.email;
 	}
 
@@ -150,7 +190,8 @@ public class Contact implements Comparable<Contact> {
 	 */
 	public String toString() {
 
-		return (this.firstName +" "+ this.lastName);
+		logger.log(FINE,"toString",this.firstName + " " + this.lastName);
+		return (this.firstName + " " + this.lastName);
 
 	}
 }
