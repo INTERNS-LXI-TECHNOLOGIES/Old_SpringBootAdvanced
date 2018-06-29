@@ -28,10 +28,9 @@ public class ContactServlet2 extends HttpServlet
 	
 	
 	 private DataSource dataSource;
- protected  void  doGet(HttpServletRequest request, HttpServletResponse response)  
+     protected  void  doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException  {
 				String names=request.getParameter("NAMES");
-				
 				
 				try {
     
@@ -87,9 +86,7 @@ public class ContactServlet2 extends HttpServlet
    RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
    rd.forward(request, response);
    
-   
-    
-			}
+   }
 			
 			
 			

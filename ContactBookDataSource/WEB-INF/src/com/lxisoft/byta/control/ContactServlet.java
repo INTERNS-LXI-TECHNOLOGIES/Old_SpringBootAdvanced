@@ -18,7 +18,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException.*;
 import javax.sql.DataSource;
-
+import java.util.logging.Logger;
+import org.apache.log4j.*;
 
 import java.util.*;
 
@@ -27,7 +28,8 @@ import java.util.*;
 public class ContactServlet extends HttpServlet
 {
 	
-	
+	//Logger log = Logger.getLogger("com.lxisoft.byta.control.*");
+	 private static Logger log = Logger.getLogger("ContactServlet");
 			 
     private DataSource dataSource;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -43,8 +45,8 @@ public class ContactServlet extends HttpServlet
          String phonenos=request.getParameter("phoneno");
          String places=request.getParameter("place");
 		 
-		 System.out.println(names+"  "+phonenos+"   "+places);
-		
+		    log.debug("Show DEBUG message");
+		//names+"  "+phonenos+"   "+places
 			 try {
 				 Context initContext = new InitialContext();
 				 
@@ -87,11 +89,10 @@ System.out.println("CONNECTION WORKS OR nOT 6");
    rd.forward(request, response); */
   }
 		 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)  
+protected void doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException { 	
 			
-			
-			      String SearchName=request.getParameter("searchName"); 
+			String SearchName=request.getParameter("searchName"); 
 	
                  try {
 					 // envContext = (Context) initContext.lookup("java:comp/env");
