@@ -21,6 +21,7 @@ public class ContactServlet extends HttpServlet {
 	static Logger LOGGER=Logger.getLogger(ContactServlet.class.getName());
 	
 	static{
+		
 		try{
 			LogManager.getLogManager().readConfiguration(new FileInputStream("E:/lxi softwares/apache-tomcat-7.0.72/webapps/contact/contact.properties"));
 		}

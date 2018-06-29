@@ -32,6 +32,32 @@
 	<res-auth>container</res-auth>
    </resource-ref>
    
+    <security-constraint>
+      <web-resource-collection>
+	   <web-resource-name>contact</web-resource-name>
+          <url-pattern>/createcontact.jsp/*</url-pattern>
+		  <url-pattern>/searchcontact.jsp/*</url-pattern>
+		  <url-pattern>/updatecontact.jsp/*</url-pattern>
+		  <url-pattern>/deletecontact.jsp/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+      </web-resource-collection>
+	   <auth-constraint>
+            <role-name>user</role-name>
+       </auth-constraint>
+  </security-constraint>
    
+   <security-role>
+      <role-name>user</role-name>
+   </security-role>
+   
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <form-login-config>
+         <form-login-page>/login.jsp</form-login-page>
+       </form-login-config>
+   </login-config>
+  
+    
    
    </web-app>
