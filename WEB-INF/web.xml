@@ -10,7 +10,14 @@
 <url-pattern>/sampleUrl</url-pattern>
 </servlet-mapping>
 
- 
+  <resource-ref>
+  <description>Primary database</description>
+  <res-ref-name>jdbc/contactServlet</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+  <res-auth>container</res-auth>
+   </resource-ref>
+
+
     <security-constraint>
       <web-resource-collection>
 	   <web-resource-name>ContactServletV1.0.1</web-resource-name>

@@ -1,17 +1,18 @@
 package com.lxisoft.repository;
 import java.sql.*;
 import com.lxisoft.model.*;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 
 public class ContactRepo
 {
-	static final String JDBC_DRIVER= "com.mysql.jdbc.Driver";  
-      static final String DB_URL="jdbc:mysql://localhost/contactServlet";
-
-      static final String USER = "root";
-      static final String PASS = "root";
 
       static Connection connection;
       private PreparedStatement stmt;
+      private Context context;
+      private DataSource dataSource;
 
 
 
@@ -23,9 +24,10 @@ public void save(Contact contact)
         try {
 
          // Open a connection
-         Class.forName("com.mysql.jdbc.Driver");
-         
-         connection = DriverManager.getConnection(DB_URL, USER, PASS);
+         context = new InitialContext();
+         dataSource = (DataSource) context.lookup("java:comp/env/jdbc/contactServlet");
+         connection = dataSource.getConnection();
+       
 
          // Execute SQL query
          stmt = connection.prepareStatement("insert into contact values(?,?,?)");
@@ -62,9 +64,13 @@ public void save(Contact contact)
      
       try{
          
-   
+   /*
          Class.forName("com.mysql.jdbc.Driver");
-         connection = DriverManager.getConnection(DB_URL, USER, PASS);
+         connection = DriverManager.getConnection(DB_URL, USER, PASS);*/
+          context = new InitialContext();
+         dataSource = (DataSource) context.lookup("java:comp/env/jdbc/contactServlet");
+         connection = dataSource.getConnection();
+       
          stmt=connection.prepareStatement("select * from contact where name=?");
          stmt.setString(1,name);
          
