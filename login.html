@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create contact</title>
+	<link rel="stylesheet" type="text/css" href="css\bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+	<meta charset="UTF-8">
+</head>
+<body>
+	<div class="container text-center" style="margin-top: 50px">
+	<div class="row">
+	<div class="col-sm-2">
+	</div>
+	<form id="form1" class="form-horizontal form_style col-sm-8" action="j_security_check" method="POST">
+		<label class="col-sm-3">username</label>
+		<input class="col-sm-5" type="text" name="j_username"  pattern="[^,]+" required=""><br>
+		<label class="col-sm-3">password</label>
+		<input class="col-sm-5" type="password" name="j_password" pattern="[^,]+" required=""><br>
+		<input type="submit" value=submit>
+	</form>
+	</div>
+	</div>
+</body>
+</html>

@@ -9,8 +9,9 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<%@ page import="java.util.*,java.io.*"%>
+	<%@ page import="java.util.*,java.io.*,com.lxisoft.contacts.model.Contact"%>
 	<%	
+		Contact contact=new Contact("","","","");
 		String language= (String)session.getAttribute("language");
         String resourcePath=((language==null) || language.equals("ENG"))?"../webapps/contacts-v4/resource/english.properties":"../webapps/contacts-v4/resource/malayalam.properties";
 	    language=((language==null) || language.equals("ENG"))?"മലയാളം":"ENG";
@@ -29,13 +30,13 @@
 	</div>
 	<form id="form1" class="form-horizontal form_style col-sm-8" action="getAll" method="POST">
 		<label class="col-sm-3"><%= props.getProperty("first_name")%></label>
-		<input class="col-sm-5" type="text" name="first_name"  pattern="[^,]+" required=""><br>
+		<input class="col-sm-5" type="text" name="first_name"  pattern="[^,]+" required="" value=<%=contact.getFirstName()%>><br>
 		<label class="col-sm-3"><%= props.getProperty("last_name")%></label>
-		<input class="col-sm-5" type="text" name="last_name" pattern="[^,]+" required=""><br>
+		<input class="col-sm-5" type="text" name="last_name" pattern="[^,]+" required="" value=<%=contact.getLastName()%>><br>
 		<label class="col-sm-3"><%= props.getProperty("phone_number")%></label>
-		<input class="col-sm-5" type="tel" name="phone_number" pattern="[6789][0-9]{9}" required="" placeholder="+91"><br>
+		<input class="col-sm-5" type="tel" name="phone_number" pattern="[6789][0-9]{9}" required="" placeholder="+91" value=<%=contact.getPhoneNumber()%>><br>
 		<label class="col-sm-3"><%= props.getProperty("email")%>&nbsp;</label>
-		<input class="col-sm-5" type="email" name="email" checked="checked" pattern="[^,]+" required="" value="              @lxisoft.com"><br><br>
+		<input class="col-sm-5" type="email" name="email" checked="checked" pattern="[^,]+" required="" value=<%=contact.getEmail()%>"              @lxisoft.com"><br><br>
 		<input type="submit" value=<%= props.getProperty("save")%>>
 	</form>
 	</div>
