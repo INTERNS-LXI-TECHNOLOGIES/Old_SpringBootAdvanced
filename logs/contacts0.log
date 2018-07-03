@@ -1,6 +1,0 @@
-Jul 03, 2018 12:51:15 PM com.lxisoft.contacts.repository.ContactRepository findAll
-INFO: execution ends
-Jul 03, 2018 12:51:15 PM com.lxisoft.contacts.service.ContactService findAll
-INFO: execution ends
-Jul 03, 2018 12:51:15 PM com.lxisoft.contacts.controller.ContactCRServlet doGet
-INFO: execution ends
