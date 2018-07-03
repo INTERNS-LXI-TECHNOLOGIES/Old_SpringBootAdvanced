@@ -1,30 +1,50 @@
+/**
+*@author=anjali
+*this class updates and delete contacts
+*/
+
+
 package com.lxisoft.byta.controller;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import com.lxisoft.byta.service.*;
+import com.lxisoft.byta.model.*;
 
 public class ContactUpdateServlet extends HttpServlet{
 
+	/**
+	*this method get contact name and updated number from view page and pass to contact service for updation 
+	*
+	*/
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 			
 		String contactName=request.getParameter("update");
 		String phone=request.getParameter("newPhonenumber");
 		Long newPhone=Long.parseLong(phone);
 		
+		ContactDto contactDto=new ContactDto(contactName,newPhone,null,null);
+		
 		ContactService contactService=new ContactService();
-		contactService.updateContact(contactName,newPhone);
+		contactService.updateContact(contactDto);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/updatesuccess.jsp");
 		rd.forward(request,response);
 		
 	}	
 	
+	/**
+	*this method get contact name from view page, pass to contact service to delete the contact
+	*
+	*/
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 		
 		String name=request.getParameter("delete");
+		
+		ContactDto contactDto=new ContactDto(name,0L,null,null);
+		
 		ContactService contactService=new ContactService();
-		contactService.deleteContact(name);
+		contactService.deleteContact(contactDto);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/deletesuccess.jsp");
 		rd.forward(request,response);

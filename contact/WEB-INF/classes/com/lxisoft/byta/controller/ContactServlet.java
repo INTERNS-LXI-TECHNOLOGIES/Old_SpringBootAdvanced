@@ -1,3 +1,10 @@
+/**
+*@author=Anjali
+*servlet class handles saving new contact and searching
+*
+*/
+
+
 package com.lxisoft.byta.controller;
 
 import com.lxisoft.byta.model.Contact;
@@ -30,6 +37,10 @@ public class ContactServlet extends HttpServlet {
 		}
 	}
 	
+	/**
+	*this method post contact details from view page, generate dto and pass to contact service 
+	*
+	*/
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		LOGGER.info("into post method");
@@ -46,25 +57,35 @@ public class ContactServlet extends HttpServlet {
 		
 		contactService.save(contactDto);
 		
+		request.setAttribute("contactname",contactDto.getName());
+		
 		RequestDispatcher rd=request.getRequestDispatcher("/success.jsp");
 		rd.forward(request,response);
 	}
 
+	/**
+	*this method get contact to search from view page, generate dto and pass to view page
+	*
+	*/
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 		
 		LOGGER.info("into get method");
 		
 		String searchName=request.getParameter("searchbyname");
 		ContactService contactService=new ContactService();
-		ContactDto contactDto=contactService.findContactByName(searchName);
+		//ContactDto contactDto=contactService.findContactByName(searchName);
 		
-		/*LOGGER.setLevel(Level.INFO);
+		ContactDto contactDTO=new ContactDto(searchName,0L,null,null);
 		
-		FileHandler fh=new FileHandler("E:/contactlog.txt");
-		LOGGER.addHandler(fh);
+		ContactDto contactDto=contactService.findContactByName(contactDTO);
 		
-		LOGGER.info("sample info");
-		LOGGER.warning("warning info");*/
+		ServletConfig config=getServletConfig();
+		String paramval=config.getInitParameter("paramname");
+		System.out.println(paramval);
+		
+		ServletContext context=getServletContext();
+		String contextvalue=context.getInitParameter("contextname");
+		System.out.println(contextvalue);
 
 		request.setAttribute("contactDto",contactDto);	
 		

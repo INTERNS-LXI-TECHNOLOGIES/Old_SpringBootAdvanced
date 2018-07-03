@@ -12,10 +12,18 @@
 	<table style="with: 50%">
 	<tr><td>
 	
+	<%
+		String name=(String)request.getAttribute("contactname");
+	
+	%>
 	   
 	  <!--session.setAttribute("sessionid",name);-->
 	   
-<a>Successfully saved !!! </a></td></tr>
+<a>Successfully saved !!! </a>
+
+Welcome <%= name%>
+</td></tr>
+
 </table>
 </body>
 </html>

@@ -26,22 +26,22 @@ String email=props.getProperty("email");
 			<table style="with: 50%">
 				<tr>
 					<td> <%=name%> </td>
-					<td><input type="text" name="name" /></td>
+					<td><input type="text" name="name" required/></td>
 				</tr>
 				
 				<tr>
 					<td><%=phone%></td>
-					<td><input type="text" name="phoneNumber" /></td>
+					<td><input type="text" name="phoneNumber" pattern="[789][0-9]{9}" required/></td>
 				</tr>
 				
 				<tr>
 					<td><%=address%></td>
-					<td><input type="text" name="address" /></td>
+					<td><input type="text" name="address" required/></td>
 				</tr>
 				
 				<tr>
 					<td><%=email%></td>
-					<td><input type="text" name="email" /></td>
+					<td><input type="email" name="email" required /></td>
 				</tr>
 			 </table>	
 			<input type="submit" value="save contact" /></form>

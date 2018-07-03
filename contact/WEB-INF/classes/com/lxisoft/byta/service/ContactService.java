@@ -1,3 +1,9 @@
+/**
+*@author=Anjali
+*service class handles saving data through repository
+*
+*/
+
 package com.lxisoft.byta.service;
 import com.lxisoft.byta.repository.*;
 import com.lxisoft.byta.model.*;
@@ -25,8 +31,10 @@ public class ContactService{
 		
 	}
 	
-	
-	
+	/**
+	*this method save the contact through repository
+	*
+	*/
 	public void save(ContactDto contactDto){
 		
 			LOGGER.fine("into save in service");
@@ -38,11 +46,16 @@ public class ContactService{
 		
 	}
 	
-	public ContactDto findContactByName(String name){
+	
+	/**
+	*this method search the contact from repository using search name
+	*
+	*/
+	public ContactDto findContactByName(ContactDto con){
 		
 		LOGGER.warning("into findContactByName in service");
 		
-		Contact contact=new ContactRepository().findContactByName(name);
+		Contact contact=new ContactRepository().findContactByName(con.getName());
 		
 		ContactDto contactDto=new ContactDto(contact.getName(),contact.getPhoneNumber(),contact.getAddress(),contact.getEmail());
 		
@@ -50,18 +63,29 @@ public class ContactService{
 		return contactDto;	
 	}
 	
-	public void updateContact(String name,long phoneNumber){
+	
+	/**
+	*this method update the contact through repository
+	*
+	*/
+	public void updateContact(ContactDto contactDto){
 		
-		Contact contact=new ContactRepository().findContactByName(name);
-		contact.setPhoneNumber(phoneNumber);
+		Contact contact=new ContactRepository().findContactByName(contactDto.getName());
+		contact.setPhoneNumber(contactDto.getPhoneNumber());
+		/* Contact contact=new Contact(contactDto.getName(),contactDto.getPhoneNumber(),contactDto.getAddress(),contactDto.getEmail()); */
 		
 		new ContactRepository().updateContact(contact);
 		
 	}
 	
-	public void deleteContact(String name){
+	
+	/**
+	*this method delete the contact from repository
+	*
+	*/
+	public void deleteContact(ContactDto contactDto){
 		
-		Contact contact=new ContactRepository().findContactByName(name);
+		Contact contact=new ContactRepository().findContactByName(contactDto.getName());
 		
 		new ContactRepository().deleteContact(contact);
 		

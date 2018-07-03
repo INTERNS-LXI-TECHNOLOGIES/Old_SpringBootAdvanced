@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <web-app>
  
-  <servlet>
+		<context-param>
+			<param-name>contextname</param-name>
+			<param-value>contextvalue</param-value>
+		</context-param>
+		
+  <servlet>	
       <servlet-name>ContactServlet</servlet-name>
       <servlet-class>com.lxisoft.byta.controller.ContactServlet</servlet-class>
+	  <init-param>
+			<param-name>paramname</param-name>
+			<param-value>paramvalue</param-value>
+		</init-param>
+	  
    </servlet>
  
    <!-- Note: All <servlet> elements MUST be grouped together and

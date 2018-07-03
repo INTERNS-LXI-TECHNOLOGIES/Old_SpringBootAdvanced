@@ -1,3 +1,9 @@
+/**
+*@author=Anjali
+*repository class to save,find,upadate and delete datas from database
+*
+*/
+
 package com.lxisoft.byta.repository;
 import java.sql.*;
 import javax.sql.*;
@@ -17,6 +23,9 @@ public class ContactRepository{
 	
 	Context ic; 
    
+   /*
+   *method inserting datas into database using context lookup
+   */
 	public void save(Contact contact){
 		
 		Connection con;
@@ -43,6 +52,9 @@ public class ContactRepository{
 		
 	}
 	
+	 /*
+   *method searching datas from database using context lookup
+   */
 	public Contact findContactByName(String name){
 		
 		Connection con;
@@ -78,6 +90,10 @@ public class ContactRepository{
 
 	}
 	
+	
+	/*
+	 *method updating datas from database using context lookup
+	*/
 	public void updateContact(Contact contact){
 		 
 		Connection con;
@@ -87,8 +103,6 @@ public class ContactRepository{
 			
 			ic=new InitialContext();
 			ds = (DataSource) ic.lookup("java:/comp/env/jdbc/contactinfo");
-	
-			System.out.println(contact.getName()+"\n"+contact.getPhoneNumber());
 			
 			con=ds.getConnection();
 			stmt=con.prepareStatement("update contactdetails set phoneNumber=? where name=?");
@@ -103,6 +117,10 @@ public class ContactRepository{
 		
 	}
 
+	
+	 /*
+   *method deleting datas from database using context lookup
+   */
 	public void deleteContact(Contact contact){
 		 
 		Connection con;
