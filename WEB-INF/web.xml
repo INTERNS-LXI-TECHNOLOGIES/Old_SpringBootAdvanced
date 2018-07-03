@@ -43,12 +43,12 @@
 
   <servlet-mapping>
    <servlet-name>Contact-Search-Servlet</servlet-name>
-   <url-pattern>/index.html</url-pattern>
+   <url-pattern>/secure/index.html</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
    <servlet-name>Contact-Search-Servlet</servlet-name>
-   <url-pattern>/contacts</url-pattern>
+   <url-pattern>/secure/contacts</url-pattern>
   </servlet-mapping>
 
 
@@ -70,7 +70,7 @@
 
   <servlet-mapping>
    <servlet-name>Contact-Delete-Servlet</servlet-name>
-   <url-pattern>/contactDeletForm</url-pattern>
+   <url-pattern>/secure/contactDeletForm</url-pattern>
   </servlet-mapping>
 
 
@@ -90,12 +90,22 @@
   
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>Contact_App (for humans)</web-resource-name>
-      <url-pattern>/</url-pattern>
+      <web-resource-name>Contact_App (for persons)</web-resource-name>
+      <url-pattern>/secure/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
 	   <role-name>admin</role-name>
        <role-name>user1</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Contact_App (for admin)</web-resource-name>
+      <url-pattern>/secure/contactDeletForm</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+     <role-name>admin</role-name>
     </auth-constraint>
   </security-constraint>
   
@@ -108,24 +118,30 @@
  <login-config>
             <auth-method>FORM</auth-method>
          <form-login-config>
-                  <form-login-page>/login.html</form-login-page>
+                  <form-login-page>/loginForm1.html</form-login-page>
                  
           </form-login-config>
-     </login-config>
+ </login-config>
+ 
+ <error-page>
+    <error-code>401</error-code>
+    <location>/401.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/403.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.jsp</location>
+  </error-page>
 	 
- <security-role>
-    <description>
-      The role that is required to access the HTML Manager pages
-    </description>
-    <role-name>admin</role-name>
-  </security-role>
-  <security-role>
-    <description>
-      The role that is required to access the text Manager pages
-    </description>
-    <role-name>user1</role-name>
-  </security-role>
-
+ <!-- <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+ -->
 
 
 
