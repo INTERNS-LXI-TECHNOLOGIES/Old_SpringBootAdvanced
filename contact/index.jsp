@@ -6,8 +6,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 </head>
-<body>			
+<body>	
+
+        		
+	<%
+		String userName=(String)request.getParameter("j_username");
+		String password=(String)request.getParameter("j_password");
 	
+	%>
+	
+	
+	
+<table border = "0">
+            <tr>
+               <td> <%=userName  %></td>
+               <td> <%=password  %></td>
+			   
+            </tr>
+            
+         </table>
 	<form action="createcontact.jsp" >
 	
 	 <input type="submit" value="create contact" />

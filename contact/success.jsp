@@ -13,7 +13,7 @@
 	<tr><td>
 	
 	<%
-		String name=(String)request.getAttribute("contactname");
+		ContactDto contactDto=(ContactDto)request.getAttribute("contactDto");
 	
 	%>
 	   
@@ -21,7 +21,6 @@
 	   
 <a>Successfully saved !!! </a>
 
-Welcome <%= name%>
 </td></tr>
 
 </table>

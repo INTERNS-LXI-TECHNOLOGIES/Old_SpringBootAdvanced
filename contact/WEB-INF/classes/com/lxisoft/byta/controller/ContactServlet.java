@@ -57,7 +57,7 @@ public class ContactServlet extends HttpServlet {
 		
 		contactService.save(contactDto);
 		
-		request.setAttribute("contactname",contactDto.getName());
+		request.setAttribute("contactDto",contactDto);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("/success.jsp");
 		rd.forward(request,response);
