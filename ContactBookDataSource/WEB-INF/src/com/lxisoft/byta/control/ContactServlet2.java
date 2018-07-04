@@ -25,12 +25,11 @@ import javax.sql.DataSource;
 import java.util.*;
 public class ContactServlet2 extends HttpServlet
 {
-	
-	
-	 private DataSource dataSource;
+	private DataSource dataSource;
      protected  void  doGet(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException  {
 				String names=request.getParameter("NAMES");
+				 System.out.println("OLD NAME...................."+names);
 				
 				try {
     

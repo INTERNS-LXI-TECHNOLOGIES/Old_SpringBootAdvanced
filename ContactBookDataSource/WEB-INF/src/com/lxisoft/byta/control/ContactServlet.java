@@ -29,7 +29,7 @@ public class ContactServlet extends HttpServlet
 {
 	
 	//Logger log = Logger.getLogger("com.lxisoft.byta.control.*");
-	 private static Logger log = Logger.getLogger("ContactServlet");
+	 private static Logger log = Logger.getLogger(ContactServlet.class.getName());
 			 
     private DataSource dataSource;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)  
@@ -45,12 +45,13 @@ public class ContactServlet extends HttpServlet
          String phonenos=request.getParameter("phoneno");
          String places=request.getParameter("place");
 		 
-		    log.debug("Show DEBUG message");
+		    log.info("Show DEBUG message");
 		//names+"  "+phonenos+"   "+places
 			 try {
 				 Context initContext = new InitialContext();
 				 
-				 System.out.println("CONNECTION WORKS OR nOT 1");
+				 System.out.println("sysout CONNECTION WORKS OR nOT 1");
+				 log.info("log CONNECTION WORKS OR nOT 1");
 				 Context envContext = (Context) initContext.lookup("java:comp/env");
             dataSource = (DataSource)envContext.lookup("jdbc/Contacts"); 
 			 System.out.println("CONNECTION WORKS OR nOT 2");
