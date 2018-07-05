@@ -41,14 +41,19 @@
 	<servlet-class>com.lxisoft.contactApp.controller.ContactSearchServlet</servlet-class>
   </servlet>
 
-  <servlet-mapping>
+  <!-- <servlet-mapping>
    <servlet-name>Contact-Search-Servlet</servlet-name>
    <url-pattern>/secure/index.html</url-pattern>
+  </servlet-mapping> -->
+  
+   <servlet-mapping>
+   <servlet-name>Contact-Search-Servlet</servlet-name>
+   <url-pattern>/secure</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
    <servlet-name>Contact-Search-Servlet</servlet-name>
-   <url-pattern>/secure/contacts</url-pattern>
+   <url-pattern>/contacts</url-pattern>
   </servlet-mapping>
 
 
@@ -68,9 +73,14 @@
   <servlet-class>com.lxisoft.contactApp.controller.ContactDeleteServlet</servlet-class>
   </servlet>
 
-  <servlet-mapping>
+  <!-- <servlet-mapping>
    <servlet-name>Contact-Delete-Servlet</servlet-name>
    <url-pattern>/secure/contactDeletForm</url-pattern>
+  </servlet-mapping> -->
+
+  <servlet-mapping>
+   <servlet-name>Contact-Delete-Servlet</servlet-name>
+   <url-pattern>/contactDeletForm</url-pattern>
   </servlet-mapping>
 
 
@@ -102,7 +112,7 @@
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>Contact_App (for admin)</web-resource-name>
-      <url-pattern>/secure/contactDeletForm</url-pattern>
+      <url-pattern>/contactDeletForm</url-pattern>
     </web-resource-collection>
     <auth-constraint>
      <role-name>admin</role-name>
@@ -136,12 +146,13 @@
     <location>/404.jsp</location>
   </error-page>
 	 
- <!-- <welcome-file-list>
+  <welcome-file-list>
+        <welcome-file>secure</welcome-file>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
- -->
+ 
 
 
 

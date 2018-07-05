@@ -2,79 +2,79 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313716</millis>
-  <sequence>113</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329192</millis>
+  <sequence>202</sequence>
   <logger>com.lxisoft.contactApp.controller.ContactSearchServlet</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.controller.ContactSearchServlet</class>
   <method>doGet</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************ContactSearchServlet**********************doGet---------&gt; start</message>
 </record>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313717</millis>
-  <sequence>114</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329193</millis>
+  <sequence>203</sequence>
   <logger>com.lxisoft.contactApp.service.impl.ContactServiceImpl</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.service.impl.ContactServiceImpl</class>
   <method>findAll</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************ContactServiceImpl**********************findAll---------&gt;start</message>
 </record>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313719</millis>
-  <sequence>115</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329194</millis>
+  <sequence>204</sequence>
   <logger>com.lxisoft.contactApp.repository.ContactRepository</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.repository.ContactRepository</class>
   <method>findAll</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************ContactRepository**********************findAll---------&gt; start</message>
 </record>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313730</millis>
-  <sequence>116</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329204</millis>
+  <sequence>205</sequence>
   <logger>com.lxisoft.contactApp.repository.ContactRepository</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.repository.ContactRepository</class>
   <method>findAll</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************ContactRepository**********************findAll---------&gt; end</message>
 </record>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313733</millis>
-  <sequence>117</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329213</millis>
+  <sequence>206</sequence>
   <logger>com.lxisoft.contactApp.utility.PropertiesFileUtility</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.utility.PropertiesFileUtility</class>
   <method>getPropertyObject</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************PropertiesFileUtility**********************newPropertyObject---------&gt; start</message>
 </record>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313739</millis>
-  <sequence>118</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329215</millis>
+  <sequence>207</sequence>
   <logger>com.lxisoft.contactApp.utility.PropertiesFileUtility</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.utility.PropertiesFileUtility</class>
   <method>getPropertyObject</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************PropertiesFileUtility**********************newPropertyObject---------&gt; end</message>
 </record>
 <record>
-  <date>2018-07-03T16:41:53</date>
-  <millis>1530616313741</millis>
-  <sequence>119</sequence>
+  <date>2018-07-04T10:45:29</date>
+  <millis>1530681329216</millis>
+  <sequence>208</sequence>
   <logger>com.lxisoft.contactApp.controller.ContactSearchServlet</logger>
   <level>INFO</level>
   <class>com.lxisoft.contactApp.controller.ContactSearchServlet</class>
   <method>doGet</method>
-  <thread>29</thread>
+  <thread>22</thread>
   <message>********************ContactSearchServlet**********************doGet---------&gt; End</message>
 </record>

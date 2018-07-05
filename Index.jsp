@@ -70,7 +70,7 @@
  		<a href="ContactsForm?type=edit&first_name=<%=contact.getFirstName()%>">edit</a></p></div>
  -->    <div id="edit_delete">
 				<a href="contactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><span title=<%=p.getProperty("editContact")%>><img class="align" src="Images\edit13.png"></span></a>
-				<a href="secure\contactDeletForm?first_name=<%=contact.getFirstName()%>"><span title=<%=p.getProperty("removeContact")%>><img class="align" src="Images\remove1.png"></span></a>
+				<a href="contactDeletForm?first_name=<%=contact.getFirstName()%>"><span title=<%=p.getProperty("removeContact")%>><img class="align" src="Images\remove1.png"></span></a>
         </div>
 
 

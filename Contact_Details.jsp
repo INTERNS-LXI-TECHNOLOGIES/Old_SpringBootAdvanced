@@ -38,9 +38,9 @@
   <div id="option_icons">
 		<a href="contactsForm?type=edit&first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\edit132.png" alt="edit_contact" title=<%=p.getProperty("editContact")%>></a>
 		
-		<a href="secure\contactDeletForm?first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\delete131.png" alt="remove_button" title=<%=p.getProperty("removeContact")%>></a>
+		<a href="contactDeletForm?first_name=<%=contact.getFirstName()%>"><img class="align" src="Images\delete131.png" alt="remove_button" title=<%=p.getProperty("removeContact")%>></a>
 
-		<a href="secure\contacts"><img class="align" src="Images\back121.png" alt="back_button" title=<%=p.getProperty("back")%>></a>
+		<a href="contacts"><img class="align" src="Images\back121.png" alt="back_button" title=<%=p.getProperty("back")%>></a>
 
   </div>
 
