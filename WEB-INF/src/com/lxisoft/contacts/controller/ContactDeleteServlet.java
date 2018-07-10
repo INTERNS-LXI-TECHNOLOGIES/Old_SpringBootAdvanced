@@ -43,10 +43,10 @@ public class ContactDeleteServlet extends HttpServlet {
     }
 
     catch (SecurityException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught", e);
       e.printStackTrace();
     } catch (IOException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught", e);
       e.printStackTrace();
     }
   }
@@ -72,11 +72,11 @@ public class ContactDeleteServlet extends HttpServlet {
    */
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    logger.log(INFO,"execution starts",new Object[]{request,response});
+    logger.log(INFO, "execution starts with request:{0} and response{1}", new Object[] { request, response });
 
     service.delete(request.getParameter("link"));
     logger.info("execution ends");
-    response.sendRedirect("getAll");
+    response.sendRedirect("done.jsp");
 
   }
 }

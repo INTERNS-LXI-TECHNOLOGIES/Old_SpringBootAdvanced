@@ -13,6 +13,7 @@ import java.util.logging.LogManager;
 import static java.util.logging.Level.FINE;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Level.INFO;
+
 /**
  * Servlet class for working as a controller for getting all the contacts
  *
@@ -41,10 +42,10 @@ public class ContactRUServlet extends HttpServlet {
     }
 
     catch (SecurityException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught", e);
       e.printStackTrace();
     } catch (IOException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught", e);
       e.printStackTrace();
     }
   }
@@ -70,7 +71,7 @@ public class ContactRUServlet extends HttpServlet {
    */
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    logger.log(INFO,"execution starts ",new Object[]{request,response});
+    logger.log(INFO, "execution starts with request:{0} and response{1}", new Object[] { request, response });
 
     Contact contact = service.findOne(request.getParameter("link"));
     request.setAttribute("contact", contact);
@@ -96,7 +97,7 @@ public class ContactRUServlet extends HttpServlet {
    *            http response
    */
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    logger.log(INFO,"execution starts",new Object[]{request,response});
+    logger.log(INFO, "execution starts with request:{0} and response{1}", new Object[] { request, response });
 
     Contact contact = new Contact(request.getParameter("first_name"), request.getParameter("last_name"),
         request.getParameter("phone_number"), request.getParameter("email"));

@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ page errorPage="error.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <head>
 <title>Home</title>
 <link rel="stylesheet" type="text/css" href="css\bootstrap.css">
@@ -32,15 +31,12 @@
 	</div>
 
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8 text-center">
-				<div class="dialog"><%=props.getProperty("delete_message")%></div>
-				<br> <a class="dialog-yes"
-					href="delete?link=<%=contact.getPhoneNumber()%>"><%=props.getProperty("yes")%></a>
-				<a class="dialog-no" href="getAll"><%=props.getProperty("no")%></a>
+		<div class="text-center no-padding">
+			<img src="Images\done1.gif" class="done">
+			<%
+				response.setHeader("Refresh", "3;url=getAll");
+			%>
 
-			</div>
 		</div>
 	</div>
 

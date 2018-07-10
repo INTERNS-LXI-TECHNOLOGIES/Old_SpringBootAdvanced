@@ -6,6 +6,9 @@ h2 {
 	font-weight: bold;
 	color: #ffcce7;
 }
+h1 {
+	color: #ffcce7;
+}
 div.top {
 	background-color: #ff1493;
 	color: #fff;
@@ -125,7 +128,7 @@ div.top {
 	font-size: 18px;
 }
 .dialog-no {
-	padding: 5px 15px;
+	padding: 3.9px 12px 3.5px;
 	border: 1px solid #3385ff;
 	border-radius: 3px;
 	/*color: #e6f0ff;*/
@@ -136,13 +139,13 @@ div.top {
 	background-color: #ff1493;
 	text-decoration: none;
 	color: #ffe6f3;
-	font-size: 20px;
+	/*font-size: 20px;*/
 }
 .dialog-no:hover {
 	background-color: #3385ff;
 	text-decoration: none;
 	color: #e6f0ff;
-	font-size: 20px;	
+	/*font-size: 20px;*/	
 }
 .contact_name img {
 	width: 80%;
@@ -183,7 +186,7 @@ img {
 	width: 10%;
 	height: 10%;
 }
-a img {
+.image-link,a img {
 	width: 60px;
 	height: 60px;
 }
@@ -276,7 +279,7 @@ p a:hover {
 	text-decoration: none;
 	color: #3385ff;
 }
-a img:hover {
+.image-link:hover,a img:hover {
 	opacity: 0.5;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
@@ -316,4 +319,63 @@ span[title]:hover:after {
 li.phone-number {
 	font-size: 200%;
 	width: auto;
+}
+
+/* The Modal (background) */
+.confirmation-message {
+
+    margin: 20% auto auto auto;
+    border: 3px solid #ff1493;
+    width: 60%; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #fff; /* Black w/ opacity */
+    padding: 20px 30px;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+.outer-dialog-box {
+	display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /*background-color: #fff;*/ /* Black w/ opacity */
+        background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); 
+/*	opacity: 0;
+	opacity: 0.5;
+*/
+}
+
+.padding {
+	padding: 0px;
+}
+
+.done {
+	margin-top: 0px;
+	width: 40%;
+	height: auto;
+}
+
+button[type=button] {
+	background-color: #fff;
 }

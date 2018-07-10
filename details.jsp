@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page errorPage="error.jsp" %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 	<title>Details</title>
+		<script type="text/javascript" src="js\my-script.js"></script>
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css\mystyle.css">
+
 	<meta charset="UTF-8">
 </head>
 <body>
@@ -31,7 +33,7 @@
 	</div>
 	<div class="col-sm-4 text-center">
 		<a href="edit-contact.jsp"><span title=<%= props.getProperty("edit")%>><img src="Images\my_edit.png" class="img-fluid contact_option_icons" title=""></span></a>
-		<a href="confirmation.jsp"><span title=<%= props.getProperty("delete")%>><img src="Images\my_delete.png" class="img-fluid contact_option_icons" title=""></span></a>
+		<span title=<%= props.getProperty("delete")%>><img src="Images\my_delete.png" class="img-fluid contact_option_icons" onclick="document.getElementById('id01').style.display='block'" title=""></span>
 		<a href="getAll"><span title=<%= props.getProperty("contacts")%>><img src="Images\my_contact.png" class="img-fluid contact_option_icons" title=""></span></a>
 	</div>
 	</div>
@@ -49,6 +51,13 @@
 			</ul>
 		</div>
 	</div>
-	</div> 
+	</div>
+	<div id="id01" class="outer-dialog-box text-center">
+	 	<div class="confirmation-message text-center animate">
+ 		<div class="dialog"><%= props.getProperty("delete_message")%></div><br>
+ 		<a class="dialog-yes" href="delete?link=<%=contact.getPhoneNumber()%>"><%= props.getProperty("yes")%></a>
+ 		<button type="button" class="dialog-no" onclick="document.getElementById('id01').style.display='none'"><%= props.getProperty("no")%></button>	
+ 			
+ 	</div> </div>
 </body>
 </html>

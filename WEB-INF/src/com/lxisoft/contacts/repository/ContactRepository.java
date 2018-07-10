@@ -14,7 +14,6 @@ import static java.util.logging.Level.FINE;
 import static java.util.logging.Level.WARNING;
 import static java.util.logging.Level.INFO;
 
-
 /**
  * Class which defines all the parameters needed for the database connection. It
  * also includes declaration of all the crud methods to save and retrieve data
@@ -66,16 +65,16 @@ public class ContactRepository {
     }
 
     catch (NamingException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     } catch (SQLException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     } catch (SecurityException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     } catch (IOException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     }
   }
@@ -88,7 +87,7 @@ public class ContactRepository {
    * @return row number of database table
    */
   public int save(Contact contact) {
-    logger.log(INFO,"execution starts ",contact);
+    logger.log(INFO, "execution starts with {0}", contact);
     int result = 0;
     try {
       // Class.forName("com.mysql.jdbc.Driver"); // register jdbc driver
@@ -105,10 +104,10 @@ public class ContactRepository {
     }
 
     catch (SQLException se) {
-      logger.log(WARNING,"Exception caught",se);
+      logger.log(WARNING, "Exception caught ={0}", se);
       se.printStackTrace();
     } catch (Exception e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     }
     return result;
@@ -133,7 +132,7 @@ public class ContactRepository {
       // connection
       statement = connection.createStatement();
       ResultSet resultSet = statement.executeQuery("SELECT * FROM contacts"); // executes
-                                          // query
+      // query
       // Extract data from result set
       while (resultSet.next()) {
         // Retrieve by column name
@@ -143,10 +142,10 @@ public class ContactRepository {
     }
 
     catch (SQLException se) {
-      logger.log(WARNING,"Exception caught",se);
+      logger.log(WARNING, "Exception caught={0}", se);
       se.printStackTrace();
     } catch (Exception e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     }
     logger.info("execution ends");
@@ -162,7 +161,7 @@ public class ContactRepository {
    */
   public Contact findOne(String phoneNumber) {
 
-    logger.log(INFO,"execution starts",phoneNumber);
+    logger.log(INFO, "execution starts with {0}", phoneNumber);
     List<Contact> contacts = new ArrayList<Contact>();
     try { // block to handle exceptions
       /*
@@ -174,7 +173,7 @@ public class ContactRepository {
       preparedStatement = connection.prepareStatement("SELECT * FROM contacts WHERE PhoneNumber=?");
       preparedStatement.setString(1, phoneNumber);
       ResultSet resultSet = preparedStatement.executeQuery(); // executes
-                                  // query
+      // query
 
       // Extract data from result set
       while (resultSet.next()) {
@@ -186,10 +185,10 @@ public class ContactRepository {
     }
 
     catch (SQLException se) {
-      logger.log(WARNING,"Exception caught",se);
+      logger.log(WARNING, "Exception caught={0}", se);
       se.printStackTrace();
     } catch (Exception e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught={0}", e);
       e.printStackTrace();
     }
 
@@ -207,7 +206,7 @@ public class ContactRepository {
    */
   public int delete(String phoneNumber) {
 
-    logger.log(INFO,"execution starts",phoneNumber);
+    logger.log(INFO, "execution starts with {0}", phoneNumber);
     int result = 0;
     try { // block to handle exceptions
       /*
@@ -223,14 +222,14 @@ public class ContactRepository {
     }
 
     catch (SQLException se) {
-      logger.log(WARNING,"Exception caught",se);
+      logger.log(WARNING, "Exception caught", se);
       se.printStackTrace();
     } catch (Exception e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught", e);
       e.printStackTrace();
     }
 
-    logger.log(INFO,"execution ends",result);
+    logger.log(INFO, "execution ends", result);
     return result;
   }
 
@@ -243,7 +242,7 @@ public class ContactRepository {
    */
   public int update(Contact contact) {
 
-    logger.log(INFO,"execution starts",contact);
+    logger.log(INFO, "execution starts with {0}", contact);
     int result = 0;
     try { // block to handle exceptions
       /*
@@ -262,14 +261,14 @@ public class ContactRepository {
     }
 
     catch (SQLException se) {
-      logger.log(WARNING,"Exception caught",se);
+      logger.log(WARNING, "Exception caught", se);
       se.printStackTrace();
     } catch (Exception e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught", e);
       e.printStackTrace();
     }
 
-    logger.log(INFO,"execution ends",result);
+    logger.log(INFO, "execution ends", result);
     return result;
   }
 
@@ -282,7 +281,7 @@ public class ContactRepository {
    */
   public Set<Contact> findByNameLike(String nameLike) {
 
-    logger.log(INFO,"execution starts",nameLike);
+    logger.log(INFO, "execution starts with {0}", nameLike);
     Set<Contact> contacts = new TreeSet<Contact>();
 
     try { // block to handle exceptions
@@ -295,7 +294,7 @@ public class ContactRepository {
           .prepareStatement("SELECT * FROM contacts WHERE concat(FirstName,' ',LastName) LIKE ?");
       preparedStatement.setString(1, nameLike + "%");
       ResultSet resultSet = preparedStatement.executeQuery(); // executes
-                                  // query
+      // query
 
       while (resultSet.next()) {
         // Retrieve by column name
@@ -305,13 +304,13 @@ public class ContactRepository {
     }
 
     catch (SQLException se) {
-      logger.log(WARNING,"Exception caught",se);
+      logger.log(WARNING, "Exception caught with {0}", se);
       se.printStackTrace();
     } catch (Exception e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught with {0}", e);
       e.printStackTrace();
     }
-    logger.log(INFO,"execution ends",contacts);
+    logger.log(INFO, "execution ends with {0}", contacts);
     return contacts;
   }
 }

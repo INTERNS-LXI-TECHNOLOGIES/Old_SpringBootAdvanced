@@ -42,10 +42,10 @@ public class ContactService {
     }
 
     catch (SecurityException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught with {0}", e);
       e.printStackTrace();
     } catch (IOException e) {
-      logger.log(WARNING,"Exception caught",e);
+      logger.log(WARNING, "Exception caught with {0}", e);
       e.printStackTrace();
     }
   }
@@ -58,10 +58,10 @@ public class ContactService {
    * @return row number of database table getting from repository layer
    */
   public int save(Contact contact) {
-    logger.log(INFO,"execution starts " + contact);
+    logger.log(INFO, "execution starts with {0}", contact);
 
     int result = repo.save(contact);
-    logger.log(INFO,"execution stops " + result);
+    logger.log(INFO, "execution stops with {0}", result);
     return result;
   }
 
@@ -90,11 +90,11 @@ public class ContactService {
    */
   public Contact findOne(String phoneNumber) {
 
-    logger.log(INFO,"execution starts ",phoneNumber);
+    logger.log(INFO, "execution starts with {0}", phoneNumber);
 
     Contact contact = repo.findOne(phoneNumber);
 
-    logger.log(INFO,"execution ends ",contact);
+    logger.log(INFO, "execution ends with {0}", contact);
     return contact;
 
   }
@@ -108,10 +108,10 @@ public class ContactService {
    */
   public int delete(String phoneNumber) {
 
-    logger.log(INFO,"execution starts",phoneNumber);
+    logger.log(INFO, "execution starts with {0}", phoneNumber);
     int result = repo.delete(phoneNumber);
 
-    logger.log(INFO,"execution ends",result);
+    logger.log(INFO, "execution ends with {0}", result);
     return result;
   }
 
@@ -124,9 +124,9 @@ public class ContactService {
    */
   public int update(Contact contact) {
 
-    logger.log(INFO,"execution starts",contact);
+    logger.log(INFO, "execution starts with {0}", contact);
     int result = repo.update(contact);
-    logger.log(INFO,"execution ends",result);
+    logger.log(INFO, "execution ends with {0}", result);
     return result;
   }
 
@@ -139,10 +139,10 @@ public class ContactService {
    */
   public Set<Contact> findByNameLike(String nameLike) {
 
-    logger.log(INFO,"execution starts",nameLike);
+    logger.log(INFO, "execution starts with {0}", nameLike);
     Set<Contact> contacts = repo.findByNameLike(nameLike);
 
-    logger.log(INFO,"execution ends",contacts);
+    logger.log(INFO, "execution ends with {0}", contacts);
     return contacts;
   }
 }
