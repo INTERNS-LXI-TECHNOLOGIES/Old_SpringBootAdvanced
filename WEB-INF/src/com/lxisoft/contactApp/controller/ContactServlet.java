@@ -40,7 +40,16 @@ public class ContactServlet extends HttpServlet
     {
 
       log.info("********************ContactServlet**********************doPost---------> start");
-            
+
+      contact=contactService.findOne(request.getParameter("phone_No"));
+
+      if(contact!=null)
+
+         request.getRequestDispatcher("Contact_Exist.jsp").forward(request,response);
+
+      else
+      {
+      
       contact=new Contact(request.getParameter("first_name"),request.getParameter("last_name"),request.getParameter("Email_Id"),request.getParameter("Place"),request.getParameter("Phone_No"));
 
       contactService.save(contact);
@@ -50,6 +59,8 @@ public class ContactServlet extends HttpServlet
       // forward to jsp page with request parameters
       request.getRequestDispatcher("Contact_Details.jsp").forward(request,response);
 
+      }  
+
       log.info("********************ContactServlet**********************doGet------------> end");
           
     }
@@ -58,8 +69,9 @@ public class ContactServlet extends HttpServlet
 
    {
       log.info("********************ContactServlet**********************doGet---------> start");
-         
-         contact=contactService.findByName(request.getParameter("first_name"));
+             
+
+         contact=contactService.findOne(request.getParameter("phone_No"));
        
          request.setAttribute("contact",contact);  
          

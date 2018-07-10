@@ -100,7 +100,7 @@
   
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>Contact_App (for persons)</web-resource-name>
+      <web-resource-name>Contact_App (for admin/persons)</web-resource-name>
       <url-pattern>/secure/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
@@ -132,6 +132,23 @@
                  
           </form-login-config>
  </login-config>
+
+
+<!-- Security roles referenced by this web application -->
+  <security-role>
+    <description>
+      The role that is required to access the HTML pages
+    </description>
+    <role-name>admin</role-name>
+  </security-role>
+
+  <security-role>
+    <description>
+      The role that is required to access the user pages
+    </description>
+    <role-name>user1</role-name>
+  </security-role>
+
  
  <error-page>
     <error-code>401</error-code>

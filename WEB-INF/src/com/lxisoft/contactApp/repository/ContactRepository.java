@@ -86,7 +86,7 @@ public class ContactRepository
          // Extract data from result set
         while(rs.next())
         {
-         contactSet.add(new Contact(rs.getString("firstName"),rs.getString("lastName"),null,null,null));
+         contactSet.add(new Contact(rs.getString("firstName"),rs.getString("lastName"),null,null,rs.getString("phnNo")));
         }
 
         // Clean-up environment
@@ -258,10 +258,10 @@ public class ContactRepository
 
       }   
 
-      public Contact findByName(String name)
+      public Contact findOne(String phnNo)
      
       {
-        log.info("********************ContactRepository**********************findByName---------> start");
+        log.info("********************ContactRepository**********************findOne---------> start");
 
         try {
 
@@ -273,9 +273,9 @@ public class ContactRepository
           conn=ds.getConnection();
 
           // Execute SQL query
-          stmt = conn.prepareStatement("SELECT * FROM contacts WHERE firstName=?");
+          stmt = conn.prepareStatement("SELECT * FROM contacts WHERE phnNo=?");
 
-          stmt.setString(1,name);
+          stmt.setString(1,phnNo);
          
           rs=stmt.executeQuery();
 
@@ -302,16 +302,16 @@ public class ContactRepository
          {
          } //end try
       
-        log.info("********************ContactRepository**********************findByName---------> End");
+        log.info("********************ContactRepository**********************findOne---------> End");
 
         return contact;
 
       } 
 
-      public Set<Contact> findOne(String name)
+      public Set<Contact> findByName(String name)
      
       {
-        log.info("********************ContactRepository**********************findOne---------> start");
+        log.info("********************ContactRepository**********************findByName---------> start");
 
         contactSet=new TreeSet<Contact>();
            
@@ -358,7 +358,7 @@ public class ContactRepository
           
          } //end try  
 
-        log.info("********************ContactRepository**********************findOne---------> End");
+        log.info("********************ContactRepository**********************findByName---------> End");
 
         return contactSet;
 

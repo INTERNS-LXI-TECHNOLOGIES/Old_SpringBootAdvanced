@@ -65,7 +65,7 @@ public void doPost(HttpServletRequest request,HttpServletResponse response)throw
 
           contactSet=new TreeSet<Contact>();
 
-          contactSet=contactService.findOne(request.getParameter("first_name"));
+          contactSet=contactService.findByName(request.getParameter("first_name"));
 
           request.setAttribute("contactSet",contactSet);     
 

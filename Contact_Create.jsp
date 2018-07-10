@@ -8,6 +8,11 @@
 <body>
 <%@ page import="java.util.*,com.lxisoft.contactApp.model.*,com.lxisoft.contactApp.controller.*,com.lxisoft.contactApp.utility.*"%>
 
+
+ <%
+ Contact contact = (Contact) session.getAttribute("contact");
+ %>
+
     <%
      Properties p=null;
      try
@@ -38,15 +43,15 @@
 
 		
         <%=p.getProperty("firstname")%> :
-		<input type="text" name="first_name" required=""><br><br>
+		<input type="text" name="first_name" required="" onfocus="this.value=''" value="<%=contact.getFirstName()%>"><br><br>
 		<%=p.getProperty("lastname")%> :
-		<input type="text" name="last_name" required=""><br><br>
+		<input type="text" name="last_name" required="" onfocus="this.value=''" value="<%=contact.getLastName()%>"><br><br>
 		<%=p.getProperty("email")%> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="email" name="Email_Id" checked="checked" required=""><br><br>
+		<input type="email" name="Email_Id" onfocus="this.value=''" value="<%=contact.getEmail()%>" checked="checked" required=""><br><br>
 		<%=p.getProperty("phonenumber")%>:&nbsp;&nbsp;
-		<input id="login-phn" type="tel" name="Phone_No" pattern="[6789][0-9]{9}" required="" placeholder="+91"><br><br>
+		<input id="login-phn" type="tel" name="Phone_No" onfocus="this.value=''" value="<%=contact.getPhNo()%>" pattern="[6789][0-9]{9}" required="" placeholder="+91"><br><br>
 		<%=p.getProperty("place")%> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="text" name="Place" required=""><br><br>
+		<input type="text" name="Place" onfocus="this.value=''" value="<%=contact.getPlace()%>" required=""><br><br>
 
 		<br>
 		<input id="login_submit" type="submit" value=<%=p.getProperty("save")%>>

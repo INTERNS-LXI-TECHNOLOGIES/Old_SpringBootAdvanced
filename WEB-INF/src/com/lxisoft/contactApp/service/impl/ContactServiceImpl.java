@@ -62,21 +62,21 @@ public class ContactServiceImpl implements ContactService
 
    	}
 
-   	public Contact findByName(String name)
+   	public Contact findOne(String phnNo)
 
    	{
-   		log.info("********************ContactServiceImpl**********************findByName----> start");
+   		log.info("********************ContactServiceImpl**********************findOne----> start");
      
-        return contactRepository.findByName(name);
+      return contactRepository.findOne(phnNo);
      
   	}
 
     
-    public Set<Contact> findOne(String name)
+    public Set<Contact> findByName(String name)
     {
-    	log.info("********************ContactServiceImpl**********************findOne----> start");
+    	log.info("********************ContactServiceImpl**********************findByName----> start");
      
-        return contactRepository.findOne(name);
+      return contactRepository.findByName(name);
     }
 
 

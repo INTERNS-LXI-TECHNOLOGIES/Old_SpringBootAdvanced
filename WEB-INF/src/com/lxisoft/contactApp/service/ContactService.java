@@ -17,11 +17,11 @@ public interface ContactService
 
 	void save(Contact contact);
 
-	Contact findByName(String name);
+	Contact findOne(String phnNo);
 
 	void delete(String name);
 
 	void update(Contact contact);
 
-	Set<Contact> findOne(String name);
+	Set<Contact> findByName(String name);
 }

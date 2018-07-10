@@ -62,7 +62,7 @@
        <%for(Contact contact:contactSet) {%>
 
  		<div id="individual_contacts"><img id="contact_icon" src="Images\contact_2.png" alt="contact_icon">
- 		<a href="contactsForm?first_name=<%=contact.getFirstName()%>"><%=contact%></a>
+ 		<a href="contactsForm?phone_No=<%=contact.getPhNo()%>"><%=contact%></a>
          
          </div>
  		
