@@ -45,6 +45,8 @@ out.println(places);
 		
 
 			%>
+			
+			
 			</form>
 			<form action="ContactServlet" method="get">  
 			

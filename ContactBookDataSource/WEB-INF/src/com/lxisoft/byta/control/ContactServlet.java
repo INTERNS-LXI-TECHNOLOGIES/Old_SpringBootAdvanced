@@ -86,8 +86,8 @@ System.out.println("CONNECTION WORKS OR nOT 6");
     // TODO Auto-generated catch block
     e.printStackTrace();
    }
-  /*  RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-   rd.forward(request, response); */
+   RequestDispatcher rd = request.getRequestDispatcher("loginSucess.jsp");
+   rd.forward(request, response); 
   }
 		 	
 protected void doGet(HttpServletRequest request, HttpServletResponse response)  
@@ -131,11 +131,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   dto.setName(name1);
 		   dto.setPhoneNo(phoneno1);
 		   dto.setPlace(place);
-             
-
-  
-
-     // execute it on test database
+        // execute it on test database
     System.out.println("successfuly inserted");
 	 //resultSet.close();
     //ps.close();
