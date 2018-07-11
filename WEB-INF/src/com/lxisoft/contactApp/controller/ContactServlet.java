@@ -41,15 +41,24 @@ public class ContactServlet extends HttpServlet
 
       log.info("********************ContactServlet**********************doPost---------> start");
 
-      contact=contactService.findOne(request.getParameter("phone_No"));
+      System.out.print("+++++++++++++++++++++++++++++++++++++++++++++++++"+request.getParameter("Phone_No"));
+
+      contact=contactService.findOne(request.getParameter("Phone_No"));
+
+      System.out.print(contact);
 
       if(contact!=null)
+      {
+         System.out.print("-------------------------------True--------------------------------");
 
          request.getRequestDispatcher("Contact_Exist.jsp").forward(request,response);
 
+     }
       else
       {
       
+      System.out.print("-------------------------------false--------------------------------");
+
       contact=new Contact(request.getParameter("first_name"),request.getParameter("last_name"),request.getParameter("Email_Id"),request.getParameter("Place"),request.getParameter("Phone_No"));
 
       contactService.save(contact);

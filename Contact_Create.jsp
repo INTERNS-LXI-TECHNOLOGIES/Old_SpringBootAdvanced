@@ -10,8 +10,13 @@
 
 
  <%
- Contact contact = (Contact) session.getAttribute("contact");
+   Contact contact= (Contact) session.getAttribute("contact");
+
+   if(contact==null)
+        contact =new Contact();
  %>
+
+ 
 
     <%
      Properties p=null;
@@ -41,8 +46,9 @@
 	<div class="login">
 	<form id="form1" action="contactsForm" method="POST">
 
-		
-        <%=p.getProperty("firstname")%> :
+	     <input type="hidden" name="Phone_No" value="<%=contact.getPhNo()%>"/>
+
+		<%=p.getProperty("firstname")%> :
 		<input type="text" name="first_name" required="" onfocus="this.value=''" value="<%=contact.getFirstName()%>"><br><br>
 		<%=p.getProperty("lastname")%> :
 		<input type="text" name="last_name" required="" onfocus="this.value=''" value="<%=contact.getLastName()%>"><br><br>
