@@ -1,7 +1,60 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-</web-app>
+     
+    <servlet>
+        <servlet-name>ContactServlet</servlet-name>
+        <servlet-class>com.lxisoft.byta.control.ContactServlet</servlet-class>
+    </servlet>
+		
+	<resource-ref>
+	<description>MySQL Datasource example</description>
+	<res-ref-name>jdbc/Contacts</res-ref-name>
+	<res-type>javax.sql.DataSource</res-type>
+	<res-auth>Container</res-auth>
+  </resource-ref>
+  
+    <servlet-mapping>
+        <servlet-name>ContactServlet</servlet-name>
+        <url-pattern>/ContactServlet</url-pattern>
+    </servlet-mapping>
+	
+	
+	
+	
+	 <servlet>
+        <servlet-name>ContactServlet2</servlet-name>
+        <servlet-class>com.lxisoft.byta.control.ContactServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContactServlet2</servlet-name>
+        <url-pattern>/ContactServlet2</url-pattern>
+    </servlet-mapping>
+	
+	<security-constraint>
+      <web-resource-collection>
+         <web-resource-name>ContactServlet</web-resource-name>
+         <url-pattern>/index.jsp/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+      </web-resource-collection>
+      
+      <auth-constraint>
+         <description>Let only intern and employee use this app</description>
+         <role-name>Intern</role-name>
+		 <role-name>Employee</role-name>
+      </auth-constraint>
+   </security-constraint>
+   
+   <security-role>
+      <role-name>Intern</role-name>
+	  <role-name>Employee</role-name>
+   </security-role>
+   
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <form-login-config>
+         <form-login-page>/securityLogin.jsp</form-login-page>
+         <form-error-page>/LoginError.jsp</form-error-page>
+      </form-login-config>
+   </login-config>
+   
+   </web-app>
