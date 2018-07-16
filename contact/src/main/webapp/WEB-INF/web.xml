@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app>
+ 
+		<context-param>
+			<param-name>contextname</param-name>
+			<param-value>contextvalue</param-value>
+		</context-param>
+		
+  <servlet>	
+      <servlet-name>ContactServlet</servlet-name>
+      <servlet-class>com.lxisoft.byta.controller.ContactServlet</servlet-class>
+	  <init-param>
+			<param-name>paramname</param-name>
+			<param-value>paramvalue</param-value>
+		</init-param>
+	  
+   </servlet>
+ 
+   <!-- Note: All <servlet> elements MUST be grouped together and
+         placed IN FRONT of the <servlet-mapping> elements -->
+ 
+   <servlet-mapping>
+      <servlet-name>ContactServlet</servlet-name>
+      <url-pattern>/ContactServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+		<servlet-name>ContactUpdateServlet</servlet-name>
+		<servlet-class>com.lxisoft.byta.controller.ContactUpdateServlet</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+	  <servlet-name>ContactUpdateServlet</servlet-name>
+	  <url-pattern>/ContactUpdateServlet </url-pattern>
+   </servlet-mapping>
+   
+   
+  <resource-ref>
+	<description>Primary database</description>
+	<res-ref-name>jdbc/contactinfo</res-ref-name>
+	<res-type>javax.sql.DataSource</res-type>
+	<res-auth>container</res-auth>
+   </resource-ref>
+   
+    <security-constraint>
+      <web-resource-collection>
+	   <web-resource-name>contact</web-resource-name>
+          <url-pattern>/index.jsp/*</url-pattern>
+			<http-method>GET</http-method>
+            <http-method>POST</http-method>
+      </web-resource-collection>
+	   
+	   <auth-constraint>
+            <role-name>admin</role-name>
+       </auth-constraint>
+  </security-constraint>
+   
+   <security-role>
+      <role-name>user</role-name>
+	  <role-name>admin</role-name>
+   </security-role>
+   
+   
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <form-login-config>
+         <form-login-page>/login.jsp</form-login-page>
+		 <form-error-page>/error.jsp</form-error-page> 
+       </form-login-config>
+   </login-config>
+  
+    
+   
+   </web-app>
