@@ -20,9 +20,9 @@
 
      if(((String)session.getAttribute("language")==null || ((String)session.getAttribute("language")).equals("ENGLISH")))
 
-            p=(new PropertiesFileUtility()).getPropertyObject("../webapps/contactApp_v2/resource files/english_resource.properties");    
+            p=(new PropertiesFileUtility()).getPropertyObject("../webapps/contactApp_v3/resource files/english_resource.properties");    
      else  
-            p=(new PropertiesFileUtility()).getPropertyObject("../webapps/contactApp_v2/resource files/malayalam_resource.properties");
+            p=(new PropertiesFileUtility()).getPropertyObject("../webapps/contactApp_v3/resource files/malayalam_resource.properties");
 
      }catch(Exception fe)
       {
