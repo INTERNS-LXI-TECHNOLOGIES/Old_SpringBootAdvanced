@@ -13,6 +13,8 @@ import com.lxisoft.contactApp.repository.*;
  * 
  * @author Sarangi Balu
  * 
+ * @version $version-stub$
+ *
  */
 
 public class ContactServiceImpl implements ContactService

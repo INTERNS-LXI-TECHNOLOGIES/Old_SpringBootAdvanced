@@ -17,6 +17,8 @@ import com.lxisoft.contactApp.utility.*;
  * 
  * @author Sarangi Balu
  * 
+ * @version $version-stub$
+ *
  */
 
 // Extend HttpServlet class

@@ -14,6 +14,9 @@ import com.lxisoft.contactApp.model.*;
  * Service Interface for managing contact.
  *
  * @author Sarangi Balu
+ *
+ * @version $version-stub$
+ *
  */
 
 public interface ContactService

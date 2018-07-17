@@ -9,6 +9,8 @@ import java.util.logging.Logger;
  * 
  * @author Sarangi Balu
  * 
+ * @version $version-stub$
+ *
  */
 
 public class PropertiesFileUtility

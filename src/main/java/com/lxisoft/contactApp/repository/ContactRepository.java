@@ -18,6 +18,9 @@ import javax.sql.DataSource;
  * from the database.
  *
  * @author Sarangi Balu
+ *
+ * @version $version-stub$
+ *
  */
 
 public class ContactRepository 

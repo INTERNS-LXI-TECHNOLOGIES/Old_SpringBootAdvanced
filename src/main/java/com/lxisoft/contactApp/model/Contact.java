@@ -3,7 +3,12 @@ package com.lxisoft.contactApp.model;
 import java.util.*;
 
 /**
- * A Contact.
+ * A Contact
+ *
+ * @author Sarangi Balu
+ * 
+ * @version $version-stub$
+ *
  */
 
 public class Contact implements Comparable<Contact>
