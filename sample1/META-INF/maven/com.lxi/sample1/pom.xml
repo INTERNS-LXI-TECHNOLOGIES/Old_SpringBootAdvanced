@@ -8,12 +8,12 @@
   <name>sample1 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+   <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 	
 	<dependency>
     <groupId>mysql</groupId>
@@ -34,8 +34,23 @@
     <version>1.2.17</version>
 </dependency>
 
+
+
   </dependencies>
   <build>
     <finalName>sample1</finalName>
+	
+	
+	<plugins>
+	<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://192.168.1.7:8080/manager</url>
+					<server>mytomcat</server>
+					<path>/mywebapp</path>
+				</configuration>
+			</plugin>
+			</plugins>
   </build>
 </project>
