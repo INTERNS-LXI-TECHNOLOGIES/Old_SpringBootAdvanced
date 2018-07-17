@@ -29,6 +29,8 @@ public class PropertiesFileUtility
    * @param fileName the name of the propertyfile.
    *
    * @return the properties object.
+   *
+   * @throws java.lang.Exception
    */
 
 	public Properties getPropertyObject(String fileName) throws Exception
