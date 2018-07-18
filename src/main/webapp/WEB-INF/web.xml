@@ -10,6 +10,17 @@
 <url-pattern>/sampleUrl</url-pattern>
 </servlet-mapping>
 
+<servlet>
+  <servlet-name>contact</servlet-name>
+  <servlet-class>com.lxisoft.controller.UpdateServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>contact</servlet-name>
+  <url-pattern>/updateUrl</url-pattern>
+</servlet-mapping>
+
+
   <resource-ref>
   <description>Primary database</description>
   <res-ref-name>jdbc/contactServlet</res-ref-name>
@@ -20,18 +31,19 @@
 
     <security-constraint>
       <web-resource-collection>
-	   <web-resource-name>ContactServletV1.0.1</web-resource-name>
+     <web-resource-name>ContactServletV1.0.3</web-resource-name>
           <url-pattern>/createContact.jsp/*</url-pattern>
+          <url-pattern>/removeContact.jsp/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
       </web-resource-collection>
-	   <auth-constraint>
-            <role-name>user</role-name>
+     <auth-constraint>
+            <role-name>manager</role-name>
        </auth-constraint>
   </security-constraint>
    
    <security-role>
-      <role-name>user</role-name>
+      <role-name>manager</role-name>
    </security-role>
    
    <login-config>
@@ -39,6 +51,6 @@
       <form-login-config>
          <form-login-page>/login.jsp</form-login-page>
        </form-login-config>
+       <realm-name>authority</realm-name>
    </login-config>
-
 </web-app>

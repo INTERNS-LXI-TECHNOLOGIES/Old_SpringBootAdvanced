@@ -93,4 +93,24 @@ public void save(Contact contact)
       return contact;
 
    }
+
+   public void removeContact(Contact contact)
+   {
+      Contact contactToRemove=findContactByName(contact.getName());
+      System.out.println("your details are :"+contactToRemove);
+       try
+       {context = new InitialContext();
+       dataSource = (DataSource) context.lookup("java:comp/env/jdbc/contactServlet");
+       connection = dataSource.getConnection();
+
+       stmt = connection.prepareStatement("delete from contact where name=?");
+       stmt.setString(1,contactToRemove.getName());
+       stmt.executeUpdate();
+       connection.close();
+      }
+      catch(Exception e)
+      {
+         e.printStackTrace();
+      }
+   }
 }

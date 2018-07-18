@@ -88,7 +88,7 @@ public Contact()
 /**comapareTo is the sole member to Comparable interface
 *comapreTo method is used to compare the current object with the specified object
 *it provides single sorting sequence only
-@param object this is a parameter used to compare with the current object
+@param contact this is a parameter used to compare with the current object
 @return int,this returns a integer value after comparing the current and specified object
 */
 	public int compareTo(Contact contact)

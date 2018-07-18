@@ -1,0 +1,14 @@
+package com.lxisoft.junit;
+import com.lxisoft.model.*;
+import junit.framework.TestCase;
+public class ContactTest extends TestCase
+{
+	Contact contact = new Contact();
+	public void testName()
+	{
+		String name = "Prasad";
+       contact.setName(name);
+       String newName = contact.getName();
+	    assertEquals(name,newName);
+	}
+}
