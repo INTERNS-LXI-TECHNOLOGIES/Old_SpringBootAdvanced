@@ -15,9 +15,14 @@ import static java.util.logging.Level.WARNING;
 import static java.util.logging.Level.INFO;
 
 /**
- * Servlet class for working as a controller for getting all the contacts
+ * Servlet class for working as a controller for getting all the contact
+ * and create new contacts
+ * get source codes from <a href=${git.remote.origin.url}></a>  
  *
- * @author Sanil kumar
+ * @author ${git.build.user.name}
+ * ${name:git_config(user.name)}, ${email:git_config(user.email)}
+ * @version ${git.commit.id.abbrev}
+ * @see javax.servlet.http.HttpServlet
  */
 
 public class ContactCRServlet extends HttpServlet {

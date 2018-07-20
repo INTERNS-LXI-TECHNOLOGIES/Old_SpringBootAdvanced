@@ -19,7 +19,12 @@ import static java.util.logging.Level.INFO;
  * also includes declaration of all the crud methods to save and retrieve data
  * from the database.
  *
- * @author Sanil kumar
+ * get source codes from <a href=${git.remote.origin.url}></a>  
+ *
+ * @author ${git.build.user.name}
+ * ${name:git_config(user.name)}, ${email:git_config(user.email)}
+ * @version ${git.commit.id.abbrev}
+ * @see javax.sql.DataSource
  */
 
 public class ContactRepository {
