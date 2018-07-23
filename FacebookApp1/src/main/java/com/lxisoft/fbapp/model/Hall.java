@@ -1,34 +1,40 @@
-package com.lxisoft.fbapp.model;
+package com.lxisoft.model;
 /**
 * This class is for control Hall
-
+*
 * @author Dheeraj das
+*
 * @version 1.0
-
 */
 public class Hall
 {
 	/**
-	*This is a door object
+	*This is a reference to door
 	*/
-	Door door ;
-	private long id;
+	private Door door ;
 	
 	/**
-	* This is a setter which sets the id
-	* @param id - the id to set
+	*This is a unique id of hall
 	*/
-	public void setId(long id)
+	private long hallId;
+	
+	/**
+	* This is a setter which sets the hallId
+	*
+	* @param hallId - the hallId to set
+	*/
+	public void setHallId(long hallId)
 	{
-		this.id = id;
+		this.hallId = HallId;
 	}
 	
 	/**
-	* This is a getter which returns the id
-	* @return id - the id to get
+	* This is a getter which returns the hallId
+	*
+	* @return hallId - the hallId to get
 	*/
-	public long getId()
+	public long getHallId()
 	{
-		return id;
+		return HallId;
 	}
 }
