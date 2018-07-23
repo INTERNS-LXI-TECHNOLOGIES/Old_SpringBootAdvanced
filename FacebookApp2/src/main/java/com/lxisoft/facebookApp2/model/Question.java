@@ -1,4 +1,4 @@
-
+package com.lxisoft.facebookApp2.model;
 class Question{
 	private int questionId;
 	private String questionName;
