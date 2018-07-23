@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package com.lxisoft.facebookApp2.model;
+=======
+
+>>>>>>> 025457ff339114e95c4c2ace51a9d25b0991f44d
 class Question{
 	private int questionId;
 	private String questionName;
