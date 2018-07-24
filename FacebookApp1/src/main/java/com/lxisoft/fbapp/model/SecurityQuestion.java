@@ -1,7 +1,7 @@
 package com.lxisoft.model;
 import java.util.*;
 
-/**
+/** 
 * This class is for control security question
 *
 * @author Dheeraj das
@@ -82,7 +82,7 @@ public class SecurityQuestion
 	*
 	* @return option - the option to get
 	*/
-	public Set<string> getOptions()
+	public Set<String> getOptions()
 	{
 		return options;
 	}	

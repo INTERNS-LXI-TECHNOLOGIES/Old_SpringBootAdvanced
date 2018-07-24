@@ -25,7 +25,7 @@ public class Hall
 	*/
 	public void setHallId(long hallId)
 	{
-		this.hallId = HallId;
+		this.hallId = hallId;
 	}
 	
 	/**
@@ -35,6 +35,6 @@ public class Hall
 	*/
 	public long getHallId()
 	{
-		return HallId;
+		return hallId;
 	}
 }
