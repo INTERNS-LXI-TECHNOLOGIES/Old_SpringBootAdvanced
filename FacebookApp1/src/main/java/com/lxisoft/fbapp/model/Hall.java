@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.fbapp.model;
 /**
 * This class is for control Hall
 *
@@ -17,7 +17,27 @@ public class Hall
 	*This is a unique id of hall
 	*/
 	private long hallId;
+
+	/**
+	* This is a setter which sets the door
+	*
+	* @param door - the door to set
+	*/
+	public void setDoor(Door door)
+	{
+		this.door = door;
+	}
 	
+	/**
+	* This is a getter which returns the door
+	*
+	* @return door - the door to get
+	*/
+	public Door getDoor()
+	{
+		return door;
+	}	
+
 	/**
 	* This is a setter which sets the hallId
 	*

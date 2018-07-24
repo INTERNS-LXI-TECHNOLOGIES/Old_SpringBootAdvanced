@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.fbapp.model;
 
 /**
 * This class is for control prison
