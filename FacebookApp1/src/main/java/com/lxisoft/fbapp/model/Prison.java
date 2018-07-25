@@ -15,7 +15,7 @@ public class Prison
 	private Prisoner prisoner;
 	
 	/**
-	*This is a reference to hall
+	*This is a list to halls
 	*/
 	private List<Hall> halls;
 	
