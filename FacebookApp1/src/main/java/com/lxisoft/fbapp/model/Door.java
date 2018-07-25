@@ -1,6 +1,7 @@
 //Import required java libraries
 package com.lxisoft.fbapp.model;
 
+import java.util.logging.*;
 /**
  * define Door enitity in the game. 
  * 
@@ -35,9 +36,20 @@ public class Door
 	 *            openingHall of a prison
 	 */
 
+    /**
+       * Reference to Logger class to get log messages
+     */
+      
+    private static final Logger log=Logger.getLogger(Door.class.getName());
+
+
 	public void setOpeningHall(Hall openingHall)
 	{
+		log.info("Door class..........................setOpeningHall................starts");
+
 		this.openingHall = openingHall;
+
+		log.info("Door class..........................setOpeningHall..................ends");
 	}
 	
 	/**
@@ -49,6 +61,8 @@ public class Door
 
 	public Hall getOpeningHall()
 	{
+		log.info("Door class..........................getOpeningHall................starts/ends");
+
 		return this.openingHall;
 	}
 
@@ -62,7 +76,11 @@ public class Door
     
 	public void setSecurityQuestion(SecurityQuestion securityQuestion)
 	{
+		log.info("Door class..........................setSecurityQuestion................starts");
+
 		this.securityQuestion = securityQuestion;
+
+		log.info("Door class..........................setSecurityQuestion..................ends");
 	}
 	
 	/**
@@ -75,6 +93,8 @@ public class Door
 
 	public SecurityQuestion getSecurityQuestion()
 	{
+		log.info("Door class..........................getSecurityQuestion................starts/ends");
+
 		return this.securityQuestion;
 	}
 
@@ -87,7 +107,12 @@ public class Door
     
 	public void setDoorId(long doorId)
 	{
+		log.info("Door class..........................setDoorId................starts");
+
 		this.doorId = doorId;
+
+		log.info("Door class..........................setDoorId..................ends");
+
 	}
 	
 	/**
@@ -100,6 +125,8 @@ public class Door
 
 	public Long getDoorId()
 	{
+		log.info("Door class..........................getDoorId................starts/ends");
+
 		return this.doorId;
 	}
 
