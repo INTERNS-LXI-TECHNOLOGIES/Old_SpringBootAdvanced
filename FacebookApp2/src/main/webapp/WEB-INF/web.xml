@@ -29,7 +29,7 @@
    </login-config>
    <servlet>
 <servlet-name>outputServlet</servlet-name>
-<servlet-class>controller.OutputServlet</servlet-class>
+<servlet-class>com.lxisoft.facebookApp2.controller.OutputServlet</servlet-class>
 </servlet>
 
 <servlet-mapping>
