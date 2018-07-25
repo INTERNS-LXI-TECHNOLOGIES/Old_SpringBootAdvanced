@@ -1,23 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
-	<!-- <web-app> <display-name>Archetype Created Web Application</display-name> 
-		</web-app> -->
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-	<display-name>Registration</display-name>
-	<welcome-file-list>
-		<welcome-file>Register.jsp</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<description></description>
-		<display-name>RegisterServlet</display-name>
-		<servlet-name>RegisterServlet</servlet-name>
-		<servlet-class>com.lxisoft.FacebookApp2.controller.RegisterServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>RegisterServlet</servlet-name>
-		<url-pattern>/RegisterServlet</url-pattern>
-	</servlet-mapping>
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <security-constraint>
+      <web-resource-collection>
+     <web-resource-name>FacebookApp</web-resource-name>
+          <url-pattern>/home.jsp/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+      </web-resource-collection>
+     <auth-constraint>
+            <role-name>manager</role-name>
+       </auth-constraint>
+  </security-constraint>
+   
+   <security-role>
+      <role-name>manager</role-name>
+   </security-role>
+   
+   <login-config>
+      <auth-method>FORM</auth-method>
+      <form-login-config>
+         <form-login-page>/UserLogin.jsp</form-login-page>
+       </form-login-config>
+       <realm-name>security</realm-name>
+   </login-config>
+   <servlet>
+<servlet-name>outputServlet</servlet-name>
+<servlet-class>controller.OutputServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>outputServlet</servlet-name>
+<url-pattern>/outputServlet</url-pattern>
+</servlet-mapping>
 </web-app>
