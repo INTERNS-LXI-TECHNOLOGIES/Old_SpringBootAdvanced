@@ -21,7 +21,7 @@ public class SecurityQuestionRepository{
 	*
 	*method to retrive random questions from database
 	*/
-	public void findSecurityQuestion(){
+	public Set<SecurityQuestion> findSecurityQuestion(){
 		
 		Connection con;
 		PreparedStatement stmt;
@@ -36,27 +36,25 @@ public class SecurityQuestionRepository{
 	
 			con=ds.getConnection();
 			
-			do{
-				stmt=con.prepareStatement("select * from question order by rand() limit 1");
+				stmt=con.prepareStatement("select * from question");
 			
 				ResultSet rs=stmt.executeQuery();
 				
-				question=new SecurityQuestion();
-				question.setQuestion(rs.getString("question"));
-				question.setAnswer(rs.getString("answer"));
+				while(rs.next()){
 				
-				options.add(rs.getString("option1"));
-				options.add(rs.getString("option2"));
-				options.add(rs.getString("option3"));
+					question=new SecurityQuestion();
 				
-				question.setOptions(options);
+					question.setQuestion(rs.getString("question"));
+					question.setAnswer(rs.getString("answer"));
 				
-				System.out.println("********************"+question.getQuestion());
+					options.add(rs.getString("option1"));
+					options.add(rs.getString("option2"));
+					options.add(rs.getString("option3"));
 				
-				questions.add(question);
-		
-			}while(questions.contains(question)==true);
-			
+					question.setOptions(options);
+				
+					questions.add(question);
+			}
 			con.close();
 			
 		}
@@ -65,5 +63,6 @@ public class SecurityQuestionRepository{
 
 			}
 
+			return questions;
 	}
 }
