@@ -1,5 +1,5 @@
 package com.lxisoft.fbapp.model;
-import java.util.*;
+
 /**
 * This class is for control prison
 *
@@ -17,7 +17,7 @@ public class Prison
 	/**
 	*This is a reference to hall
 	*/
-	private List<Hall> halls;
+	private Hall hall;
 	
 	/**
 	* This is a setter which sets the prisoner
@@ -40,22 +40,22 @@ public class Prison
 	}
 	
 	/**
-	* This is a setter which sets the list of halls
+	* This is a setter which sets the hall
 	*
-	*@param halls - the list of halls to set
+	*@param hall - the hall to  set
 	*/
-	public void sethalls(List<Hall> halls)
+	public void sethall(Hall hall)
 	{
-		this.halls = halls;
+		this.hall = hall;
 	}
 	
 	/**
-	*This is a getter which returns the list of halls
+	*This is a getter which returns the hall
 	*
-	*@return halls - the list of halls to get
+	*@return hall - the hall to get
 	*/
-	public List<Hall> getHalls()
+	public Hall getHall()
 	{
-		return halls;
+		return hall;
 	}
 }

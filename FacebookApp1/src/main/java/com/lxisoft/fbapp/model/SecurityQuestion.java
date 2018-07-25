@@ -12,12 +12,7 @@ import java.util.*;
 public class SecurityQuestion
 {
 	/**
-	*This is a unique id for security question
-	*/
-	private int questionId
-
-	/**
-	*This is a question for security
+	*This is a question for securiy
 	*/
 	private String question;
 	
@@ -31,26 +26,7 @@ public class SecurityQuestion
 	*/
 	private Set<String> options;  
 	
-	/**
-	*This is a setter which sets the question id
-	*
-	*@param questionId - the question id to set
-	*/
-	public void setQuestionId(int questionId)
-	{
-		this.questionId = questionId;
-	}
 
-	/**
-	*This is a getter which return the question id
-	*
-	*@return questionId - the question id to return
-	*/
-	public int getQuestionId()
-	{
-		return questionId;
-	}
-	
 	/**
 	* This is a setter which sets the question
 	*

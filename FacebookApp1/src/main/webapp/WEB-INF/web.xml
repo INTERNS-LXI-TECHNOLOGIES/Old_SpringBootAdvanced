@@ -33,14 +33,6 @@
 	<res-auth>container</res-auth>
    </resource-ref>
 
-  <servlet>
-  <servlet-name>Game-Servlet</servlet-name>
-  <servlet-class>com.lxisoft.fbapp.controller.GameServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-  <servlet-name>Game-Servlet</servlet-name>
-  <url-pattern>/game</url-pattern>
-  </servlet-mapping>
+  
    
 </web-app>
