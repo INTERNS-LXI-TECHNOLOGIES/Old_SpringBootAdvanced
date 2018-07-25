@@ -1,18 +1,26 @@
 package com.lxisoft.fbapp.model;
 import java.util.*;
 
+/**
+*@author Anjali
+*model class for Prisoner
+*
+*/
 public class Prisoner{
 	
-	private ArrayList<SuperKey> superkey;
+	/**
+	*super keys the prisoner has
+	*/
+	private List<SuperKey> superkey;
 	private Hall currentLocation;
 	
-	public void setSuperKey(ArrayList<SuperKey> superkey){
+	public void setSuperKey(List<SuperKey> superkey){
 		
 		this.superkey=superkey;
 		
 	}
 	
-	public ArrayList<SuperKey> getSuperKey(){
+	public List<SuperKey> getSuperKey(){
 		
 		return superkey;
 	}
