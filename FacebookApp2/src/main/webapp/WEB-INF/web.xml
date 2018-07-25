@@ -27,6 +27,7 @@
        </form-login-config>
        <realm-name>security</realm-name>
    </login-config>
+   
    <servlet>
 <servlet-name>outputServlet</servlet-name>
 <servlet-class>com.lxisoft.facebookApp2.controller.OutputServlet</servlet-class>
