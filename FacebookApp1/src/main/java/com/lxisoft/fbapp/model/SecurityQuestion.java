@@ -1,7 +1,7 @@
-package com.lxisoft.model;
+package com.lxisoft.fbapp.model;
 import java.util.*;
 
-/**
+/** 
 * This class is for control security question
 *
 * @author Dheeraj das
@@ -68,9 +68,9 @@ public class SecurityQuestion
 	}
 	
 	/**
-	* This is a setter which sets the option of set
+	* This is a setter which sets the options of set
 	*
-	* @param option - the option to set 
+	* @param options - the option to set 
 	*/
 	public void setOptions(Set<String> options)
 	{
@@ -78,11 +78,11 @@ public class SecurityQuestion
 	}
 	
 	/**
-	* This is a getter which returns the option
+	* This is a getter which returns the options
 	*
-	* @return option - the option to get
+	* @return options - the options to get
 	*/
-	public Set<string> getOptions()
+	public Set<String> getOptions()
 	{
 		return options;
 	}	

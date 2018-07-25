@@ -1,4 +1,4 @@
-package com.lxisoft.model;
+package com.lxisoft.fbapp.model;
 
 /**
 * This class is for control prison
@@ -15,7 +15,7 @@ public class Prison
 	private Prisoner prisoner;
 	
 	/**
-	*This is a reference to hall
+	*This is a list to halls
 	*/
 	private Hall hall;
 	

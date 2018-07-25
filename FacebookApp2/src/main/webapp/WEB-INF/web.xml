@@ -27,13 +27,14 @@
        </form-login-config>
        <realm-name>security</realm-name>
    </login-config>
+   
    <servlet>
      <servlet-name>QuestionController</servlet-name>
      <servlet-class>controller:QuestionController</servlet-class>
    </servlet>
    <servlet>
 <servlet-name>outputServlet</servlet-name>
-<servlet-class>controller.OutputServlet</servlet-class>
+<servlet-class>com.lxisoft.facebookApp2.controller.OutputServlet</servlet-class>
 </servlet>
 <servlet-mapping>
 <servlet-name>QuestionController</servlet-name>
