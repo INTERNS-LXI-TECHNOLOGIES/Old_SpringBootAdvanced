@@ -17,7 +17,7 @@ img {
   border-radius: 50%;
 }
 </style>
-</style>
+<style>
 h1 {
     text-shadow: 2px 2px 8px #FF0000;
 }
