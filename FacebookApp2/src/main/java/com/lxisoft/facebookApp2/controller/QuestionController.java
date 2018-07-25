@@ -1,6 +1,9 @@
+package com.lxisoft.facebookApp2.controller;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,17 +11,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import java.io.IOException;
+import com.lxisoft.facebookApp2.model.Question;
 
 public class QuestionController extends HttpServlet
 {
 	
-	static Logger log = Logger.getLogger(StudentController.class.getName());
+	static Logger log = Logger.getLogger(QuestionController.class.getName());
 	
 	Connection connection = null;
 	Statement statement = null;
 	
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
-	{
+	{ 
 		HttpSession session=request.getSession();
 		session.setAttribute("questions",getQuestions());
 		
@@ -62,10 +70,11 @@ public class QuestionController extends HttpServlet
 			question.setAnswer(rs.getString(6));
 			questionList.add(question);
 			}
-		 conn.close();
+		}
 		 catch (SQLException ex) {
             System.err.println(ex);
         }
+		
 		return questionList;
 	}
 	
@@ -73,8 +82,9 @@ public class QuestionController extends HttpServlet
 		if (connection == null) {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/contacts", "root", "root");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/contacts", "root", "root");
 				statement = connection.createStatement();
+			    connection.close();
 			} catch (Exception e) {
 				System.out.println("dataBaseConnectionEstablish exception");
 			}
