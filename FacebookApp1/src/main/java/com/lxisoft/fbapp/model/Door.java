@@ -37,6 +37,9 @@ public class Door
 
 	public void setOpeningHall(Hall openingHall)
 	{
+
+		log.info("Door class..........................setOpeningHall...........starts");
+
 		this.openingHall = openingHall;
 	}
 	

@@ -1,4 +1,5 @@
 package com.lxisoft.fbapp.model;
+import java.util.*;
 /**
 * This class is for control Hall
 *
@@ -9,9 +10,9 @@ package com.lxisoft.fbapp.model;
 public class Hall
 {
 	/**
-	*This is a reference to door
+	*This is a list of doors
 	*/
-	private Door door ;
+	private List<Door> doors ;
 	
 	/**
 	*This is a unique id of hall
@@ -19,23 +20,23 @@ public class Hall
 	private long hallId;
 
 	/**
-	* This is a setter which sets the door
+	* This is a setter which sets the list of doors
 	*
-	* @param door - the door to set
+	* @param doors - the list of doors to set
 	*/
-	public void setDoor(Door door)
+	public void setDoor(List<Door> doors)
 	{
-		this.door = door;
+		this.doors = doors;
 	}
 	
 	/**
-	* This is a getter which returns the door
+	* This is a getter which returns the list of doors
 	*
-	* @return door - the door to get
+	* @return doors - the list of doors to get
 	*/
-	public Door getDoor()
+	public List<Door> getDoor()
 	{
-		return door;
+		return doors;
 	}	
 
 	/**

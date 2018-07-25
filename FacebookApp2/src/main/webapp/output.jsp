@@ -1,5 +1,13 @@
 <%@page import="com\lxisoft\facebookApp2\model.*"%>
 <!DOCTYPE html>
+
+
+/**
+*The OutputServlet class is an  Controller of output page
+*@author ABHINA S
+*@version 1.0
+*@since 2018-07-25
+*/
 <html>
 <head>
 
@@ -8,7 +16,8 @@
 img {
   border-radius: 50%;
 }
-
+</style>
+</style>
 h1 {
     text-shadow: 2px 2px 8px #FF0000;
 }
