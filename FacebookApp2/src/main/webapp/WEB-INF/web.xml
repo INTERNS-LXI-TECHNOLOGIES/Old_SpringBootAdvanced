@@ -30,7 +30,7 @@
    
    <servlet>
      <servlet-name>QuestionController</servlet-name>
-     <servlet-class>controller:QuestionController</servlet-class>
+     <servlet-class>com.lxisoft.facebookApp2.controller.QuestionController</servlet-class>
    </servlet>
    <servlet>
 <servlet-name>outputServlet</servlet-name>
