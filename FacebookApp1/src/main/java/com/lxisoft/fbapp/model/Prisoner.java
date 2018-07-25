@@ -1,4 +1,5 @@
 package com.lxisoft.fbapp.model;
+import java.util.*;
 
 public class Prisoner{
 	
