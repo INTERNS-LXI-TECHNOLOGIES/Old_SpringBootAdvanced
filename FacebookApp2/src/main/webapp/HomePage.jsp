@@ -46,10 +46,42 @@
    <div id = "sub" align = "center">
   </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
   
-   
-   <input type="submit" class = "button" value="submit"> 
-   
-   
+  <%@ page import= "com.lxisoft.facebookApp2.Controller.*"%>
+  <%@ page import = "com.lxisoft.facebookApp2.model.*"%>
+  <%@ page import="java.util.ArrayList"%>
+  
+  <h2></h2>
+  <form action ="question" method = "get">
+  <%
+  
+    int questionId = 1;
+	ArrayList<Question> questionList =(ArrayList<Question> )session.getAttribute("questions");
+	if(questionList==null)
+	{
+	out.println(" null");
+	}
+	else
+	{
+		for(Question question:questionList)
+		{
+			
+	%>
+	<h1><%out.println(questionId+".");%><%out.println(question.getQuestionName());%></h1>
+	<h1>&nbsp</h1>
+	<input type ="submit" class = "button" value = "<%=question.getOption1()%>" >
+	<input type ="submit" class = "button" value = "<%=question.getOption2()%>" >
+	<input type ="submit" class = "button" value = "<%=question.getOption3()%>" >
+	<input type ="submit" class = "button" value = "<%=question.getAnswer()%>" >
+	
+	<%
+		questionId++;
+		}
+		%></br>
+   <%
+	}
+	%>
+	<input type = "submit" value = "submit">
+	</form>
     </div >
     </p>
     </div>
