@@ -1,4 +1,4 @@
-package com.lxisoft.FacebookApp2.bean;
+package com.lxisoft.facebookApp2.bean;
 
 public class RegisterBean {
 
