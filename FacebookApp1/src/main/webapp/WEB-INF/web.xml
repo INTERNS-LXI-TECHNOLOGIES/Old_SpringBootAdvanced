@@ -6,7 +6,13 @@
   The ASF licenses this file to You under the Apache License, Version 2.0
   (the "License"); you may not use this file except in compliance with
   the License.  You may obtain a copy of the License at
+<<<<<<< HEAD
       http://www.apache.org/licenses/LICENSE-2.0
+=======
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+>>>>>>> dec6b501af9203d34d4534bbaaaaa112026df496
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -29,6 +35,8 @@
 	<res-type>javax.sql.DataSource</res-type>
 	<res-auth>container</res-auth>
    </resource-ref>
+
+  
    
 <resource-env-ref>
     <resource-env-ref-name>jdbc/datasource</resource-env-ref-name>

@@ -48,6 +48,7 @@
 		
   </dependencies>
   <build>
+<<<<<<< HEAD
     <finalName>FacebookApp1</finalName>
     <plugins>
       <plugin>
@@ -60,5 +61,25 @@
         </configuration>
       </plugin>
   </plugins>
+=======
+    <finalName>FacebookApp</finalName>
+    <plugins>
+      
+
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <executions>
+        <execution>
+          <id>attach-javadocs</id>
+          <goals>
+            <goal>jar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+
+>>>>>>> dec6b501af9203d34d4534bbaaaaa112026df496
   </build>
 </project>
