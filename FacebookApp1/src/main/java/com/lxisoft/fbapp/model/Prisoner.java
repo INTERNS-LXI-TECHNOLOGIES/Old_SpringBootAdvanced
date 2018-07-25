@@ -1,17 +1,18 @@
 package com.lxisoft.fbapp.model;
+import java.util.*;
 
 public class Prisoner{
 	
-	private SuperKey superkey;
+	private ArrayList<SuperKey> superkey;
 	private Hall currentLocation;
 	
-	public void setSuperKey(SuperKey superkey){
+	public void setSuperKey(ArrayList<SuperKey> superkey){
 		
 		this.superkey=superkey;
 		
 	}
 	
-	public SuperKey getSuperKey(){
+	public ArrayList<SuperKey> getSuperKey(){
 		
 		return superkey;
 	}
