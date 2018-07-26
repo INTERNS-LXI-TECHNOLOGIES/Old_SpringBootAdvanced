@@ -23,8 +23,7 @@ public class QuestionController extends HttpServlet
 	
 	static Logger log = Logger.getLogger(QuestionController.class.getName());
 	
-	Connection connection = null;
-	Statement statement = null;
+	
 	
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{ 
@@ -54,10 +53,14 @@ public class QuestionController extends HttpServlet
 	
 	public ArrayList<Question> findAll()
 	{
+		Connection connection = null;
+		Statement statement = null;
 		ArrayList<Question> questionList=new ArrayList<Question>();
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/contacts", "root", "root");
+				statement = connection.createStatement();
 			
-			this.dataBaseConnectionEstablish();
 			String sql;
 			sql="SELECT * FROM questions";
 			ResultSet rs=statement.executeQuery(sql);
@@ -71,24 +74,14 @@ public class QuestionController extends HttpServlet
 			question.setAnswer(rs.getString(6));
 			questionList.add(question);
 			}
+			connection.close();
 		}
-		 catch (SQLException ex) {
+		 catch (Exception ex) {
             System.err.println(ex);
         }
 		
 		return questionList;
 	}
 	
-	public void dataBaseConnectionEstablish() {
-		if (connection == null) {
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/contacts", "root", "root");
-				statement = connection.createStatement();
-			    connection.close();
-			} catch (Exception e) {
-				System.out.println("dataBaseConnectionEstablish exception");
-			}
-		}
-	}
+	
 }
