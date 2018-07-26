@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.lxisoft.facebookApp2.model.Output;
 
@@ -21,6 +22,10 @@ import com.lxisoft.facebookApp2.model.Output;
  * @since 2018-07-24
  */
 public class OutputServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2704967570020774656L;
 	private final Logger slf4jLogger = LoggerFactory.getLogger(OutputServlet.class);
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
