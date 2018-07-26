@@ -30,7 +30,7 @@ h1 {
 			<% Output op=(Output)session.getAttribute("Output");  %>
 			<center><h1><%out.print(op.getUserName());%></h1></center>
 			<center><h1><%out.print(op.getUserScore());%></h1></center>
-			<%  String mark=""+("5");  %>
+			<%  String mark=""+(op.getUserScore());  %>
 			
 
 <div id="grad1" style="text-align:center;margin:auto;color:#888888;font-size:40px;font-weight:bold">
