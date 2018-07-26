@@ -36,7 +36,6 @@
 	<res-auth>container</res-auth>
    </resource-ref>
 
-  
    
 <resource-env-ref>
     <resource-env-ref-name>jdbc/datasource</resource-env-ref-name>
@@ -59,11 +58,14 @@
 			<role-name>admin</role-name>
 		</auth-constraint>
 </security-constraint>
+
+
 <security-role>
 	
 	<role-name>admin</role-name>
 
 </security-role>
+
 <login-config>
 	<auth-method>FORM</auth-method>
 		<form-login-config>
@@ -71,4 +73,6 @@
 			<form-error-page>/Error.jsp</form-error-page>
 		</form-login-config>
 </login-config>
+
 </web-app>
+

@@ -30,18 +30,23 @@ public class Door
     private long doorId;
 
     /**
+     * The Boolean value corresponding to the door current status
+     */
+
+    private boolean isPermanentlyBlocked;
+
+    /**
+     * Reference to Logger class to get log messages
+     */
+      
+    private static final Logger log=Logger.getLogger(Door.class.getName());
+    
+    /**
 	 * setter for openingHall
 	 * 
 	 * @param openingHall
 	 *            openingHall of a prison
 	 */
-
-    /**
-       * Reference to Logger class to get log messages
-     */
-      
-    private static final Logger log=Logger.getLogger(Door.class.getName());
-
 
 	public void setOpeningHall(Hall openingHall)
 	{
@@ -129,5 +134,57 @@ public class Door
 
 		return this.doorId;
 	}
+
+    /**
+	 * setter for status of door
+	 * 
+	 * @param isPermanentlyBlocked
+	 *            block status of a door
+	 */
+
+	public void setIsPermanentlyBlocked(boolean isPermanentlyBlocked)
+	{
+		log.info("Door class...........setIsPermanentlyBlocked................starts");
+
+		this.isPermanentlyBlocked=isPermanentlyBlocked;
+
+		log.info("Door class...........setIsPermanentlyBlocked..................ends");
+		
+	}
+
+	/**
+	 * getter for status of door
+	 * 
+	 * @return isPermanentlyBlocked
+	 *            block status of a door
+	 *
+	 */
+	
+	public boolean IsPermanentlyBlocked()
+	{
+		log.info("Door class.............IsPermanentlyBlocked................starts/ends");
+
+		return this.isPermanentlyBlocked;
+	}
+
+	
+	/**
+	 * implementation of equals method 
+	 * 
+	 * @param door
+	 *            Indicates whether some other object is "equal to" this one
+	 */
+
+	public boolean equals(Object door)
+	{
+		log.info("Door class...........equals()...................................starts/ends");
+
+		if(this.doorId==((Door)door).doorId)
+			return true;
+		else
+			return false;
+		
+
+	}	
 
 }
