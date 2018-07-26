@@ -110,4 +110,14 @@ public class SecurityQuestion
 	{
 		return options;
 	}	
+	
+	/**
+	*This is a equals method to override
+	*
+	*@return bool - the boolean value for equals
+	*/
+	public boolean equals(Object obj) 
+	{
+		return ((obj != null) && (obj instanceof SecurityQuestion) && (this.getQuestionId() == ((SecurityQuestion)obj).getQuestionId())); 
+	}
 }

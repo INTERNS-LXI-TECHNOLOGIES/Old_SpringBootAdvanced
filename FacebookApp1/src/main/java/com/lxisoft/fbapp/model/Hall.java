@@ -24,7 +24,7 @@ public class Hall
 	*
 	* @param doors - the list of doors to set
 	*/
-	public void setDoor(List<Door> doors)
+	public void setDoors(List<Door> doors)
 	{
 		this.doors = doors;
 	}
@@ -34,14 +34,14 @@ public class Hall
 	*
 	* @return doors - the list of doors to get
 	*/
-	public List<Door> getDoor()
+	public List<Door> getDoors()
 	{
 		return doors;
 	}	
 
 	/**
 	* This is a setter which sets the hallId
-	*
+	*s
 	* @param hallId - the hallId to set
 	*/
 	public void setHallId(long hallId)
@@ -59,5 +59,14 @@ public class Hall
 		return hallId;
 	}
 	
+	/**
+	*This is a equals method to override
+	*
+	*@return bool - the boolean value for equals
+	*/
+	public boolean equals(Object obj) 
+	{
+		return ((obj != null) && (obj instanceof Hall) && (this.getHallId() == ((Hall)obj).getHallId())); 
+	}
 
 }
