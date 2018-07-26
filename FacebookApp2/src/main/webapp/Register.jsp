@@ -1,7 +1,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
+<title>Register</title><style>
+body {
+  background-image: url("background.jpg");
+  background-position: 50% 50%;
+  background-repeat: repeat;
+}
+div{
+    padding-top: 110px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+
+</style>
+
 <script>
 	function validate() {
 
@@ -29,8 +44,13 @@
 		}
 	}
 </script>
+<style>
+
+</style>
+
 </head>
-<body>
+<body >
+  <div>
 	<center>
 		<h2>Registration Form</h2>
 	</center>
@@ -66,5 +86,6 @@
 			</tr>
 		</table>
 	</form>
+  </div>
 </body>
 </html>
