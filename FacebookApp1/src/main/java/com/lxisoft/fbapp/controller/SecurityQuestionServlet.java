@@ -14,6 +14,10 @@ import com.lxisoft.fbapp.model.*;
 */
 public class SecurityQuestionServlet extends HttpServlet{
 	
+	/**
+	*doget method to retrive questions set from database and pass to jsp
+	*
+	*/
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 	
 		SecurityQuestionService service=new SecurityQuestionService();

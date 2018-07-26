@@ -11,7 +11,7 @@ import com.lxisoft.fbapp.model.*;
 public class SecurityQuestionService{
 
 	/**
-	*
+	*@return questions
 	*method to get call method from repository class for getting random questions
 	*/
 	public Set<SecurityQuestion> findSecurityQuestion(){

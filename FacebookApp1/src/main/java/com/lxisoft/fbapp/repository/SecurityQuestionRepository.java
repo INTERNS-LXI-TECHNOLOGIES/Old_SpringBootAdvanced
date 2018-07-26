@@ -12,17 +12,17 @@ import javax.naming.*;
 */
 public class SecurityQuestionRepository{
 	
-	SecurityQuestion question;
-	DataSource ds;
-	
-	Context ic; 
-	
 	/**
-	*
+	*@return questions
 	*method to retrive random questions from database
 	*/
 	public Set<SecurityQuestion> findSecurityQuestion(){
 		
+		SecurityQuestion question;
+		DataSource ds;
+	
+		Context ic; 
+	
 		Connection con;
 		PreparedStatement stmt;
 		
