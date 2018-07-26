@@ -1,4 +1,4 @@
-<%@page import="com\lxisoft\facebookApp2\model.*"%>
+<%@page import="com.lxisoft.facebookApp2.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,15 +25,15 @@ h1 {
 
 
 			
-			<% Output op=(Output)request.getAttribute("output");  %>
-			<center><h1><%out.println(dto.getUserName());%></h1></center>
-			<center><h1><%out.println(dto.getUserScore());%></h1></center>
-			<%  String mark=dto.getUserScore();  %>
+			<% Output op=(Output)session.getAttribute("output");  %>
+			<center><h1><%out.println(op.getUserName());%></h1></center>
+			<center><h1><%out.println(op.getUserScore());%></h1></center>
+			<%  String mark=""+op.getUserScore();  %>
 			
 
 <div id="grad1" style="text-align:center;margin:auto;color:#888888;font-size:40px;font-weight:bold">
 Gradient Background
-<center><img class="center" src="images\<%mark%>.jpg" alt="Paris" width="400" height="400"></center>
+<center><img class="center" src="images\<%=mark%>.jpg" alt="Paris" width="400" height="400"></center>
 </div>
 
 
