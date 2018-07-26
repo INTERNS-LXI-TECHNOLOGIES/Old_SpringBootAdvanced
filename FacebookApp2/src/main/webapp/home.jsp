@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html>
+     
+
+<html lang="en">
 <head>
-	<title></title>
+  <link rel = "stylesheet" type = "text/css" href = "sample.css"/>
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+  <title align = "center">Home Page</title>
+  
 </head>
+
 <body>
-	<%String name = request.getRemoteUser();
-	session.setAttribute("username",name);
-	String name1=(String)session.getAttribute("username");
-	out.println("hello.."+name1 +" welcome to home");%>
+
+<div id = "header">
+<h1 align = "center">WELCOME USER!!!!!!!</h1>
+</div>
+<div id = "division"></div>
+<div id = "center">
+<img src = "images/download.jpg" width="1600px" height="600px">
+</div>
+
 </body>
 </html>
