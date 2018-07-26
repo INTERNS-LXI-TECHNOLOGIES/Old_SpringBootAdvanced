@@ -14,15 +14,13 @@
 </head>
 
 <body>
+
 <div id = "header">
 <h1 align = "center">WELCOME USER!!!!!!!</h1>
 </div>
 <div id = "division"></div>
 <div id = "center">
 <img src = "images/download.jpg" width="1600px" height="600px">
-
-
-
 </div>
 
 </body>
