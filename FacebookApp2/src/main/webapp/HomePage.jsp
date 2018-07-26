@@ -46,7 +46,7 @@
    <div id = "sub" align = "center">
   </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
   
-  <%@ page import= "com.lxisoft.facebookApp2.Controller.*"%>
+  <%@ page import= "com.lxisoft.facebookApp2.controller.*"%>
   <%@ page import = "com.lxisoft.facebookApp2.model.*"%>
   <%@ page import="java.util.ArrayList"%>
   
@@ -75,7 +75,7 @@
 	
 	<%
 	    response.sendRedirect("HomePage.jsp");
-		quizResulSet.add(QuizResult(question,));
+		quizResulSet.add(QuizResult(question));
 		questionId++;
 		}
 		%></br>
