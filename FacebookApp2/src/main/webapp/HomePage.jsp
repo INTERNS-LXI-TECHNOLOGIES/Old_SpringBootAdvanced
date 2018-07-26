@@ -23,14 +23,20 @@
 	  font-style:oblique;
 	  color:blue;
   }
-  .button{
-	  background-color:cornflowerBlue;
-	  color:white;
-	  border:none;
-	  padding:10px 15px;
-	  text-align:center;
-	  font-size:15px;
-  }
+  .button
+{
+	background-color:cornflowerBlue;
+	color:white;
+	border:none;
+	padding:10px 15px;
+	text-align:center;
+	font-size:15px;
+	
+}
+.button:hover
+{
+	background-color:green;
+}
 </style>
 
 <body>
@@ -50,40 +56,88 @@
   <%@ page import = "com.lxisoft.facebookApp2.model.*"%>
   <%@ page import="java.util.ArrayList"%>
   
+  
   <h2></h2>
-  <form action ="question" method = "get">
-  <%
-    ArrayList<QuizResult> quizResulSet;
-    int questionId = 1;
-	ArrayList<Question> questionList =(ArrayList<Question> )session.getAttribute("questions");
-	if(questionList==null)
-	{
-	out.println(" null");
-	}
-	else
-	{
-		for(Question question:questionList)
-		{
-			
-	%>
-	<h1><%out.println(questionId+".");%><%out.println(question.getQuestionName());%></h1>
-	<h1>&nbsp</h1>
-	<input type ="button" class = "button" name = "option" value = "<%=question.getOption1()%>" >
-	<input type ="button" class = "button" name = "option" value = "<%=question.getOption2()%>" >
-	<input type ="button" class = "button" name = "option" value = "<%=question.getOption3()%>" >
+  <% 
+ 
+		 	
+        int count = Integer.parseInt(request.getParameter("count"));
 
+	    ArrayList<QuizResult> quizResultList=new ArrayList<QuizResult>();
+		String choice = "null";
+        
+		ArrayList<Question> questionList =(ArrayList<Question>)session.getAttribute("questions");
+
+			if(questionList==null)
+				{
+					out.println(" null");
+				} 
+			else{
+				
+				if(count<3)
+			
+				{
 	
-	<%
-	    response.sendRedirect("HomePage.jsp");
-		quizResulSet.add(QuizResult(question));
-		questionId++;
-		}
-		%></br>
-   <%
-	}
-	%>
-	<input type = "submit" value = "submit">
-	</form>
+  %>
+        <form action ="HomePage.jsp" method = "get">
+        <input type ="hidden" name="count" value="<%=count+1%>" >
+			
+
+		<h1><%out.println((count+1)+".");%><%out.println(questionList.get(count).getQuestionName());%></h1>
+		<h1>&nbsp</h1>
+		<input type ="radio" class = "button" name = "option" value = "<%=questionList.get(count).getOption1()%>" checked ><%out.println(questionList.get(count).getOption1());%></br>
+		<input type ="radio" class = "button" name = "option" value = "<%=questionList.get(count).getOption2()%>" ><%out.println(questionList.get(count).getOption2());%></br>
+		<input type ="radio" class = "button" name = "option" value = "<%=questionList.get(count).getOption3()%>" >
+		<%out.println(questionList.get(count).getOption3());%></br>
+		
+		<input type ="submit" class = "button" value = "submit Answer" name="choice"/>
+		</br>
+		<%
+		    
+			choice = request.getParameter("option");
+			
+			if(choice!=null)
+			{
+					QuizResult quizResult = new QuizResult();
+				
+				if(count==2)
+					{
+						
+						quizResult.setQuestion(questionList.get(count));
+						out.println(questionList.get(count).getQuestionName());
+						quizResult.setChoice(choice);
+						out.println(quizResult.getChoice());
+				
+						quizResultList.add(quizResult);
+					}
+				else
+				{ 
+					quizResult.setQuestion(questionList.get(count-1));
+					out.println(questionList.get(count-1).getQuestionName());
+					quizResult.setChoice(choice);
+					out.println(quizResult.getChoice());
+				
+					quizResultList.add(quizResult);
+					
+                }				 
+				
+				
+			}
+	
+		    
+		%>
+
+       </form>
+			<%}
+			
+				else
+				{
+					response.sendRedirect("AddQuestion.jsp");
+			
+                }			
+			
+			}%>
+	
     </div >
     </p>
     </div>
