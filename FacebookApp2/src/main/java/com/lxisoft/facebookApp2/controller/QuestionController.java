@@ -18,6 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.lxisoft.facebookApp2.model.Question;
 
+/**
+ * The QuestionController class is an Controller of Home page
+ * 
+ * @author MOHAMMED SAHAL
+ * @version 1.0
+ * @since 2018-07-24
+ */
+
 public class QuestionController extends HttpServlet
 {
 	
@@ -30,11 +38,24 @@ public class QuestionController extends HttpServlet
 		HttpSession session=request.getSession();
 		session.setAttribute("questions",getQuestions());
 		
-		RequestDispatcher view=request.getRequestDispatcher("HomePage.jsp");
+		RequestDispatcher view=request.getRequestDispatcher("HomePage.jsp?count=0");
 		view.forward(request,response);
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
+		HttpSession session=request.getSession();
+		int marks=0;
+		ArrayList<QuestionAnswered> qaList=(ArrayList<QuestionAnswered>) session.getAttribute("questionAnswered");
+		for(QuestionAnswered qa:qaList)
+		{
+			if(qa.getChoice().equals(qa.question.getAnswer()))
+			{
+				marks++;
+			}
+		}
+		session.setAttribute("marks",marks);
+		RequestDispatcher view=request.getRequestDispatcher("Output");
+		view.forward(request,response);
 		
 	}
 	
