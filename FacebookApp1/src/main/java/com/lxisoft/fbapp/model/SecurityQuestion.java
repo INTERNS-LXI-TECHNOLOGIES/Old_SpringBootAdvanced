@@ -1,6 +1,6 @@
 package com.lxisoft.fbapp.model;
 import java.util.*;
-
+import java.util.logging.*;
 /** 
 * This class is for control security question
 *
@@ -32,13 +32,22 @@ public class SecurityQuestion
 	private Set<String> options;  
 	
 	/**
+    * Reference to Logger class to get log messages
+    */  
+    private static final Logger log=Logger.getLogger(SecurityQuestion.class.getName());
+   
+	/**
 	*This is a setter which sets the question id
 	*
 	*@param questionId - the question id to set
 	*/
 	public void setQuestionId(long questionId)
 	{
+		log.info("SecurityQuestion class..........................setQuestionId................starts");
+		
 		this.questionId = questionId;
+		
+		log.info("SecurityQuestion class..........................setQuestionId................ends");
 	}
 
 	/**
@@ -48,6 +57,8 @@ public class SecurityQuestion
 	*/
 	public long getQuestionId()
 	{
+		log.info("SecurityQuestion class..........................getQuestionId................starts/ends");
+
 		return questionId;
 	}
 	
@@ -58,7 +69,12 @@ public class SecurityQuestion
 	*/
 	public void setQuestion(String question)
 	{
+		log.info("SecurityQuestion class..........................setQuestion................starts");
+
 		this.question = question;
+		
+		log.info("SecurityQuestion class..........................setQuestion................ends");
+
 	}
 	
 	/**
@@ -68,7 +84,10 @@ public class SecurityQuestion
 	*/
 	public String getQuestion()
 	{
+		log.info("SecurityQuestion class..........................getQuestion................starts/ends");
+
 		return question;
+		
 	}
 	
 	/**
@@ -78,7 +97,12 @@ public class SecurityQuestion
 	*/
 	public void setAnswer(String answer)
 	{
+		log.info("SecurityQuestion class..........................setAnswer................starts");
+		
 		this.answer = answer;
+		
+		log.info("SecurityQuestion class..........................setAnswer................ends");
+		
 	}
 	
 	/**
@@ -88,6 +112,8 @@ public class SecurityQuestion
 	*/
 	public String getAnswer()
 	{
+		log.info("SecurityQuestion class..........................getAnswer................starts/ends");
+
 		return answer;
 	}
 	
@@ -98,7 +124,12 @@ public class SecurityQuestion
 	*/
 	public void setOptions(Set<String> options)
 	{
+		log.info("SecurityQuestion class..........................setOptions................starts");
+
 		this.options = options;
+		
+		log.info("SecurityQuestion class..........................setOptions................ends");
+
 	}
 	
 	/**
@@ -108,6 +139,20 @@ public class SecurityQuestion
 	*/
 	public Set<String> getOptions()
 	{
+		log.info("SecurityQuestion class..........................getOptions................starts/ends");
+
 		return options;
 	}	
+	
+	/**
+	*This is a equals method to override
+	*
+	*@return bool - the boolean value for equals
+	*/
+	public boolean equals(Object obj) 
+	{
+		log.info("SecurityQuestion class..........................equals................starts/ends");
+
+		return ((obj != null) && (obj instanceof SecurityQuestion) && (this.getQuestionId() == ((SecurityQuestion)obj).getQuestionId())); 
+	}
 }

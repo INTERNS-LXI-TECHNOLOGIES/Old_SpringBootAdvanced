@@ -30,7 +30,7 @@ public class RegisterDao {
 			/**
 			 * Insert user details into the table 'USERS'
 			 */
-			String query = "insert into users(SlNo,fullName,Email,userName,password,role) values (NULL,?,?,?,?,?)";
+			String query = "insert into newUsers(SlNo,fullName,Email,userName,password,role) values (NULL,?,?,?,?,?)";
 			/**
 			 * Making use of prepared statements here to insert bunch of data
 			 * 

@@ -1,5 +1,6 @@
 package com.lxisoft.fbapp.model;
 import java.util.*;
+import java.util.logging.*;
 /**
 * This class is for control prison
 *
@@ -20,13 +21,22 @@ public class Prison
 	private List<Hall> halls;
 	
 	/**
+	*Reference to Logger class to get log messages
+	*/
+	private static final Logger log = Logger.getLogger(Prison.class.getName());
+	
+	/**
 	* This is a setter which sets the prisoner
 	*
 	*@param prisoner - the prisoner to  set
 	*/
 	public void setPrisoner(Prisoner prisoner)
 	{
+		log.info("Prison class..........................setPrisoner................starts");
+		
 		this.prisoner = prisoner;
+		
+		log.info("Prison class..........................setPrisoner................ends");
 	}
 	
 	/**
@@ -36,6 +46,8 @@ public class Prison
 	*/
 	public Prisoner getPrisoner()
 	{
+		log.info("Prison class..........................getPrisoner................starts/ends");
+		
 		return prisoner;
 	}
 	
@@ -46,7 +58,11 @@ public class Prison
 	*/
 	public void setHalls(List<Hall> halls)
 	{
+		log.info("Prison class..........................setHalls................starts");
+		
 		this.halls = halls;
+		
+		log.info("Prison class..........................setHalls................ends");
 	}
 	
 	/**
@@ -56,6 +72,8 @@ public class Prison
 	*/
 	public List<Hall> getHalls()
 	{
+		log.info("Prison class..........................getHalls................starts/ends");
+		
 		return halls;
 	}
 }
