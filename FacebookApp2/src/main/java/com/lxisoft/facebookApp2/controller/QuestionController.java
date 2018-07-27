@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.lxisoft.facebookApp2.model.Question;
+import com.lxisoft.facebookApp2.model.*;
 
 /**
  * The QuestionController class is an Controller of Home page
@@ -45,8 +45,8 @@ public class QuestionController extends HttpServlet
 	{
 		HttpSession session=request.getSession();
 		int marks=0;
-		ArrayList<QuestionAnswered> qaList=(ArrayList<QuestionAnswered>) session.getAttribute("questionAnswered");
-		for(QuestionAnswered qa:qaList)
+		ArrayList<QuizResult> qaList=(ArrayList<QuizResult>) session.getAttribute("questionAnswered");
+		for(QuizResult qa:qaList)
 		{
 			if(qa.getChoice().equals(qa.question.getAnswer()))
 			{
