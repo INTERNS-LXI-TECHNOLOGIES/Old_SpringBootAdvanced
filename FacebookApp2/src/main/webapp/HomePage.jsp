@@ -62,17 +62,20 @@
  
 		 	
         int count = Integer.parseInt(request.getParameter("count"));
-
-	    ArrayList<QuizResult> quizResultList=new ArrayList<QuizResult>();
+		
+       if(count==0)
+	   {
+			ArrayList<QuizResult> quizResultList=new ArrayList<QuizResult>();
+			session.setAttribute("result",quizResultList);
+	   }
+		
 		String choice = "null";
         
 		ArrayList<Question> questionList =(ArrayList<Question>)session.getAttribute("questions");
 
-			if(questionList==null)
-				{
-					out.println(" null");
-				} 
-			else{
+			if(questionList!=null)
+			{
+			
 				
 				if(count<3)
 			
@@ -98,45 +101,58 @@
 			
 			if(choice!=null)
 			{
+				    ArrayList<QuizResult> quizResultList = (ArrayList<QuizResult>)session.getAttribute("result");
 					QuizResult quizResult = new QuizResult();
 				
-				if(count==2)
-					{
-						
-						quizResult.setQuestion(questionList.get(count));
-						out.println(questionList.get(count).getQuestionName());
-						quizResult.setChoice(choice);
-						out.println(quizResult.getChoice());
-				
-						quizResultList.add(quizResult);
-					}
-				else
-				{ 
+			 
 					quizResult.setQuestion(questionList.get(count-1));
 					out.println(questionList.get(count-1).getQuestionName());
 					quizResult.setChoice(choice);
 					out.println(quizResult.getChoice());
 				
-					quizResultList.add(quizResult);
+					 quizResultList.add(quizResult);
+					 session.setAttribute("result",quizResultList);
 					
-                }				 
+                				 
 				
 				
 			}
+			%>
+			 </form>
+			<%
 	
-		    
+		}  
 		%>
 
-       </form>
-			<%}
+      
+			<%
 			
-				else
+				if(count>=3)
 				{
-					response.sendRedirect("AddQuestion.jsp");
+					%>
+					
+					<form action = "questions" method = "post">
+					<input type = "submit" class = "button" value = "Generate Answer"/>
+			<%
+			   choice = request.getParameter("option");
+			  
+			  if(choice!=null)
+			  {
+				  ArrayList<QuizResult> quizResultList=(ArrayList<QuizResult>)session.getAttribute("result");
+				 QuizResult quizResult = new QuizResult();
+				  
+				  quizResult.setQuestion(questionList.get(count-1));
+				  quizResult.setChoice(choice);
+				  quizResultList.add(quizResult);
+				  session.setAttribute("result",quizResultList);
 			
                 }			
 			
 			}%>
+			</form>
+			<%
+			}
+			%>
 	
     </div >
     </p>
