@@ -41,7 +41,7 @@ input[type=text]:focus, input[type=password]:focus {
             </tr>
          </table>
          <input type = "submit" value = "Login!">
-         <input type="submit" value = "SignUp" align="right" formaction="/FacebookApp2/SignUp.jsp">
+         <input type="submit" value = "SignUp" align="right" formaction="/FacebookApp2/Register.jsp">
          </div>
       </form>
 </body>

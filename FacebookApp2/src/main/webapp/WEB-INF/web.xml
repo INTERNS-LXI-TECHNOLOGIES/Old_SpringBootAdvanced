@@ -7,18 +7,17 @@
     <security-constraint>
       <web-resource-collection>
      <web-resource-name>FacebookApp</web-resource-name>
-          <url-pattern>/home.jsp/*</url-pattern>
-          <url-pattern>/UserHome.jsp/*</url-pattern>
+          <url-pattern>/LoginCheck.jsp/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
       </web-resource-collection>
      <auth-constraint>
-            <role-name>manager</role-name>
+            <role-name>admin</role-name>
             <role-name>user</role-name>
        </auth-constraint>
   </security-constraint>
    <security-role>
-      <role-name>manager</role-name>
+      <role-name>admin</role-name>
       <role-name>user</role-name>
    </security-role>
    
@@ -58,7 +57,7 @@
 		<description></description>
 		<display-name>RegisterServlet</display-name>
 		<servlet-name>RegisterServlet</servlet-name>
-		<servlet-class>com.lxisoft.FacebookApp2.controller.RegisterServlet</servlet-class>
+		<servlet-class>com.lxisoft.facebookApp2.controller.RegisterServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
