@@ -17,8 +17,11 @@ public class RegisterDao {
 		String fullName = registerBean.getFullName();
 		String email = registerBean.getEmail();
 		String userName = registerBean.getUserName();
+		String username = userName;
 		String password = registerBean.getPassword();
+		String userpass = password;
 		String role = registerBean.getRole();
+		String rolename = role;
 		Connection con = null;
 		PreparedStatement preparedStatement = null;
 
@@ -32,6 +35,7 @@ public class RegisterDao {
 			 */
 
 			String query = "insert into newUsers(fullName,Email,userName,password,role) values (?,?,?,?,?)";
+            
 
 			/**
 			 * Making use of prepared statements here to insert bunch of data
@@ -50,11 +54,38 @@ public class RegisterDao {
 			if (i != 0) // Just to ensure data has been inserted into the
 						// database
 				return "SUCCESS";
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) 
+		{
 			e.printStackTrace();
 		}
-
+		try
+		{
+          String query1 = "INSERT INTO users(username,userpass) values(?,?)";
+			preparedStatement = con.prepareStatement(query1);
+			preparedStatement.setString(1,username);
+			preparedStatement.setString(2,userpass);
+			preparedStatement.executeUpdate();
+		}
+		catch(SQLException sq)
+		{
+			sq.printStackTrace();
+		}
+		try
+		{
+			String query1 = "INSERT INTO userroles(username,rolename) values(?,?)";
+			preparedStatement = con.prepareStatement(query1);
+			preparedStatement.setString(1,username);
+			preparedStatement.setString(2,rolename);
+			preparedStatement.executeUpdate();
+		}
+		catch(SQLException se)
+		{
+           se.printStackTrace();
+		}
 		return "Oops.. Something went wrong there..!"; // On failure, send a
 														// message from here.
+
 	}
+
 }

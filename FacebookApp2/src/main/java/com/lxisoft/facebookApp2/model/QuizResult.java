@@ -6,11 +6,6 @@ public class QuizResult
   private Question question;
   private String choice;
   
-  public QuizResult()
-  {
-	  
-  }
-  
   public void setQuestion(Question question)
   {
 	  this.question = question;

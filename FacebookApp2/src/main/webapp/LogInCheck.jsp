@@ -11,7 +11,7 @@ if(request.isUserInRole("admin"))
 }
 else if(request.isUserInRole("user"))
 {
-	response.sendRedirect("HomePage.jsp");
+	response.sendRedirect("question");
 }
 %>
 </body>

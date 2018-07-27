@@ -48,7 +48,7 @@ public class QuestionController extends HttpServlet
 		ArrayList<QuizResult> qaList=(ArrayList<QuizResult>) session.getAttribute("questionAnswered");
 		for(QuizResult qa:qaList)
 		{
-			if(qa.getChoice().equals(qa.question.getAnswer()))
+			if(qa.getChoice().equals(qa.getQuestion().getAnswer()))
 			{
 				marks++;
 			}
