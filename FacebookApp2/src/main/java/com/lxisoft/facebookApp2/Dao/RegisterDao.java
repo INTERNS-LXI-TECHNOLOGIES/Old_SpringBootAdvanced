@@ -28,9 +28,11 @@ public class RegisterDao {
 			con = DBConnection.createConnection();
 
 			/**
-			 * Insert user details into the table 'USERS'
+			 * Insert user details into the table 'newUsers'
 			 */
-			String query = "insert into users(SlNo,fullName,Email,userName,password,role) values (NULL,?,?,?,?,?)";
+
+			String query = "insert into newUsers(fullName,Email,userName,password,role) values (?,?,?,?,?)";
+
 			/**
 			 * Making use of prepared statements here to insert bunch of data
 			 * 

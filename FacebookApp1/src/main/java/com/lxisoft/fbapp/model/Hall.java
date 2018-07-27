@@ -1,6 +1,8 @@
 package com.lxisoft.fbapp.model;
+
 import java.util.*;
 import java.util.logging.*;
+
 /**
 * This class is for control Hall
 *
@@ -10,6 +12,11 @@ import java.util.logging.*;
 */
 public class Hall
 {
+	/**
+	*This is for checking exit hall
+	*/
+	private boolean isExitHall;
+	
 	/**
 	*This is a list of doors
 	*/
@@ -25,6 +32,31 @@ public class Hall
 	*/
 	private static final Logger log = Logger.getLogger(Hall.class.getName());
 	
+	/**
+	*This is a setter which set the exit hall
+	*
+	*@param isExitHall - the value of exit hall to set 
+	*/
+	public void setExitHall(boolean isExitHall)
+	{
+		log.info("Hall class..........................setExitHall................starts");
+		
+		this.isExitHall = isExitHall;
+		
+		log.info("Hall class..........................setExitHall................ends");
+	}
+	
+	/**
+	*This is a getter which return the exit hall 
+	*
+	*@return isExitHall - the value of exit hall to get
+	*/
+	public boolean isExitHall()
+	{
+		log.info("Hall class..........................isExitHall................starts/ends");
+		
+		return isExitHall;
+	}
 	
 	/**
 	* This is a setter which sets the list of doors
@@ -54,7 +86,7 @@ public class Hall
 
 	/**
 	* This is a setter which sets the hallId
-	*s
+	*
 	* @param hallId - the hallId to set
 	*/
 	public void setHallId(long hallId)

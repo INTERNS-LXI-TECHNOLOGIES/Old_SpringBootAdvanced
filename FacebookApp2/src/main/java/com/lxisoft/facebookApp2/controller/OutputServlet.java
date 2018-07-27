@@ -32,11 +32,11 @@ public class OutputServlet extends HttpServlet {
 		slf4jLogger.info("Signed in to Output Controller doGet function");
 		Output output = new Output();
 		HttpSession session = request.getSession();
-		session.setAttribute("uname", "UserName");
-		session.setAttribute("uscore", "60");
+		/*session.setAttribute("uname", "UserName");
+		session.setAttribute("uscore", "60"); */
 
-		output.setUserName((String) session.getAttribute("uname"));
-		output.setUserScore(Integer.parseInt((String) session.getAttribute("uscore")));
+		output.setUserName((String) session.getAttribute("username"));
+		output.setUserScore(Integer.parseInt((String) session.getAttribute("marks")));
 		session.setAttribute("Output", output);
 		RequestDispatcher view = request.getRequestDispatcher("output.jsp");
 		view.forward(request, response);
