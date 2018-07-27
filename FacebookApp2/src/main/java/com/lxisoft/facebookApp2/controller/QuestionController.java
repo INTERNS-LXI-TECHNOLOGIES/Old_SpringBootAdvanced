@@ -16,26 +16,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.lxisoft.facebookApp2.model.Question;
+import com.lxisoft.facebookApp2.model.*;
+
+/**
+ * The QuestionController class is an Controller of Home page
+ * 
+ * @author MOHAMMED SAHAL
+ * @version 1.0
+ * @since 2018-07-24
+ */
 
 public class QuestionController extends HttpServlet
 {
 	
 	static Logger log = Logger.getLogger(QuestionController.class.getName());
 	
-	Connection connection = null;
-	Statement statement = null;
+	
 	
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{ 
 		HttpSession session=request.getSession();
 		session.setAttribute("questions",getQuestions());
-		
-		RequestDispatcher view=request.getRequestDispatcher("HomePage.jsp");
+		session.setAttribute("username",request.getRemoteUser());
+		RequestDispatcher view=request.getRequestDispatcher("HomePage.jsp?count=0");
 		view.forward(request,response);
 	}
 	public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{
+		HttpSession session=request.getSession();
+		int marks=0;
+		ArrayList<QuizResult> qaList=(ArrayList<QuizResult>) session.getAttribute("questionAnswered");
+		for(QuizResult qa:qaList)
+		{
+			if(qa.getChoice().equals(qa.question.getAnswer()))
+			{
+				marks++;
+			}
+		}
+		session.setAttribute("marks",marks);
+		RequestDispatcher view=request.getRequestDispatcher("Output");
+		view.forward(request,response);
 		
 	}
 	
@@ -52,12 +72,17 @@ public class QuestionController extends HttpServlet
 		return questions;
 	}
 	
+	
 	public ArrayList<Question> findAll()
 	{
+		Connection connection = null;
+		Statement statement = null;
 		ArrayList<Question> questionList=new ArrayList<Question>();
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/contacts", "root", "root");
+				statement = connection.createStatement();
 			
-			this.dataBaseConnectionEstablish();
 			String sql;
 			sql="SELECT * FROM questions";
 			ResultSet rs=statement.executeQuery(sql);
@@ -71,24 +96,14 @@ public class QuestionController extends HttpServlet
 			question.setAnswer(rs.getString(6));
 			questionList.add(question);
 			}
+			connection.close();
 		}
-		 catch (SQLException ex) {
+		 catch (Exception ex) {
             System.err.println(ex);
         }
 		
 		return questionList;
 	}
 	
-	public void dataBaseConnectionEstablish() {
-		if (connection == null) {
-			try {
-				Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/contacts", "root", "root");
-				statement = connection.createStatement();
-			    connection.close();
-			} catch (Exception e) {
-				System.out.println("dataBaseConnectionEstablish exception");
-			}
-		}
-	}
+	
 }

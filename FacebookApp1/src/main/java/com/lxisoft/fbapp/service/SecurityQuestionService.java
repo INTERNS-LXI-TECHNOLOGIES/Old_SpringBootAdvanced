@@ -1,24 +1,66 @@
 package com.lxisoft.fbapp.service;
-import com.lxisoft.fbapp.repository.*;
+/*// import required java libaries*/
 import java.util.*;
-import com.lxisoft.fbapp.model.*;
+/* import all nessery models**/
+import com.lxisoft.fbapp.model.SecurityQuestion;
+/**
+* service interface for maping questions
+* 
+*@author Sooraj pn
+*
+*@version $0.1$
+**/
+
+public interface SecurityQuestionService{
 
 /**
-*@author Anjali
-*service class to retrive random questions
+*Get all questions
 *
-*/
-public class SecurityQuestionService{
+*@return the Set of questions
+**/ 
+//public Set<Question> getAllquestions();
 
-	/**
-	*
-	*method to get call method from repository class for getting random questions
-	*/
-	public Set<SecurityQuestion> findSecurityQuestion(){
-		
-		SecurityQuestionRepository repository=new SecurityQuestionRepository();
-		Set<SecurityQuestion> questions=repository.findSecurityQuestion();
-		
-		return questions;
-	}
+/**
+* save a Question
+*@param Question is saved
+**/
+
+public void addSecurityQuestion(SecurityQuestion question);
+
+/**
+*Update a question
+*
+*@param an upadated question
+*
+**/
+
+public void updateSecurityQuestion(SecurityQuestion question);
+
+/**
+*Delete a Question 
+*
+*@param Question 
+**/
+
+public void deleteSecurityQuestion(SecurityQuestion question);
+
+/**
+* find a Question 
+*
+*@param Integer (id)
+*@return SecurityQuestion
+*
+**/
+public SecurityQuestion findSecurityQuestion(Long id);
+
+
+/**
+* get all Question 
+*
+*@return set of type SecurityQuestion
+*
+**/
+public Set<SecurityQuestion> findAllSecurityQuestion();
+
+
 }

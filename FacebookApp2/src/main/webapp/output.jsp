@@ -6,8 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 img {
+<<<<<<< HEAD
   border-radius: 55px;
   
+=======
+  border-radius: 50%;
+}
+</style>
+<style>
+
+h1 {
+    text-shadow: 2px 2px 8px #FF0000;
+>>>>>>> fcc03bc99c1fbc13bae83afc5d893404d9c34ce6
 }
 </style>
 
@@ -330,6 +340,7 @@ h1.main, p.demos {
 		<div class="sp-globe"></div>
 			
 			<% Output op=(Output)session.getAttribute("Output");  %>
+
 			<h2 class="frame-1">WELCOME</h2>
 			<h2 class="frame-2"><%out.print(op.getUserName());%></h2>
 			<h2 class="frame-3">CONGRATS</h2>
@@ -337,11 +348,13 @@ h1.main, p.demos {
 			<h2 class="frame-5">
 			<span>Thank<span>
 			<span> you</span>
+
 			
 		</h2>
 			<%  String mark=""+op.getUserScore();  %>
 			</div></center>
 			</div>
+
 
 
 <div id="secondbox" style="text-align:center;margin:auto;color:#888888;font-size:40px;font-weight:bold">

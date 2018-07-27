@@ -179,12 +179,8 @@ public class Door
 	{
 		log.info("Door class...........equals()...................................starts/ends");
 
-		if(this.doorId==((Door)door).doorId)
-			return true;
-		else
-			return false;
-		
-
+		return this.doorId==((Door)door).doorId;
+			 
 	}	
 
 }
