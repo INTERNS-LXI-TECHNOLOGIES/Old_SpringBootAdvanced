@@ -37,7 +37,7 @@ public class QuestionController extends HttpServlet
 	{ 
 		HttpSession session=request.getSession();
 		session.setAttribute("questions",getQuestions());
-		
+		session.setAttribute("username",request.getRemoteUser());
 		RequestDispatcher view=request.getRequestDispatcher("HomePage.jsp?count=0");
 		view.forward(request,response);
 	}
@@ -71,6 +71,7 @@ public class QuestionController extends HttpServlet
 		
 		return questions;
 	}
+	
 	
 	public ArrayList<Question> findAll()
 	{
