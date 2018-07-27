@@ -1,6 +1,6 @@
 package com.lxisoft.fbapp.model;
 import java.util.*;
-import java.util.Logger.*;
+import java.util.logging.*;
 /**
 * This class is for control Hall
 *
