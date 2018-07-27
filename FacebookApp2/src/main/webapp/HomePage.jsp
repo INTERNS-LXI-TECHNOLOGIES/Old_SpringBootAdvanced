@@ -106,9 +106,9 @@
 				
 			 
 					quizResult.setQuestion(questionList.get(count-1));
-					out.println(questionList.get(count-1).getQuestionName());
+				
 					quizResult.setChoice(choice);
-					out.println(quizResult.getChoice());
+					
 				
 					 quizResultList.add(quizResult);
 					 session.setAttribute("result",quizResultList);
@@ -131,7 +131,7 @@
 				{
 					%>
 					
-					<form action = "questions" method = "post">
+					<form action = "question" method = "post">
 					<input type = "submit" class = "button" value = "Generate Answer"/>
 			<%
 			   choice = request.getParameter("option");
