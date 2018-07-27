@@ -6,20 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 img {
-<<<<<<< HEAD
-  border-radius: 55px;
-  
-=======
-  border-radius: 50%;
-}
-</style>
-<style>
 
-h1 {
-    text-shadow: 2px 2px 8px #FF0000;
->>>>>>> fcc03bc99c1fbc13bae83afc5d893404d9c34ce6
+  border-radius: 55px;
 }
 </style>
+
 
 <style>
 
