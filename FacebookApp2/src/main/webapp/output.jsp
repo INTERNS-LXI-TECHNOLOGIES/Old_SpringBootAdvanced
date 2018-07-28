@@ -1,4 +1,4 @@
-<%@page import="com.lxisoft.FacebookApp2.model.*"%>
+<%@page import="com.lxisoft.facebookApp2.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -341,10 +341,10 @@ h1.main, p.demos {
 			
 			<% Output op=(Output)session.getAttribute("Output");  %>
 
-			<h2 class="frame-1">WELCOME</h2>
-			<h2 class="frame-2"><%out.print(op.getUserName());%></h2>
-			<h2 class="frame-3">CONGRATS</h2>
-			<h2 class="frame-4">YOUR SCORE IS <%out.print(op.getUserScore());%></h2>
+			
+			<h2 class="frame-1"><%out.print(op.getUserName());%></h2>
+			
+			<h2 class="frame-2">YOUR SCORE IS <%out.print(op.getUserScore());%></h2>
 			<h2 class="frame-5">
 			<span>Thank<span>
 			<span> you</span>

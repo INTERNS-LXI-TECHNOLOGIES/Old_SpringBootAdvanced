@@ -36,7 +36,8 @@ public class OutputServlet extends HttpServlet {
 		session.setAttribute("uscore", "60"); */
 
 		output.setUserName((String) session.getAttribute("username"));
-		output.setUserScore(Integer.parseInt((String) session.getAttribute("marks")));
+		String mark=(String) session.getAttribute("marks");
+		output.setUserScore(Integer.parseInt(mark));
 		session.setAttribute("Output", output);
 		RequestDispatcher view = request.getRequestDispatcher("output.jsp");
 		view.forward(request, response);

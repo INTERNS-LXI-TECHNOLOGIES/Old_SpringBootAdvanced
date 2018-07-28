@@ -45,7 +45,7 @@ public class QuestionController extends HttpServlet
 	{
 		HttpSession session=request.getSession();
 		int marks=0;
-		ArrayList<QuizResult> qaList=(ArrayList<QuizResult>) session.getAttribute("questionAnswered");
+		ArrayList<QuizResult> qaList=(ArrayList<QuizResult>) session.getAttribute("result");
 		for(QuizResult qa:qaList)
 		{
 			if(qa.getChoice().equals(qa.getQuestion().getAnswer()))
@@ -53,9 +53,8 @@ public class QuestionController extends HttpServlet
 				marks++;
 			}
 		}
-		session.setAttribute("marks",marks);
-		RequestDispatcher view=request.getRequestDispatcher("Output");
-		view.forward(request,response);
+		session.setAttribute("marks",""+marks);
+		response.sendRedirect("outputServlet");
 		
 	}
 	
@@ -80,7 +79,7 @@ public class QuestionController extends HttpServlet
 		ArrayList<Question> questionList=new ArrayList<Question>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-				connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/contacts", "root", "root");
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root");
 				statement = connection.createStatement();
 			
 			String sql;
