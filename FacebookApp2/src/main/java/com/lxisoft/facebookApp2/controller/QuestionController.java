@@ -63,7 +63,7 @@ public class QuestionController extends HttpServlet
 		ArrayList<Question> questionList=findAll();
 		Collections.shuffle(questionList);
 		ArrayList<Question> questions=new ArrayList<Question>();
-		for(int i=0;i<3;i++)
+		for(int i=0;i<6;i++)
 		{
 			questions.add(questionList.get(i));	
 		}

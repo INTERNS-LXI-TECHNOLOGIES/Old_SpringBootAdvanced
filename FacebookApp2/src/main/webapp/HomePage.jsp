@@ -77,7 +77,7 @@
 			{
 			
 				
-				if(count<3)
+				if(count<6)
 			
 				{
 	
@@ -127,7 +127,7 @@
       
 			<%
 			
-				if(count>=3)
+				if(count>=6)
 				{
 					%>
 					

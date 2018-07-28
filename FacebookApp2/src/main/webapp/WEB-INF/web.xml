@@ -28,7 +28,27 @@
        </form-login-config>
        <realm-name>security</realm-name>
    </login-config>
-
+         
+         <error-page>
+        <error-code>404</error-code>
+        <location>/Error404.jsp</location>
+</error-page>
+<error-page>
+        <error-code>503</error-code>
+        <location>/Error503.jsp</location>
+</error-page>
+<error-page>
+    <error-code>401</error-code>
+    <location>/Error401.jsp</location>
+</error-page>
+<error-page>
+    <error-code>403</error-code>
+    <location>/Error403.jsp</location>
+</error-page>
+<error-page>
+    <error-code>500</error-code>
+    <location>/Error500.jsp</location>
+</error-page>
 	<servlet>
 		<servlet-name>QuestionController</servlet-name>
 		<servlet-class>com.lxisoft.facebookApp2.controller.QuestionController</servlet-class>
