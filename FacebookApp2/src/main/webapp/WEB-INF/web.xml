@@ -84,5 +84,45 @@
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+	
+	
+	 <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.EditServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
+	
+	
+	
+	
+	<servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.UpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
