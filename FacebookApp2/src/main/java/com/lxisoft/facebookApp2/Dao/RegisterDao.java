@@ -34,8 +34,7 @@ public class RegisterDao {
 			 * Insert user details into the table 'newUsers'
 			 */
 
-			String query = "insert into newUsers(fullName,Email,userName,password,role) values (?,?,?,?,?)";
-            
+			String query = "insert into newUsers(SlNo,fullName,Email,userName,password,role) values (NULL,?,?,?,aes_encrypt(?,'key'),?)";
 
 			/**
 			 * Making use of prepared statements here to insert bunch of data
@@ -59,7 +58,7 @@ public class RegisterDao {
 		}
 		try
 		{
-          String query1 = "INSERT INTO users(username,userpass) values(?,?)";
+                        String query1 = "INSERT INTO users(username,userpass) values(?,?)";
 			preparedStatement = con.prepareStatement(query1);
 			preparedStatement.setString(1,username);
 			preparedStatement.setString(2,userpass);
@@ -83,11 +82,9 @@ public class RegisterDao {
 		}
 		catch(SQLException se)
 		{
-           se.printStackTrace();
+           		se.printStackTrace();
 		}
-		return "Oops.. Something went wrong there..!"; // On failure, send a
-														// message from here.
-
+		return "Oops.. Something went wrong there..!"; // On failure, send a message from here.
 	}
-
+														 
 }

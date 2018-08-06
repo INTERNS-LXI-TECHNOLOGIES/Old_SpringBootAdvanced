@@ -28,10 +28,7 @@
 
 		if (fullname == null || fullname == "") {
 			alert("Full Name can't be blank");
-			return false;
-		} else if (email == null || email == "") {
-			alert("Email can't be blank");
-			return false;
+			return false; 
 		} else if (username == null || username == "") {
 			alert("Username can't be blank");
 			return false;
@@ -42,6 +39,18 @@
 			alert("Confirm Password should match with the Password");
 			return false;
 		}
+	}
+	function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
 	}
 </script>
 
@@ -59,7 +68,7 @@
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><input type="text" name="email" /></td>
+				<td><input type="text" name="email" onblur="validateEmail(this);"/></td>
 			</tr>
 			<tr>
 				<td>Username</td>
