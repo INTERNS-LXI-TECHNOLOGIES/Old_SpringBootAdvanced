@@ -50,7 +50,7 @@ public class RegisterServlet extends HttpServlet {
 		 *  On success, you can display a message to user on UserLogin page
 		 */
 		if (userRegistered.equals("SUCCESS")) {
-			request.getRequestDispatcher("/UserLogin.jsp").forward(request, response);
+			response.sendRedirect("UserLogin.jsp");
 		} else // On Failure, display a meaningful message to the User.
 		{
 			request.setAttribute("errMessage", userRegistered);

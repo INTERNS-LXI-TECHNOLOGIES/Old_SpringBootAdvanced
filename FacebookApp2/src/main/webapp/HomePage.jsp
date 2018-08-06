@@ -77,7 +77,7 @@
 			{
 			
 				
-				if(count<6)
+				if(count<(Integer)session.getAttribute("size"))
 			
 				{
 	
@@ -92,6 +92,8 @@
 		<input type ="radio" class = "button" name = "option" value = "<%=questionList.get(count).getOption2()%>" ><%out.println(questionList.get(count).getOption2());%></br>
 		<input type ="radio" class = "button" name = "option" value = "<%=questionList.get(count).getOption3()%>" >
 		<%out.println(questionList.get(count).getOption3());%></br>
+		<input type ="radio" class = "button" name = "option" value = "<%=questionList.get(count).getOption4()%>" >
+		<%out.println(questionList.get(count).getOption4());%></br>
 		
 		<input type ="submit" class = "button" value = "submit Answer" name="choice"/>
 		</br>
@@ -127,7 +129,7 @@
       
 			<%
 			
-				if(count>=6)
+				if(count>=(Integer)session.getAttribute("size"))
 				{
 					%>
 					

@@ -58,7 +58,7 @@
 </tr>
 </table><br />
 <br />
-<input type="image" src="submit.gif" alt="Submit" height="55px" width="80px" >
+<input type="Submit" height="55px" width="80px" >
 </form>
 
 <div align="center">
@@ -75,7 +75,18 @@
 </form>
 
 
+<form action="adminRights.jsp" method="">
+<input type="submit" value="Home Page">
 
+</form>
+
+</form>
+
+
+<form action="logout" method="get">
+<input type="submit" value="Logout">
+
+</form>
 
 
 

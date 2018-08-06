@@ -22,7 +22,7 @@
 
 <form action="UpdateServlet" method="post">
 
- <%Questions1 quest=(Questions1)request.getAttribute("admin");
+ <%Question quest=(Question)request.getAttribute("admin");
  
        if(quest==null)
 	   {
@@ -33,8 +33,8 @@
  
  %>
  <tr>
-<td><input type="text" value= "<%=quest.getId()%>" name="ID"></td>
-<td><input type="text" value=" <%=quest.getQuestion()%>" name="questions"></td>
+<td><input type="text" value= "<%=quest.getQuestionId()%>" name="ID"></td>
+<td><input type="text" value=" <%=quest.getQuestionName()%>" name="questions"></td>
 <td><input type="text" value="<%=quest.getOption1()%>" name="option1"></td>
 <td><input type="text" value="<%=quest.getOption2()%>" name="option2"></td>
 <td><input type="text" value="<%=quest.getOption3()%>" name="option3"></td>

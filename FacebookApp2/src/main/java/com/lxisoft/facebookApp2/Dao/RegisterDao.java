@@ -48,12 +48,10 @@ public class RegisterDao {
 			preparedStatement.setString(3, userName);
 			preparedStatement.setString(4, password);
 			preparedStatement.setString(5, role);
+			preparedStatement.executeUpdate();
+			
 
-			int i = preparedStatement.executeUpdate();
-
-			if (i != 0) // Just to ensure data has been inserted into the
-						// database
-				return "SUCCESS";
+			//
 		} 
 		catch (SQLException e) 
 		{
@@ -77,7 +75,11 @@ public class RegisterDao {
 			preparedStatement = con.prepareStatement(query1);
 			preparedStatement.setString(1,username);
 			preparedStatement.setString(2,rolename);
-			preparedStatement.executeUpdate();
+			int i=preparedStatement.executeUpdate();
+			
+			if (i != 0) // Just to ensure data has been inserted into the
+						// database
+				return "SUCCESS";
 		}
 		catch(SQLException se)
 		{

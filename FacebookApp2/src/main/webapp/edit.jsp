@@ -18,13 +18,13 @@
 </tr>
 <%
 
-ArrayList <Questions1> quest = (ArrayList<Questions1>)session.getAttribute("list");
+ArrayList <Question> quest = (ArrayList<Question>)session.getAttribute("list");
 for(int i=0;i<quest.size();i++)
 {%>
 <tr>
-<td><%out.println(quest.get(i).getId());%></td>
+<td><%out.println(quest.get(i).getQuestionId());%></td>
 
-<td><%out.println(quest.get(i).getQuestion());%></td>
+<td><%out.println(quest.get(i).getQuestionName());%></td>
 
 
 
@@ -46,11 +46,11 @@ for(int i=0;i<quest.size();i++)
 
 <td><%out.println(quest.get(i).getAnswer());%></td>
 <td><form action="UpdateServlet" method="get">
-<input type="hidden" name="Editid" value="<%=quest.get(i).getId()%>" > 
+<input type="hidden" name="Editid" value="<%=quest.get(i).getQuestionId()%>" > 
 <input type="submit"  value="edit">
 </form></td>
 <td><form action="DeleteServlet" method="post">
-<input type="hidden" name="DeleteId" value="<%=quest.get(i).getId()%>" >
+<input type="hidden" name="DeleteId" value="<%=quest.get(i).getQuestionId()%>" >
 <input type="submit"  value="delete"> 
 </form></td>
 

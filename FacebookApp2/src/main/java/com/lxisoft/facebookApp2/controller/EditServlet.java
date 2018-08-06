@@ -21,17 +21,17 @@ public class EditServlet extends HttpServlet
   //String value=request.getParameter("no");
   try{
    Class.forName("com.mysql.jdbc.Driver");
-   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root"); 
+   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root"); 
 
    String query = "select * from questtables";
     PreparedStatement ps = con.prepareStatement(query); // generates sql query
 	
 	 ResultSet resultSet = ps.executeQuery();
 	 System.out.println("last log");
-        ArrayList<Questions1> array=new ArrayList<Questions1>(); 
+        ArrayList<Question> array=new ArrayList<Question>(); 
         while(resultSet.next()) {
-			String id=resultSet.getString("id");
-            String quest= resultSet.getString("questions");
+			int id=resultSet.getInt("id");
+            String quest= resultSet.getString("question");
 			String option1=resultSet.getString("option1");
 			String option2=resultSet.getString("option2");
 			String option3=resultSet.getString("option3");
@@ -40,8 +40,8 @@ public class EditServlet extends HttpServlet
 			
 			//EditServlet edSv=new EditServlet();
 			//Admin ad=new Admin();
-			Questions1 qu=new Questions1();
-			qu.setId(id);
+			Question qu=new Question();
+			qu.setQuestionId(id);
 			qu.setQuestionName(quest);
 			qu.setOption1(option1);
 			qu.setOption2(option2);
@@ -57,8 +57,9 @@ public class EditServlet extends HttpServlet
     // TODO Auto-generated catch block
     e.printStackTrace();
    }
-  RequestDispatcher rd = request.getRequestDispatcher("/edit.jsp");
-   rd.forward(request, response);   
+    System.out.println("last log last");
+   RequestDispatcher dis=request.getRequestDispatcher("/edit.jsp");          
+          dis.include(request, response); 
 			
 	}
 }
