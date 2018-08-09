@@ -17,6 +17,8 @@ public class EditServlet extends HttpServlet
 {
   protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException
   {
+	  
+	  
    String spage;
    int page;
    spage=request.getParameter("page");

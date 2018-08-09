@@ -65,9 +65,9 @@ for(int i=0;i<quest.size();i++)
 <form action="AdminIndex.jsp" method="">
 
 <button>BACK TO HOME</button>
-<center>
-</form>
 
+</form>
+</center>
 
 
 
