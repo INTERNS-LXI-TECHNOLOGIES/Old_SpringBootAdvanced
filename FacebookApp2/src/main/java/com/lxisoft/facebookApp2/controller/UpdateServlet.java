@@ -21,7 +21,7 @@ public class UpdateServlet extends HttpServlet
     Class.forName("com.mysql.jdbc.Driver");
     // loads mysql driver
 
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root"); 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root"); 
 
 				String id=request.getParameter("Editid");
 	System.out.println("id+................"+id);
@@ -33,11 +33,11 @@ public class UpdateServlet extends HttpServlet
 	
 	  ResultSet resultSet = ps.executeQuery();
 	  while(resultSet.next()) {
-            String ids = resultSet.getString("id");
+            int ids = resultSet.getInt("id");
 			
 			System.out.println("iddd1111+................"+ids);
             //Question question = (Question)resultSet.getString("Question");
-			String question=resultSet.getString("questions");
+			String question=resultSet.getString("question");
            String option1 = resultSet.getString("option1");
 		    String option2 = resultSet.getString("option2");
 			 String option3 = resultSet.getString("option3");
@@ -46,8 +46,8 @@ public class UpdateServlet extends HttpServlet
 			    //String option1 = resultSet.getString("option1");
 		   
 		   
-		   Questions1 qu=new Questions1();
-		   qu.setId(ids);
+		   Question qu=new Question();
+		   qu.setQuestionId(ids);
 		   qu.setQuestionName(question);
 		  qu.setOption1(option1);
 		  qu.setOption2(option2);
@@ -66,8 +66,10 @@ public class UpdateServlet extends HttpServlet
     e.printStackTrace();
    }
 			   
-   RequestDispatcher rd = request.getRequestDispatcher("/readLogin.jsp");
-   rd.forward(request, response);
+   
+    RequestDispatcher dis=request.getRequestDispatcher("/readLogin.jsp");          
+          dis.include(request, response); 
+   
    
    
     
@@ -80,7 +82,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     Class.forName("com.mysql.jdbc.Driver");
     // loads mysql driver
 
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root"); 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root"); 
 
       
       String id=request.getParameter("ID");
@@ -96,7 +98,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	  
 	   System.out.println("ID......................"+id);
 	  System.out.println("question........................"+question); 
-     String query2="UPDATE questtables SET Questions ='"+question+"',Option1='"+option1+"',Option2='"+option2+"' ,option3='"+option3+"' ,Option4='"+option4+"' ,Answer='"+answer+"' WHERE id ='"+id+"'";
+     String query2="UPDATE questtables SET Question ='"+question+"',Option1='"+option1+"',Option2='"+option2+"' ,option3='"+option3+"' ,Option4='"+option4+"' ,Answer='"+answer+"' WHERE id ="+Integer.parseInt(id);
 	   PreparedStatement ps = con.prepareStatement(query2);
 	  
    
@@ -104,7 +106,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     ps.executeUpdate(); // execute it on test database
     System.out.println("update successfuly inserted");
 	HttpSession session=request.getSession();
-	Questions1 quest=(Questions1)session.getAttribute("quest");
+	Question quest=(Question)session.getAttribute("quest");
 	session.setAttribute("quest",quest);
     ps.close();
     con.close();

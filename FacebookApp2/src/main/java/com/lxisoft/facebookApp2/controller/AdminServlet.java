@@ -26,8 +26,13 @@ public class AdminServlet extends HttpServlet
 	   String answer=request.getParameter("answer");
 	   try{
 	   Class.forName("com.mysql.jdbc.Driver");
+<<<<<<< HEAD
 	   Connection con=DriverManager.getConnection("jdbc:mySql://localhost:3306/questions","root","root");
 	   String query="insert into questtables(questions,option1,option2,option3,option4,answer) values(?,?,?,?,?,?)";
+=======
+	   Connection con=DriverManager.getConnection("jdbc:mySql://localhost:3306/quiz","root","root");
+	   String query="insert into Questtables(question,option1,option2,option3,option4,answer) values(?,?,?,?,?,?)";
+>>>>>>> 5b812eaccf3aaaeaaee92c7bb59b70de70cd9538
 	   PreparedStatement ps=con.prepareStatement(query);
 	   ps.setString(1,question);
 	  
@@ -57,7 +62,7 @@ System.out.print("Enter.............");
     Class.forName("com.mysql.jdbc.Driver");
     // loads mysql driver
 
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root"); 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root"); 
 
 				String id=request.getParameter("Number");
 				
@@ -70,11 +75,11 @@ System.out.print("Enter.............");
 	  ResultSet resultSet = ps.executeQuery();
 	  
 	  while(resultSet.next()) {
-            String ids = resultSet.getString("id");
+            int ids = resultSet.getInt("id");
 			
 			System.out.println("iddd1111+................"+ids);
             //Question question = (Question)resultSet.getString("Question");
-			String question=resultSet.getString("questions");
+			String question=resultSet.getString("question");
            String option1 = resultSet.getString("option1");
 		    String option2 = resultSet.getString("option2");
 			 String option3 = resultSet.getString("option3");
@@ -83,8 +88,8 @@ System.out.print("Enter.............");
 			    //String option1 = resultSet.getString("option1");
 		   
 		   
-		   Questions1 qu=new Questions1();
-		   qu.setId(ids);
+		   Question qu=new Question();
+		   qu.setQuestionId(ids);
 		   qu.setQuestionName(question);
 		  qu.setOption1(option1);
 		  qu.setOption2(option2);

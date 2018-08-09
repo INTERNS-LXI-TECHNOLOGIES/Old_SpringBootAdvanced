@@ -44,11 +44,7 @@
 <error-page>
     <error-code>403</error-code>
     <location>/Error403.jsp</location>
-</error-page>
-<error-page>
-    <error-code>500</error-code>
-    <location>/Error500.jsp</location>
-</error-page>
+</error-page>>
 	<servlet>
 		<servlet-name>QuestionController</servlet-name>
 		<servlet-class>com.lxisoft.facebookApp2.controller.QuestionController</servlet-class>
@@ -123,6 +119,24 @@
     <servlet-mapping>
         <servlet-name>DeleteServlet</servlet-name>
         <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
+	
+	
+	<servlet>
+        <servlet-name>SelectUserServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.SelectUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectUserServlet</servlet-name>
+        <url-pattern>/SelectUserServlet</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
 </web-app>

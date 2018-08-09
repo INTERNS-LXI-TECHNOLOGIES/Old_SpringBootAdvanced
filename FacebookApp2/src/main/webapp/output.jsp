@@ -332,25 +332,24 @@ h1.main, p.demos {
 			
 			<% Output op=(Output)session.getAttribute("Output");  %>
 
-			
+			<%  String mark=""+op.getUserScore();  %>
 			<h2 class="frame-1"><%out.print(op.getUserName());%></h2>
 			
 			<h2 class="frame-2">YOUR SCORE IS <%out.print(op.getUserScore());%></h2>
-			<h2 class="frame-5">
-			<span>Thank<span>
-			<span> you</span>
+			<h2 class="frame-3">Thank you</h2>
 
-			
-		</h2>
-			<%  String mark=""+op.getUserScore();  %>
+			<h2 class="frame-4">		
+			<a href="logout"><input type="submit" value="logout" name=logout" /></h2></a>
 			</div></center>
 			</div>
-
 
 
 <div id="secondbox" style="text-align:center;margin:auto;color:#888888;font-size:40px;font-weight:bold">
 <center><img class="center" src="images\<%=mark%>.jpeg"  width="380" height="20%"></center>
 </div>
+<form action = "logout">
+<input type = "submit" value = "Logout"/>
+</form>
 
 
 </body>

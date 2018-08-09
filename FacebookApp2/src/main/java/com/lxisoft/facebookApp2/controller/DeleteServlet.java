@@ -24,9 +24,9 @@ public class DeleteServlet  extends HttpServlet
 	
 	 try{
 	 Class.forName("com.mysql.jdbc.Driver");
-	   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root"); 
+	   Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root"); 
 	 String number=request.getParameter("DeleteId");
-	  String query = "DELETE FROM questtables WHERE ID='"+number+"'";
+	  String query = "DELETE FROM questtables WHERE ID="+Integer.parseInt(number);
 	  PreparedStatement ps = con.prepareStatement(query);
 	  //ps.setString(1,number);
 	   ps.executeUpdate();

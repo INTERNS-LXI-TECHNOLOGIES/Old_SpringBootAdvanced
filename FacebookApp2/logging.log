@@ -1,0 +1,8 @@
+2018-08-02 13:35:09 INFO  OutputServlet:32 - Signed in to Output Controller doGet function
+2018-08-02 13:35:09 INFO  OutputServlet:44 - forward to output.jsp
+2018-08-02 13:36:40 INFO  OutputServlet:32 - Signed in to Output Controller doGet function
+2018-08-02 13:36:40 INFO  OutputServlet:44 - forward to output.jsp
+2018-08-02 14:44:07 INFO  OutputServlet:32 - Signed in to Output Controller doGet function
+2018-08-02 14:44:09 INFO  OutputServlet:44 - forward to output.jsp
+2018-08-02 16:15:26 INFO  OutputServlet:32 - Signed in to Output Controller doGet function
+2018-08-02 16:15:27 INFO  OutputServlet:44 - forward to output.jsp

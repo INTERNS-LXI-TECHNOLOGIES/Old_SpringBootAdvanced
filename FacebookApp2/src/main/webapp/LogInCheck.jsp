@@ -7,7 +7,7 @@
 <%
 if(request.isUserInRole("admin"))
 {
-	response.sendRedirect("adminPage.jsp");
+	response.sendRedirect("adminRights.jsp");
 }
 else if(request.isUserInRole("user"))
 {

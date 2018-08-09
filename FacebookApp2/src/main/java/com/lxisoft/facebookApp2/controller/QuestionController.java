@@ -36,7 +36,8 @@ public class QuestionController extends HttpServlet
 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
 	{ 
 		HttpSession session=request.getSession();
-		session.setAttribute("questions",getQuestions());
+		session.setAttribute("questions",getQuestions(request));
+		
 		session.setAttribute("username",request.getRemoteUser());
 		RequestDispatcher view=request.getRequestDispatcher("HomePage.jsp?count=0");
 		view.forward(request,response);
@@ -58,15 +59,19 @@ public class QuestionController extends HttpServlet
 		
 	}
 	
-	public ArrayList<Question> getQuestions()
+	public ArrayList<Question> getQuestions(HttpServletRequest request)
 	{
 		ArrayList<Question> questionList=findAll();
+		
 		Collections.shuffle(questionList);
 		ArrayList<Question> questions=new ArrayList<Question>();
-		for(int i=0;i<6;i++)
+		for(int i=0;i<questionList.size();i++)
 		{
 			questions.add(questionList.get(i));	
 		}
+		
+		HttpSession session=request.getSession();
+		session.setAttribute("size",questionList.size());
 		
 		return questions;
 	}
@@ -83,7 +88,7 @@ public class QuestionController extends HttpServlet
 				statement = connection.createStatement();
 			
 			String sql;
-			sql="SELECT * FROM questions";
+			sql="SELECT * FROM questtables";
 			ResultSet rs=statement.executeQuery(sql);
 			while (rs.next()) {
 			Question question=new Question();
@@ -92,7 +97,8 @@ public class QuestionController extends HttpServlet
 			question.setOption1(rs.getString(3));
 			question.setOption2(rs.getString(4));
 			question.setOption3(rs.getString(5));
-			question.setAnswer(rs.getString(6));
+			question.setOption4(rs.getString(6));
+			question.setAnswer(rs.getString(7));
 			questionList.add(question);
 			}
 			connection.close();
