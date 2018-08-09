@@ -17,13 +17,24 @@ public class EditServlet extends HttpServlet
 {
   protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException
   {
-  
+   String spage;
+   int page;
+   spage=request.getParameter("page");
+   page=Integer.parseInt(spage);
+   if(page==1)
+   {
+   }
+   else
+   {
+	   page=page-1;  
+            page=page*5+1;
+   }
   //String value=request.getParameter("no");
   try{
    Class.forName("com.mysql.jdbc.Driver");
    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/questions", "root", "root"); 
 
-   String query = "select * from questtables";
+   String query = "select * from questtables limit"+(page-1)+","+5;
     PreparedStatement ps = con.prepareStatement(query); // generates sql query
 	
 	 ResultSet resultSet = ps.executeQuery();

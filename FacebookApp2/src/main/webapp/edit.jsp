@@ -58,6 +58,10 @@ for(int i=0;i<quest.size();i++)
 
 <%}%>
 </table>
+<a href='EditServlet?page=1'>1</a>
+<a href='EditServlet?page=2'>2</a>
+<a href='EditServlet?page=3'>3</a>
+<br><br>
 <form action="AdminIndex.jsp" method="">
 
 <button>BACK TO HOME</button>

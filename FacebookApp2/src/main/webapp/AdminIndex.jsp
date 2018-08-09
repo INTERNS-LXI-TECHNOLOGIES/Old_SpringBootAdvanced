@@ -66,10 +66,12 @@
 
 
 <form action="EditServlet" method="get">
+<input type="hidden"  name="page" value="1">
 <input type="submit" value="Read All">
 </form>
 
 <form action="read.jsp" method="">
+
 <input type="submit" value="Read">
 
 </form>
