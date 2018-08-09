@@ -26,13 +26,11 @@ public class AdminServlet extends HttpServlet
 	   String answer=request.getParameter("answer");
 	   try{
 	   Class.forName("com.mysql.jdbc.Driver");
-<<<<<<< HEAD
 	   Connection con=DriverManager.getConnection("jdbc:mySql://localhost:3306/questions","root","root");
 	   String query="insert into questtables(questions,option1,option2,option3,option4,answer) values(?,?,?,?,?,?)";
-=======
 	   Connection con=DriverManager.getConnection("jdbc:mySql://localhost:3306/quiz","root","root");
 	   String query="insert into Questtables(question,option1,option2,option3,option4,answer) values(?,?,?,?,?,?)";
->>>>>>> 5b812eaccf3aaaeaaee92c7bb59b70de70cd9538
+
 	   PreparedStatement ps=con.prepareStatement(query);
 	   ps.setString(1,question);
 	  
