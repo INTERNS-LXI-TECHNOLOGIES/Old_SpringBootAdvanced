@@ -84,6 +84,8 @@ public class RegisterDao {
 		{
            		se.printStackTrace();
 		}
+		
+		
 		return "Oops.. Something went wrong there..!"; // On failure, send a message from here.
 	}
 														 

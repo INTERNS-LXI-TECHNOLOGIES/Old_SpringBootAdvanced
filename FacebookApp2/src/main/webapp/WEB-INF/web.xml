@@ -120,6 +120,16 @@
         <servlet-name>DeleteServlet</servlet-name>
         <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
+	
+	
+	<servlet>
+        <servlet-name>SelectUserServlet</servlet-name>
+        <servlet-class>com.lxisoft.facebookApp2.controller.SelectUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectUserServlet</servlet-name>
+        <url-pattern>/SelectUserServlet</url-pattern>
+    </servlet-mapping>
 	<servlet>
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.lxisoft.facebookApp2.controller.LogoutServlet</servlet-class>
